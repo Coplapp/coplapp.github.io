@@ -334,7 +334,7 @@ a:hover {
 /* TOPP-HALVCIRKEL — 5 moduler i tight båge ovanför loggan */
 .float-mod.m1  { top: 14%; left: 16%; animation-name: fade-in-mod, drift-a; animation-duration: 1s, 7s;   }
 .float-mod.m2  { top:  4%; left: 30%; animation-name: fade-in-mod, drift-d; animation-duration: 1s, 9s;   }
-.float-mod.m3  { top:  0%; left: 50%; margin-left: -43px; animation-name: fade-in-mod, drift-b; animation-duration: 1s, 8s;   }
+.float-mod.m3  { top:  6%; left: 50%; margin-left: -43px; animation-name: fade-in-mod, drift-b; animation-duration: 1s, 8s;   }
 .float-mod.m4  { top:  4%; left: 56%; animation-name: fade-in-mod, drift-e; animation-duration: 1s, 6.5s; }
 .float-mod.m5  { top: 14%; left: 72%; animation-name: fade-in-mod, drift-c; animation-duration: 1s, 8.5s; }
 

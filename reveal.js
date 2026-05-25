@@ -5,7 +5,7 @@
  */
 (function () {
   if (typeof IntersectionObserver === 'undefined') {
-    // Äldre webbläsare — visa allt direkt
+    // Äldre webbläsare - visa allt direkt
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
     return;
   }

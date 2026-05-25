@@ -1,5 +1,5 @@
 /* ============================================================
-   Copl — Landningssida
+   Copl - Landningssida
    Frost-design som matchar appen: marin-svart canvas, vit text,
    aqua-glow på kort, turkos accent från logo-C.
    ============================================================ */
@@ -177,7 +177,7 @@ a:hover {
   padding: 0 24px;
 }
 
-/* Stage: ren container för loggan. Modulerna är inte längre här —
+/* Stage: ren container för loggan. Modulerna är inte längre här -
    de är absolut-positionerade i .hero och fylls över hela sektionen. */
 .hero-stage {
   position: relative;
@@ -198,9 +198,9 @@ a:hover {
   z-index: 3;
 }
 
-/* (logo-glow borttagen — Pontus vill ha logga utan skimmer bakom) */
+/* (logo-glow borttagen - Pontus vill ha logga utan skimmer bakom) */
 
-/* Svävande modul-kort fyller HELA hero-sektionen — INTE i centrum.
+/* Svävande modul-kort fyller HELA hero-sektionen - INTE i centrum.
    Modulerna ligger i sido-zoner (vänster + höger), några i toppen,
    några i botten. Centrum (där logga + rubrik + tagline + buttons är)
    är helt fri. */
@@ -237,7 +237,7 @@ a:hover {
     drift-a 6s ease-in-out var(--delay, 0s) infinite;
 }
 
-/* Pseudo-element bakom kortet — extra mjuk aqua-skimmer som pulserar.
+/* Pseudo-element bakom kortet - extra mjuk aqua-skimmer som pulserar.
    inset: -10px gör att skimret sträcker sig 10px utanför kortets kanter,
    blur(12px) ger mjuk diffus glöd. */
 .float-mod::before {
@@ -280,7 +280,7 @@ a:hover {
   to { opacity: 1; }
 }
 
-/* Sex olika drift-keyframes — varje med eget rörelsemönster.
+/* Sex olika drift-keyframes - varje med eget rörelsemönster.
    Större amplitud (±18-26px) + subtil rotation (±3-5°) ger mer tydlig
    och oregelbunden svävning. Olika antal stops + olika hastigheter så
    ingen modul synkar med någon annan. */
@@ -331,20 +331,20 @@ a:hover {
    Sidor (4 vänster + 4 höger) ligger nedanför stage-mitten.
    Centrum-kolumnen (30-70% left, top 28-58%) är fri för logga + content. */
 
-/* TOPP-HALVCIRKEL — 5 moduler i tight båge ovanför loggan */
+/* TOPP-HALVCIRKEL - 5 moduler i tight båge ovanför loggan */
 .float-mod.m1  { top: 14%; left: 16%; animation-name: fade-in-mod, drift-a; animation-duration: 1s, 7s;   }
 .float-mod.m2  { top:  4%; left: 30%; animation-name: fade-in-mod, drift-d; animation-duration: 1s, 9s;   }
 .float-mod.m3  { top:  6%; left: 50%; margin-left: -43px; animation-name: fade-in-mod, drift-b; animation-duration: 1s, 8s;   }
 .float-mod.m4  { top:  4%; left: 56%; animation-name: fade-in-mod, drift-e; animation-duration: 1s, 6.5s; }
 .float-mod.m5  { top: 14%; left: 72%; animation-name: fade-in-mod, drift-c; animation-duration: 1s, 8.5s; }
 
-/* VÄNSTERSIDA NEDANFÖR — 4 moduler tight mot loggan, alternerande jitter */
+/* VÄNSTERSIDA NEDANFÖR - 4 moduler tight mot loggan, alternerande jitter */
 .float-mod.m6  { top: 38%; left: 18%; animation-name: fade-in-mod, drift-f; animation-duration: 1s, 7.5s; }
 .float-mod.m7  { top: 52%; left: 12%; animation-name: fade-in-mod, drift-a; animation-duration: 1s, 9.5s; }
 .float-mod.m8  { top: 66%; left: 18%; animation-name: fade-in-mod, drift-d; animation-duration: 1s, 8s;   }
 .float-mod.m9  { top: 80%; left: 12%; animation-name: fade-in-mod, drift-b; animation-duration: 1s, 6s;   }
 
-/* HÖGERSIDA NEDANFÖR — 4 moduler tight mot loggan, speglar vänster */
+/* HÖGERSIDA NEDANFÖR - 4 moduler tight mot loggan, speglar vänster */
 .float-mod.m10 { top: 38%; left: 75%; animation-name: fade-in-mod, drift-e; animation-duration: 1s, 8.5s; }
 .float-mod.m11 { top: 52%; left: 82%; animation-name: fade-in-mod, drift-f; animation-duration: 1s, 7s;   }
 .float-mod.m12 { top: 66%; left: 75%; animation-name: fade-in-mod, drift-c; animation-duration: 1s, 9s;   }
@@ -384,7 +384,7 @@ a:hover {
 }
 
 @media (max-width: 640px) {
-  /* På mobil: dölj sido-modulerna helt — för smal skärm för utspridning.
+  /* På mobil: dölj sido-modulerna helt - för smal skärm för utspridning.
      Behåll bara topp- och botten-modulerna för subtilt liv. */
   .hero { min-height: 720px; }
   .hero-stage { width: 240px; height: 240px; }
@@ -600,7 +600,7 @@ a:hover {
   scroll-margin-top: 90px;
 }
 
-/* När feature-item är en <a> (klickbar modul på startsidan) — ta bort
+/* När feature-item är en <a> (klickbar modul på startsidan) - ta bort
    default-länkstyling så det fortfarande ser ut som ett kort. */
 a.feature-item {
   display: block;
@@ -882,7 +882,7 @@ a.feature-item {
 .accent { color: var(--accent); }
 
 /* ============================================================
-   SHOWCASE — videospel i iPhone-mockup
+   SHOWCASE - videospel i iPhone-mockup
    ============================================================ */
 
 .showcase {
@@ -971,7 +971,7 @@ a.feature-item {
   z-index: 1;
 }
 
-/* Platshållare — visas innan video laddats / om video saknas */
+/* Platshållare - visas innan video laddats / om video saknas */
 .phone-placeholder {
   position: absolute;
   inset: 0;
@@ -1052,7 +1052,7 @@ a.feature-item {
 }
 
 /* ============================================================
-   ANIMATIONER — rörligt material för premium-känsla
+   ANIMATIONER - rörligt material för premium-känsla
    ============================================================ */
 
 /* Bakgrundsglow rör sig sakta i hero */
@@ -1074,9 +1074,9 @@ a.feature-item {
   animation: float-glow-2 18s ease-in-out infinite;
 }
 
-/* Hero-logga som ett vilande hjärta — långsam lub-DUB med lång paus.
+/* Hero-logga som ett vilande hjärta - långsam lub-DUB med lång paus.
    Dämpad amplitud + 5s-cykel ger ~12 BPM = meditativ rytm, inget hetsigt.
-   Illustrerar ett förhållande i god vila — inte i panik. */
+   Illustrerar ett förhållande i god vila - inte i panik. */
 @keyframes heart-pulse {
   0% {
     transform: scale(1);
@@ -1175,7 +1175,7 @@ a.feature-item {
   width: 100%;
 }
 
-/* Trust block — pulserande glow på ikoner */
+/* Trust block - pulserande glow på ikoner */
 @keyframes icon-glow {
   0%, 100% { filter: drop-shadow(0 0 4px rgba(184,232,232,0)); }
   50% { filter: drop-shadow(0 0 12px rgba(184,232,232,0.5)); }
@@ -1190,7 +1190,7 @@ a.feature-item {
 .trust-item:nth-child(3) .icon { animation-delay: 1s; }
 .trust-item:nth-child(4) .icon { animation-delay: 1.5s; }
 
-/* Scroll-baserade animationer — element fader in när de syns */
+/* Scroll-baserade animationer - element fader in när de syns */
 .reveal {
   opacity: 0;
   transform: translateY(24px);

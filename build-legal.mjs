@@ -32,7 +32,7 @@ function buildPage({ title, description, navActive, mdPath, outPath }) {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#061018" />
-<title>${title} — Copl</title>
+<title>${title} - Copl</title>
 <meta name="description" content="${description}" />
 <link rel="icon" href="assets/copl-logo.png" type="image/png" />
 <link rel="stylesheet" href="style.css" />

@@ -425,43 +425,89 @@ a:hover {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-top: 20px;
 }
 
+/* App Store-knapp - Frost-premium med gradient, aqua-glow + Apple-SVG.
+   Knappen är "disabled" tills appen släpps men ser fortfarande inbjudande
+   ut - en pulsande aqua-glow signalerar "nästan här". */
 .store-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 24px;
-  background: #000;
+  gap: 14px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #0a141d 0%, #131e29 55%, #182532 100%);
   color: #fff !important;
-  border-radius: 12px;
-  border: 1px solid var(--border-medium);
+  border-radius: 16px;
+  border: 1px solid rgba(184,232,232,0.32);
   font-size: 15px;
   font-weight: 500;
-  transition: transform 0.15s, box-shadow 0.15s;
+  text-decoration: none;
+  position: relative;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  box-shadow:
+    0 0 32px rgba(184,232,232,0.20),
+    0 6px 18px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* Subtil ljus-rand över knappens överkant - för glas-känsla */
+.store-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .store-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(184,232,232,0.18);
+  border-color: rgba(184,232,232,0.55);
+  box-shadow:
+    0 0 44px rgba(184,232,232,0.35),
+    0 10px 28px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.09);
   color: #fff !important;
 }
 
+/* "Snart-läget" - identisk yta, bara liten dim + ingen pekare.
+   Avsiktligt INTE opacity 0.6 som tidigare - vi vill att den
+   ska kännas premium även när den inte är klickbar. */
 .store-btn.disabled {
-  opacity: 0.6;
   cursor: default;
+  opacity: 0.95;
 }
 
 .store-btn.disabled:hover {
-  transform: none;
-  box-shadow: none;
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 36px rgba(184,232,232,0.28),
+    0 8px 22px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.07);
 }
 
+/* Apple-logo SVG */
 .store-icon {
-  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #fff;
 }
 
+.store-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+}
+
+/* Textstack */
 .store-text {
   display: flex;
   flex-direction: column;
@@ -471,12 +517,49 @@ a:hover {
 
 .store-text .small {
   font-size: 11px;
-  opacity: 0.7;
+  opacity: 0.75;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 2px;
 }
 
 .store-text .big {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+/* "Snart"-badge i hörnet - aqua-pill som accent */
+.store-badge {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--logo-blue) 100%);
+  color: #061018;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 100px;
+  box-shadow:
+    0 0 18px rgba(184,232,232,0.6),
+    0 2px 6px rgba(0,0,0,0.4);
+  white-space: nowrap;
+  /* Mjuk puls för att dra ögat */
+  animation: badge-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 18px rgba(184,232,232,0.6), 0 2px 6px rgba(0,0,0,0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 26px rgba(184,232,232,0.85), 0 2px 6px rgba(0,0,0,0.4);
+  }
 }
 
 /* ============================================================

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#061018" />
+<title>Copl — Få ihop livspusslet</title>
+<meta name="description" content="Copl är appen för par. Få ihop kalender, uppgifter, familj, ekonomi och närhet på ett ställe. End-to-end-krypterat, ingen reklam." />
+<meta property="og:title" content="Copl — Få ihop livspusslet" />
+<meta property="og:description" content="Appen för par som vill få vardagen att flyta — kalender, uppgifter, familj och närhet i ett." />
+<meta property="og:image" content="https://coplapp.com/assets/copl-logo.png" />
+<meta property="og:url" content="https://coplapp.com" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="assets/copl-logo.png" type="image/png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/copl-logo.png" alt="Copl" class="nav-logo" />
+        <span>Copl</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Hem</a></li>
+        <li><a href="features.html">Funktioner</a></li>
+        <li><a href="privacy.html">Integritet</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <!-- Svävande modulkort i hela hero-sektionen — INTE runt loggan.
+         Sprids längs sidorna + topp/botten, fri zon i mitten där
+         logga + rubrik + tagline ligger. -->
+    <div class="floating-modules" aria-hidden="true">
+      <div class="float-mod m1"  style="--delay: 0.0s"><span class="float-icon">💬</span><span class="float-label">Chat</span></div>
+      <div class="float-mod m2"  style="--delay: 0.3s"><span class="float-icon">✅</span><span class="float-label">To-do</span></div>
+      <div class="float-mod m3"  style="--delay: 0.6s"><span class="float-icon">📅</span><span class="float-label">Kalender</span></div>
+      <div class="float-mod m4"  style="--delay: 0.9s"><span class="float-icon">🍽️</span><span class="float-label">Måltider</span></div>
+      <div class="float-mod m5"  style="--delay: 1.2s"><span class="float-icon">🏋️</span><span class="float-label">Träning</span></div>
+      <div class="float-mod m6"  style="--delay: 1.5s"><span class="float-icon">🔁</span><span class="float-label">Rutiner</span></div>
+      <div class="float-mod m7"  style="--delay: 1.8s"><span class="float-icon">💰</span><span class="float-label">Ekonomi</span></div>
+      <div class="float-mod m8"  style="--delay: 2.1s"><span class="float-icon">🏠</span><span class="float-label">Familj</span></div>
+      <div class="float-mod m9"  style="--delay: 2.4s"><span class="float-icon">📚</span><span class="float-label">Läxor</span></div>
+      <div class="float-mod m10" style="--delay: 2.7s"><span class="float-icon">🤝</span><span class="float-label">Avtal</span></div>
+      <div class="float-mod m11" style="--delay: 3.0s"><span class="float-icon">💌</span><span class="float-label">Uppskattning</span></div>
+      <div class="float-mod m12" style="--delay: 3.3s"><span class="float-icon">🔔</span><span class="float-label">Påminnelser</span></div>
+      <div class="float-mod m13" style="--delay: 3.6s"><span class="float-icon">🔥</span><span class="float-label">Närhet</span></div>
+    </div>
+
+    <div class="hero-inner">
+      <!-- Stage: bara loggan, ingen extra plats för svävande element -->
+      <div class="hero-stage">
+        <img src="assets/copl-logo.png" alt="Copl-logga" class="hero-logo" />
+      </div>
+      <h1>Få ihop livspusslet</h1>
+      <p class="subtitle">
+        Copl är appen som tar hand om logistiken så att ni kan ta hand om varandra.
+        <br><br>
+        Kalender, familj, planer, ekonomi - allt det praktiska. Plus utrymme för det som faktiskt håller en relation levande: uppskattning, närhet, små stunder.
+        <br>
+        Bara mellan er två, helt privat.
+      </p>
+      <div class="store-buttons">
+        <a href="#" class="store-btn disabled" title="Lanseras snart">
+          <span class="store-icon">🍎</span>
+          <span class="store-text">
+            <span class="small">Snart i</span>
+            <span class="big">App Store</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIDEO-SHOWCASE — appen i action -->
+  <section class="showcase">
+    <div class="container">
+      <div class="showcase-grid">
+        <!-- iPhone-mockup med video-loop -->
+        <div class="phone-mockup reveal">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <!-- Video: autoplay + loop + muted + playsinline (krav för iOS auto-play).
+                   Lägg in din MP4 i landing/assets/copl-demo.mp4 så syns den här.
+                   poster="..." kan användas för fallback-bild medan videon laddar. -->
+              <video
+                class="phone-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="assets/copl-demo-poster.png"
+              >
+                <source src="assets/copl-demo.mp4" type="video/mp4" />
+                <!-- Fallback om videon inte laddas: visa logga -->
+              </video>
+              <!-- Platshållare som syns tills videofilen är på plats -->
+              <div class="phone-placeholder">
+                <img src="assets/copl-logo.png" alt="Copl" class="phone-placeholder-logo" />
+                <div class="phone-placeholder-text">Filmen kommer hit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Säljtext bredvid -->
+        <div class="showcase-text reveal">
+          <h2>Så här fungerar Copl</h2>
+          <p>
+            Allt ni delar — kalender, familj, närhet, planer — på en lugn,
+            privat plats. Här ser du hur det flyter i din ficka.
+          </p>
+          <ul class="showcase-bullets">
+            <li>
+              <span class="bullet-icon">💬</span>
+              <span class="bullet-text">Slipp jonglera mellan appar — allt är på ett ställe.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">🔐</span>
+              <span class="bullet-text">End-to-end-krypterad känslig data — bara mellan er två.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">✨</span>
+              <span class="bullet-text">Verktyg för både logistik och närhet — designat för par, inte familjer.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">🇸🇪</span>
+              <span class="bullet-text">All data lagras i Sverige. Inga reklamnätverk, inga trackers.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 säljpunkter -->
+  <section class="section">
+    <div class="container">
+      <div class="features">
+        <div class="feature reveal">
+          <span class="icon">💑</span>
+          <h3>Byggt för två</h3>
+          <p>
+            Inte en produktivitetsapp för team. Copl är designad för det unika
+            tempot i ett förhållande — där målet är att göra saker tillsammans
+            och hålla närheten levande.
+          </p>
+        </div>
+        <div class="feature reveal">
+          <span class="icon">🔐</span>
+          <h3>End-to-end-krypterat</h3>
+          <p>
+            Känslig data (intimitet, familjeinfo, överenskommelser, uppskattningar)
+            krypteras på din enhet innan den lämnar telefonen. Inte ens vi som
+            driftar appen kan läsa innehållet.
+          </p>
+        </div>
+        <div class="feature reveal">
+          <span class="icon">🌿</span>
+          <h3>Ingen reklam, inga trackers</h3>
+          <p>
+            Vi säljer inte data. Inga analytics, inga reklamnätverk, inga cookies.
+            All data lagras i Sverige (Stockholm). Du betalar med pengar, inte
+            uppmärksamhet.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust block -->
+  <section class="container">
+    <div class="trust reveal">
+      <h2>Vardagen tillsammans, utan mellanhänder</h2>
+      <p>
+        Allt på ett ställe — men på era villkor. Vi har byggt Copl för par som vill
+        ha både struktur och närhet, utan att kompromissa med integriteten.
+      </p>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="icon">🇸🇪</span>
+          <div class="text">Data lagras i Sverige</div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">🔒</span>
+          <div class="text">Inga lösenord — magic links</div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">📋</span>
+          <div class="text">GDPR-anpassat</div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">⚖️</span>
+          <div class="text">Du äger din data</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funktionsöversikt (kort) -->
+  <section class="section">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 600; text-align: center; margin-bottom: 32px; letter-spacing: -0.4px;">
+        Allt ni delar — på ett ställe
+      </h2>
+      <div class="feature-list">
+        <div class="feature-item reveal">
+          <span class="icon">📅</span>
+          <h3>Kalender</h3>
+          <p>Gemensam kalender med påminnelser. Hämtningar, möten, läxor, lediga kvällar.</p>
+        </div>
+        <div class="feature-item reveal">
+          <span class="icon">✅</span>
+          <h3>To-do & inköp</h3>
+          <p>Listor som synkas direkt. Aldrig mer "köpte du mjölken?".</p>
+        </div>
+        <div class="feature-item reveal">
+          <span class="icon">🏠</span>
+          <h3>Familj</h3>
+          <p>Barnens skostorlek, allergier, läkare, kontakter. På ett ställe.</p>
+        </div>
+        <div class="feature-item reveal">
+          <span class="icon">💰</span>
+          <h3>Ekonomi</h3>
+          <p>Hushållsbudget tillsammans. Sparmål, inkomster, utgifter.</p>
+        </div>
+        <div class="feature-item reveal">
+          <span class="icon">🍽️</span>
+          <h3>Måltidsplanering</h3>
+          <p>Veckans middagar bestämda i förväg. Vem lagar, vad äter ni.</p>
+        </div>
+        <div class="feature-item reveal">
+          <span class="icon">🔥</span>
+          <h3>Närhet</h3>
+          <p>Verktyg för att hålla närheten levande. PIN-skyddat och privat.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="features.html" style="font-size: 15px; color: var(--ink-muted); border-bottom: 1px solid var(--border-light); padding-bottom: 2px;">
+          Se alla funktioner →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <img src="assets/copl-logo.png" alt="Copl" class="footer-logo" />
+      <p class="footer-tagline">Byggd med omtanke från ett par till ett annat.</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Hem</a></li>
+        <li><a href="features.html">Funktioner</a></li>
+        <li><a href="privacy.html">Integritet</a></li>
+        <li><a href="terms.html">Användarvillkor</a></li>
+        <li><a href="mailto:copl-app@outlook.com">Kontakt</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Pontus Brunzell</div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+</body>
+</html>

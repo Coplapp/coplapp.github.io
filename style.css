@@ -392,6 +392,15 @@ a:hover {
      ingen i text-zonen nedanför. Text-zonen är helt ren. */
   .hero { min-height: 720px; }
   .hero-stage { width: 280px; height: 280px; }
+
+  /* Slå av hero-gradienter på mobil - radial-gradient circles har
+     synlig fadeout-kant på smala skärmar (gradient slutar ~60% från
+     centrum, vilket på mobil ger en synlig horisontell ljus/mörk-
+     övergång). Dark canvas blir då helt jämn. */
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
   .hero-logo {
     width: 260px;
     height: 260px;
@@ -437,9 +446,11 @@ a:hover {
   .float-mod.m13 { top: 22%; left:  1%; }                    /* 🔥 Närhet */
   .float-mod.m5  { top: 22%; left: 86%; }                    /* 🏋️ Träning */
 
-  /* Nedre sido-par — To-do + Ekonomi i logos nedre tredjedel */
-  .float-mod.m2  { top: 42%; left:  1%; }                    /* ✅ To-do */
-  .float-mod.m7  { top: 42%; left: 86%; }                    /* 💰 Ekonomi */
+  /* Nedre sido-par — To-do + Ekonomi i logos nedre tredjedel.
+     Flyttade uppåt från 42% till 36% så de sitter snett upp mot
+     logon istället för långt ner mot texten. */
+  .float-mod.m2  { top: 36%; left:  1%; }                    /* ✅ To-do */
+  .float-mod.m7  { top: 36%; left: 86%; }                    /* 💰 Ekonomi */
 
   /* Använd mindre drift-animation på mobil så modulerna inte åker
      in i logon eller utanför skärmen. drift-mobile ger ±5px rörelse

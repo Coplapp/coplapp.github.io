@@ -384,12 +384,61 @@ a:hover {
 }
 
 @media (max-width: 640px) {
-  /* På mobil: dölj sido-modulerna helt - för smal skärm för utspridning.
-     Behåll bara topp- och botten-modulerna för subtilt liv. */
-  .hero { min-height: 720px; }
+  /* På mobil: behåll alla 13 svävande moduler men gör dem mindre och
+     tryck ut dem mot kanterna så de inte krockar med rubrik/subtitle.
+     De lever bakom hero-innehållet (z-index 1 < hero-inner 2) — så
+     subtitle kan delvis täcka dem men sidorna sticker alltid ut. */
+  .hero { min-height: 760px; }
   .hero-stage { width: 240px; height: 240px; }
   .hero-logo { width: 220px; height: 220px; }
-  .floating-modules { display: none; }
+
+  .float-mod {
+    width: 56px;
+    padding: 6px 3px 5px;
+    border-radius: 11px;
+  }
+  .float-icon { font-size: 17px; }
+  .float-label { font-size: 8px; letter-spacing: 0.1px; }
+
+  /* Toppbåge — 5 moduler ovanför logo */
+  .float-mod.m1  { top: 11%; left:  1%; }
+  .float-mod.m2  { top:  3%; left: 22%; }
+  .float-mod.m3  { top:  1%; left: 50%; margin-left: -28px; }
+  .float-mod.m4  { top:  3%; left: 66%; }
+  .float-mod.m5  { top: 11%; left: 87%; }
+
+  /* Vänsterkant — 4 moduler i vertikal kolumn */
+  .float-mod.m6  { top: 36%; left:  0%; }
+  .float-mod.m7  { top: 50%; left: -1%; }
+  .float-mod.m8  { top: 64%; left:  0%; }
+  .float-mod.m9  { top: 78%; left: -1%; }
+
+  /* Högerkant — 4 moduler i vertikal kolumn */
+  .float-mod.m10 { top: 36%; left: 86%; }
+  .float-mod.m11 { top: 50%; left: 87%; }
+  .float-mod.m12 { top: 64%; left: 86%; }
+  .float-mod.m13 { top: 78%; left: 87%; }
+
+  /* Dämpa drift-amplituden så modulerna inte åker av skärmen
+     på smal layout. Räcker med ±8-10px rörelse istället för ±20px. */
+  .floating-modules { transform: scale(1); }
+  .float-mod {
+    /* Något lägre glow på mobil för balans mot mindre yta */
+    box-shadow:
+      0 0 16px rgba(123,212,208,0.22),
+      0 0 32px rgba(184,232,232,0.10),
+      0 4px 10px rgba(0,0,0,0.45);
+  }
+}
+
+/* Extra smal mobil (≤360px) — ännu mindre moduler så de inte överlappar */
+@media (max-width: 360px) {
+  .float-mod { width: 48px; padding: 5px 2px 4px; }
+  .float-icon { font-size: 15px; }
+  .float-label { font-size: 7.5px; }
+
+  /* Justera margin-left på centrum-modulen så den fortfarande är centrerad */
+  .float-mod.m3 { margin-left: -24px; }
 }
 
 .hero h1 {

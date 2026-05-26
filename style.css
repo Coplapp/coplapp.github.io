@@ -384,61 +384,69 @@ a:hover {
 }
 
 @media (max-width: 640px) {
-  /* På mobil: behåll alla 13 svävande moduler men gör dem mindre och
-     tryck ut dem mot kanterna så de inte krockar med rubrik/subtitle.
-     De lever bakom hero-innehållet (z-index 1 < hero-inner 2) — så
-     subtitle kan delvis täcka dem men sidorna sticker alltid ut. */
+  /* På mobil visar vi bara 6 av 13 moduler för en lugnare, mer
+     premium-känsla. De som lyfts fram täcker både logistik (Kalender,
+     To-do, Familj, Ekonomi, Träning) och relation (Närhet) - dvs
+     hela Copl-storyn utan att skärmen blir plottrig. */
   .hero { min-height: 760px; }
   .hero-stage { width: 240px; height: 240px; }
   .hero-logo { width: 220px; height: 220px; }
 
+  /* Dölj 7 moduler: Chat, Måltider, Rutiner, Läxor, Avtal,
+     Uppskattning, Påminnelser - inte mindre viktiga, bara
+     mindre representativa "vid första ögonkast". */
+  .float-mod.m1,    /* 💬 Chat */
+  .float-mod.m4,    /* 🍽️ Måltider */
+  .float-mod.m6,    /* 🔁 Rutiner */
+  .float-mod.m9,    /* 📚 Läxor */
+  .float-mod.m10,   /* 🤝 Avtal */
+  .float-mod.m11,   /* 💌 Uppskattning */
+  .float-mod.m12    /* 🔔 Påminnelser */
+  { display: none; }
+
+  /* Modul-storlek - något större än desktop-skala (60px vs 56px)
+     eftersom vi nu har färre moduler så de tål att vara lite mer
+     framträdande. */
   .float-mod {
-    width: 56px;
-    padding: 6px 3px 5px;
-    border-radius: 11px;
+    width: 60px;
+    padding: 7px 3px 6px;
+    border-radius: 12px;
   }
-  .float-icon { font-size: 17px; }
-  .float-label { font-size: 8px; letter-spacing: 0.1px; }
+  .float-icon { font-size: 19px; }
+  .float-label { font-size: 8.5px; letter-spacing: 0.1px; }
 
-  /* Toppbåge — 5 moduler ovanför logo */
-  .float-mod.m1  { top: 11%; left:  1%; }
-  .float-mod.m2  { top:  3%; left: 22%; }
-  .float-mod.m3  { top:  1%; left: 50%; margin-left: -28px; }
-  .float-mod.m4  { top:  3%; left: 66%; }
-  .float-mod.m5  { top: 11%; left: 87%; }
+  /* Layout - symmetrisk 3×2-grid med modulpar i höjdled:
+     Topp-par ovanför logo, mitt-par vid sidorna av logo,
+     botten-par längs subtitle-zonen. */
 
-  /* Vänsterkant — 4 moduler i vertikal kolumn */
-  .float-mod.m6  { top: 36%; left:  0%; }
-  .float-mod.m7  { top: 50%; left: -1%; }
-  .float-mod.m8  { top: 64%; left:  0%; }
-  .float-mod.m9  { top: 78%; left: -1%; }
+  /* Topp-par — ovanför logo, lätt symmetri */
+  .float-mod.m3  { top:  3%; left: 14%; margin-left: 0; }   /* 📅 Kalender */
+  .float-mod.m8  { top:  3%; left: 66%; }                    /* 🏠 Familj */
 
-  /* Högerkant — 4 moduler i vertikal kolumn */
-  .float-mod.m10 { top: 36%; left: 86%; }
-  .float-mod.m11 { top: 50%; left: 87%; }
-  .float-mod.m12 { top: 64%; left: 86%; }
-  .float-mod.m13 { top: 78%; left: 87%; }
+  /* Mitt-par — vid sidan av logo, längst ut mot kanten */
+  .float-mod.m2  { top: 32%; left:  0%; }                    /* ✅ To-do */
+  .float-mod.m7  { top: 32%; left: 80%; }                    /* 💰 Ekonomi */
 
-  /* Dämpa drift-amplituden så modulerna inte åker av skärmen
-     på smal layout. Räcker med ±8-10px rörelse istället för ±20px. */
-  .floating-modules { transform: scale(1); }
+  /* Botten-par — vid sidan av subtitle-zonen */
+  .float-mod.m13 { top: 64%; left:  0%; }                    /* 🔥 Närhet */
+  .float-mod.m5  { top: 64%; left: 80%; }                    /* 🏋️ Träning */
+
+  /* Mjukare skugga på mobil för balans mot mindre yta */
   .float-mod {
-    /* Något lägre glow på mobil för balans mot mindre yta */
     box-shadow:
-      0 0 16px rgba(123,212,208,0.22),
-      0 0 32px rgba(184,232,232,0.10),
-      0 4px 10px rgba(0,0,0,0.45);
+      0 0 18px rgba(123,212,208,0.24),
+      0 0 36px rgba(184,232,232,0.10),
+      0 4px 12px rgba(0,0,0,0.45);
   }
+  .floating-modules { transform: scale(1); }
 }
 
-/* Extra smal mobil (≤360px) — ännu mindre moduler så de inte överlappar */
+/* Extra smal mobil (≤360px) — ännu mindre moduler så de håller sig
+   väl inom skärmen även med drift-animationerna */
 @media (max-width: 360px) {
-  .float-mod { width: 48px; padding: 5px 2px 4px; }
-  .float-icon { font-size: 15px; }
-  .float-label { font-size: 7.5px; }
-
-  /* Justera margin-left på centrum-modulen så den fortfarande är centrerad */
-  .float-mod.m3 { margin-left: -24px; }
+  .float-mod { width: 54px; padding: 6px 2px 5px; }
+  .float-icon { font-size: 17px; }
+  .float-label { font-size: 8px; }
 }
 
 .hero h1 {

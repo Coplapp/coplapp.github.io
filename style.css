@@ -421,36 +421,36 @@ a:hover {
   .float-mod.m12    /* 🔔 Påminnelser */
   { display: none; }
 
-  /* Mindre moduler (50px) så de får plats i sido-gutterna kring
-     logon utan att krocka. Med 260px logo i 280px stage centrerad
-     på 375px viewport blir vänster/höger-gutter ca 47.5px - 50px
-     moduler passar precis med liten buffer mot logon. */
+  /* Något mindre moduler (48px) så de tål att flyttas IN mot logon
+     utan att krocka för mycket. Med 260px logo i 280px stage på
+     375px viewport blir gutter ca 47.5px - 48px moduler vid left:
+     3-4% ger ~2px statisk z-överlapp med logo (hidden bakom logo
+     pga z-index 1 < 3), men korner-rounded så det är knappast
+     synligt. */
   .float-mod {
-    width: 50px;
+    width: 48px;
     padding: 5px 2px 5px;
     border-radius: 10px;
   }
   .float-icon { font-size: 16px; line-height: 18px; }
   .float-label { font-size: 7.5px; letter-spacing: 0; line-height: 10px; }
 
-  /* HALO-LAYOUT runt logon — alla 6 moduler i övre 46% av hero,
-     ingen i text-zonen nedanför. Hero är 720px → 46% = 331px.
-     Logo slutar runt 360px (100px padding + 260px logo). Mina
-     moduler hamnar 0-310px (43%) — säker marginal till heading. */
+  /* HALO-LAYOUT - alla 6 moduler tighter runt logon */
 
-  /* Topp-par — ovanför logon, indragna från kanterna */
-  .float-mod.m3  { top:  2%; left: 16%; margin-left: 0; }   /* 📅 Kalender */
-  .float-mod.m8  { top:  2%; left: 64%; }                    /* 🏠 Familj */
+  /* Topp-par — ovanför logon, närmare mitten (har gott om plats
+     ovanför logo så vi kan tighta mer aggressivt här) */
+  .float-mod.m3  { top:  2%; left: 22%; margin-left: 0; }   /* 📅 Kalender */
+  .float-mod.m8  { top:  2%; left: 58%; }                    /* 🏠 Familj */
 
-  /* Övre sido-par — Närhet + Träning i logos övre tredjedel */
-  .float-mod.m13 { top: 22%; left:  1%; }                    /* 🔥 Närhet */
-  .float-mod.m5  { top: 22%; left: 86%; }                    /* 🏋️ Träning */
+  /* Övre sido-par — Närhet + Träning i logos övre tredjedel,
+     tryckt in mot logo */
+  .float-mod.m13 { top: 22%; left:  3%; }                    /* 🔥 Närhet */
+  .float-mod.m5  { top: 22%; left: 84%; }                    /* 🏋️ Träning */
 
-  /* Nedre sido-par — To-do + Ekonomi i logos nedre tredjedel.
-     Flyttade uppåt från 42% till 36% så de sitter snett upp mot
-     logon istället för långt ner mot texten. */
-  .float-mod.m2  { top: 36%; left:  1%; }                    /* ✅ To-do */
-  .float-mod.m7  { top: 36%; left: 86%; }                    /* 💰 Ekonomi */
+  /* Nedre sido-par — To-do + Ekonomi i logos nedre tredjedel,
+     tryckt in mot logo */
+  .float-mod.m2  { top: 36%; left:  3%; }                    /* ✅ To-do */
+  .float-mod.m7  { top: 36%; left: 84%; }                    /* 💰 Ekonomi */
 
   /* Använd mindre drift-animation på mobil så modulerna inte åker
      in i logon eller utanför skärmen. drift-mobile ger ±5px rörelse
@@ -486,7 +486,7 @@ a:hover {
   .hero-stage { width: 240px; height: 240px; }
   .hero-logo { width: 220px; height: 220px; }
 
-  .float-mod { width: 44px; padding: 4px 2px 4px; }
+  .float-mod { width: 42px; padding: 4px 2px 4px; }
   .float-icon { font-size: 14px; line-height: 16px; }
   .float-label { font-size: 7px; line-height: 9px; }
 }

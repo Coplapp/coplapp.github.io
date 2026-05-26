@@ -227,6 +227,82 @@
       inset 0 2px 0 rgba(255,255,255,0.08),
       inset 0 -2px 0 rgba(0,0,0,0.5);
   }
+
+  /* Glass-morphism reflektion längs vänster kant — glider sakta över
+     phone-framen för en levande premium-känsla */
+  .phone-frame::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 8%;
+    height: 50%;
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.12) 50%,
+      rgba(255,255,255,0) 100%
+    );
+    border-radius: 72px 0 0 0;
+    pointer-events: none;
+    animation: glass-shimmer 8s ease-in-out infinite;
+  }
+  @keyframes glass-shimmer {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50%      { opacity: 0.85; transform: translateY(15px); }
+  }
+
+  /* Light-streak — diagonal aqua-strimma som sveper över phone-frame
+     vid varje skärmskifte. Skapar en "wow"-blixt utan att vara plottrig. */
+  .phone-frame::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -50%;
+    width: 60%;
+    height: 140%;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(184,232,232,0.35) 50%,
+      rgba(123,212,208,0.55) 52%,
+      rgba(184,232,232,0.35) 54%,
+      transparent 60%,
+      transparent 100%
+    );
+    pointer-events: none;
+    animation: light-streak var(--duration) linear infinite;
+    mix-blend-mode: screen;
+  }
+  @keyframes light-streak {
+    0%, 22%      { transform: translateX(-100%) rotate(0deg); opacity: 0; }
+    23%          { transform: translateX(-100%) rotate(0deg); opacity: 1; }
+    25%          { transform: translateX(0%) rotate(0deg); opacity: 1; }
+    27%          { transform: translateX(150%) rotate(0deg); opacity: 0; }
+
+    /* Skärmskifte 2 */
+    35%          { transform: translateX(-100%); opacity: 0; }
+    37%          { transform: translateX(-100%); opacity: 1; }
+    39%          { transform: translateX(150%); opacity: 0; }
+
+    /* Skärmskifte 3 */
+    48%          { transform: translateX(-100%); opacity: 0; }
+    50%          { transform: translateX(-100%); opacity: 1; }
+    52%          { transform: translateX(150%); opacity: 0; }
+
+    /* Skärmskifte 4 */
+    60.8%        { transform: translateX(-100%); opacity: 0; }
+    62.8%        { transform: translateX(-100%); opacity: 1; }
+    64.8%        { transform: translateX(150%); opacity: 0; }
+
+    /* Skärmskifte 5 */
+    73.4%        { transform: translateX(-100%); opacity: 0; }
+    75.4%        { transform: translateX(-100%); opacity: 1; }
+    77.4%        { transform: translateX(150%); opacity: 0; }
+
+    100%         { transform: translateX(150%); opacity: 0; }
+  }
   .phone-notch {
     position: absolute;
     top: 22px;
@@ -247,64 +323,306 @@
     background: var(--canvas);
   }
 
-  /* Varje "screen" är en absolut-positionerad div i phone-screen */
+  /* Varje "screen" är en absolut-positionerad div i phone-screen.
+     Innehåller HTML/CSS-recreation av en app-modul i Frost-stil. */
   .screen {
     position: absolute;
     inset: 0;
     background: var(--canvas);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     opacity: 0;
+    padding: 90px 32px 32px;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow: hidden;
     animation: screen-cycle var(--duration) linear infinite;
   }
 
-  /* PLACEHOLDER-skärmar (visas tills du ersatt med screenshots).
-     Färgade gradients med ikonen + namnet i mitten. ERSÄTT genom
-     att sätta background-image: url('./preview-video-assets/screen-N.png')
-     på respektive .screen-N nedan. */
-  .screen-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Ken Burns subtil zoom-effect på varje skärm. Skärmens innehåll
+     glider sakta åt höger/uppåt under sin synliga tid → ger
+     "levande" känsla även för stillastående UI. */
+  .screen > .screen-content {
+    position: absolute;
+    inset: 0;
+    padding: 90px 32px 32px;
+    animation: ken-burns 6s ease-in-out infinite;
   }
-  .placeholder-icon { font-size: 200px; }
-  .placeholder-name { font-size: 56px; font-weight: 700; letter-spacing: -1px; }
-  .placeholder-note {
-    margin-top: 60px;
-    padding: 16px 28px;
-    background: rgba(184,232,232,0.15);
-    border: 1px solid rgba(184,232,232,0.4);
-    border-radius: 16px;
-    font-size: 22px;
-    color: var(--accent);
+  @keyframes ken-burns {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    50%      { transform: scale(1.04) translate(-8px, -8px); }
+  }
+
+  .screen-title {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .screen-subtitle {
+    font-size: 16px;
+    color: var(--ink-muted);
+    margin-bottom: 28px;
+    line-height: 1.4;
+  }
+  .screen-card {
+    background: rgba(20,32,40,0.92);
+    border: 1px solid rgba(184,232,232,0.18);
+    border-radius: 20px;
+    padding: 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 30px rgba(184,232,232,0.10);
+  }
+  .screen-card-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 12px;
     text-align: center;
   }
 
-  /* Timing per skärm (crossfade) */
-  .screen-1 {
-    background: linear-gradient(180deg, #0a1620 0%, #0e1a26 100%);
-    animation-delay: 0s;
+  /* ============================================================
+     SKÄRM 1 - Dashboard: Pontus & Eva + Relationspulsen
+     ============================================================ */
+  .s1-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
   }
-  .screen-2 {
-    background: linear-gradient(180deg, #0e1a26 0%, #122030 100%);
-    animation-delay: 0s;
+  .s1-logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid var(--logo-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(123,212,208,0.10);
+    margin-bottom: 8px;
   }
-  .screen-3 {
-    background: linear-gradient(180deg, #122030 0%, #0e1a26 100%);
-    animation-delay: 0s;
+  .s1-logo-c {
+    font-family: 'Georgia', serif;
+    font-size: 48px;
+    color: var(--logo-blue);
+    font-weight: 300;
   }
-  .screen-4 {
-    background: linear-gradient(180deg, #0e1a26 0%, #0a1620 100%);
-    animation-delay: 0s;
+  .s1-tagline { font-size: 13px; color: var(--ink-muted); }
+  .s1-names { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; }
+  .s1-date { font-size: 14px; color: var(--ink-muted); margin-bottom: 32px; }
+
+  .pulse-card {
+    background: rgba(20,32,40,0.92);
+    border: 1px solid rgba(184,232,232,0.18);
+    border-radius: 22px;
+    padding: 28px 20px 24px;
+    box-shadow: 0 0 36px rgba(184,232,232,0.15);
   }
-  .screen-5 {
-    background: linear-gradient(180deg, #1a1020 0%, #0a141d 100%);
-    animation-delay: 0s;
+  .pulse-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .pulse-avatars {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 18px;
+  }
+  .pulse-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .pulse-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--logo-blue);
+    border: 2px solid #000;
+    color: #061018;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pulse-name { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+  .honeymoon-pill {
+    background: #000;
+    border-radius: 100px;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--logo-blue);
+  }
+
+  /* ============================================================
+     SKÄRM 2 - Påminnelser från Eva
+     ============================================================ */
+  .s2-rem-card {
+    background: rgba(20,32,40,0.92);
+    border: 1px solid rgba(184,232,232,0.18);
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 0 28px rgba(184,232,232,0.12);
+  }
+  .s2-rem-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .s2-eva-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--logo-blue);
+    border: 2px solid #000;
+    color: #061018;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .s2-rem-from { font-size: 16px; font-weight: 600; }
+  .s2-rem-date { font-size: 13px; color: var(--ink-muted); }
+  .s2-rem-bell { margin-left: auto; font-size: 26px; }
+  .s2-rem-text { font-size: 17px; font-weight: 500; margin-bottom: 18px; }
+  .s2-rem-btn {
+    background: var(--logo-blue);
+    color: #061018;
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     SKÄRM 3 - Vår familj
+     ============================================================ */
+  .s3-birthday-card {
+    background: rgba(20,32,40,0.92);
+    border: 1px solid rgba(184,232,232,0.18);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+  .s3-birthday-emoji { font-size: 38px; }
+  .s3-birthday-text-name { font-size: 17px; font-weight: 600; }
+  .s3-birthday-text-when { font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
+  .s3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .s3-member {
+    background: rgba(20,32,40,0.92);
+    border: 1px solid rgba(184,232,232,0.16);
+    border-radius: 16px;
+    padding: 18px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .s3-mem-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(184,232,232,0.18);
+    border: 2px solid #000;
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .s3-mem-name { font-size: 15px; font-weight: 600; }
+  .s3-mem-meta { font-size: 11px; color: var(--ink-muted); }
+
+  /* ============================================================
+     SKÄRM 4 - Vår ekonomi
+     ============================================================ */
+  .s4-status-pill {
+    background: #000;
+    border-radius: 100px;
+    padding: 10px 18px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .s4-saldo-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .s4-saldo-big {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 14px;
+  }
+  .s4-line {
+    height: 1px;
+    background: rgba(184,232,232,0.18);
+    margin: 14px 0;
+  }
+  .s4-row { display: flex; justify-content: space-between; padding: 6px 0; }
+  .s4-row-label { font-size: 14px; color: var(--ink-muted); }
+  .s4-row-value { font-size: 14px; font-weight: 600; }
+  .s4-neg { color: #E53935; }
+
+  /* ============================================================
+     SKÄRM 5 - Närhet (PIN-vibe, inget intimt visas)
+     ============================================================ */
+  .s5-privat { font-size: 14px; color: var(--ink-muted); margin-bottom: 28px; }
+  .s5-fire-card {
+    background: #000;
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px rgba(184,232,232,0.10);
+  }
+  .s5-fire { font-size: 38px; }
+  .s5-fire-title { font-size: 18px; font-weight: 700; }
+  .s5-fire-sub { font-size: 13px; color: var(--ink-muted); margin-top: 4px; }
+  .s5-q-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .s5-q-card {
+    background: rgba(20,32,40,0.92);
+    border: 1px solid rgba(184,232,232,0.20);
+    border-radius: 16px;
+    padding: 22px;
+  }
+  .s5-q-question { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+  .s5-q-help { font-size: 13px; color: var(--ink-muted); line-height: 1.4; margin-bottom: 18px; }
+  .s5-q-btn {
+    background: #000;
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
   }
 
   /* Cykel-fördelning över 15s.
@@ -369,7 +687,10 @@
     font-size: 56px;
     font-weight: 600;
     letter-spacing: -0.5px;
-    text-shadow: 0 0 16px rgba(0,0,0,0.7);
+    text-shadow:
+      0 0 16px rgba(0,0,0,0.7),
+      0 0 30px rgba(184,232,232,0.30),
+      0 0 60px rgba(184,232,232,0.15);
     opacity: 0;
     white-space: nowrap;
   }
@@ -489,58 +810,123 @@
     <div class="phone-frame">
       <div class="phone-notch"></div>
       <div class="phone-screen">
-        <!-- SKÄRM 1: Dashboard.
-             ERSÄTT: lägg din screenshot som ./preview-video-assets/screen-1.png
-             och kommentera bort placeholdern + sätt background-image i CSS -->
-        <div class="screen screen-1 screen-placeholder">
-          <span class="placeholder-icon">🏠</span>
-          <span class="placeholder-name">Dashboard</span>
-          <div class="placeholder-note">Ersätt med din screenshot:<br>preview-video-assets/screen-1.png</div>
+        <!-- SKÄRM 1: DASHBOARD - Pontus & Eva + Relationspulsen -->
+        <div class="screen screen-1">
+          <div class="screen-content">
+            <div class="s1-brand">
+              <div class="s1-logo"><span class="s1-logo-c">C</span></div>
+              <div class="s1-tagline">Få ihop livspusslet</div>
+            </div>
+            <div style="text-align:center; margin-bottom: 24px;">
+              <div class="s1-names">Pontus &amp; Eva</div>
+              <div class="s1-date">Vecka 22 · Tisdag 26 Maj 2026</div>
+            </div>
+            <div class="pulse-card">
+              <div class="pulse-label">RELATIONSPULSEN</div>
+              <div class="pulse-avatars">
+                <div class="pulse-avatar"><div class="pulse-circle">P</div><div class="pulse-name">PONTUS</div></div>
+                <div class="pulse-avatar"><div class="pulse-circle">E</div><div class="pulse-name">EVA</div></div>
+              </div>
+              <div class="honeymoon-pill">💗 Honeymoon-mode ›</div>
+            </div>
+          </div>
         </div>
 
-        <!-- SKÄRM 2: Kalender -->
-        <div class="screen screen-2 screen-placeholder">
-          <span class="placeholder-icon">📅</span>
-          <span class="placeholder-name">Kalender</span>
-          <div class="placeholder-note">preview-video-assets/screen-2.png</div>
+        <!-- SKÄRM 2: PÅMINNELSER FRÅN EVA -->
+        <div class="screen screen-2">
+          <div class="screen-content">
+            <div class="screen-title">Påminnelser</div>
+            <div class="screen-subtitle">När någon av oss tänker på något viktigt åt den andra.</div>
+            <div class="s2-rem-card">
+              <div class="s2-rem-head">
+                <div class="s2-eva-avatar">E</div>
+                <div>
+                  <div class="s2-rem-from">Eva</div>
+                  <div class="s2-rem-date">tis 26 maj</div>
+                </div>
+                <div class="s2-rem-bell">🔔</div>
+              </div>
+              <div class="s2-rem-text">APT, fritids stänger 15:45</div>
+              <div class="s2-rem-btn">✓ Noterat - jag fixar</div>
+            </div>
+          </div>
         </div>
 
-        <!-- SKÄRM 3: Familj -->
-        <div class="screen screen-3 screen-placeholder">
-          <span class="placeholder-icon">👨‍👩‍👧</span>
-          <span class="placeholder-name">Familj</span>
-          <div class="placeholder-note">preview-video-assets/screen-3.png</div>
+        <!-- SKÄRM 3: VÅR FAMILJ -->
+        <div class="screen screen-3">
+          <div class="screen-content">
+            <div class="screen-title">Vår familj</div>
+            <div class="screen-subtitle">Samlad info om alla i hushållet.</div>
+            <div class="s3-birthday-card">
+              <div class="s3-birthday-emoji">🎂</div>
+              <div>
+                <div class="s3-birthday-text-name">Evas födelsedag</div>
+                <div class="s3-birthday-text-when">Om 3 dagar</div>
+              </div>
+            </div>
+            <div class="s3-grid">
+              <div class="s3-member"><div class="s3-mem-avatar">A</div><div class="s3-mem-name">Alva</div><div class="s3-mem-meta">Barn · 12 år</div></div>
+              <div class="s3-member"><div class="s3-mem-avatar">A</div><div class="s3-mem-name">Albin</div><div class="s3-mem-meta">Barn · 8 år</div></div>
+              <div class="s3-member"><div class="s3-mem-avatar">P</div><div class="s3-mem-name">Pontus</div><div class="s3-mem-meta">Förälder</div></div>
+              <div class="s3-member"><div class="s3-mem-avatar">E</div><div class="s3-mem-name">Eva</div><div class="s3-mem-meta">Förälder</div></div>
+            </div>
+          </div>
         </div>
 
-        <!-- SKÄRM 4: Ekonomi -->
-        <div class="screen screen-4 screen-placeholder">
-          <span class="placeholder-icon">💰</span>
-          <span class="placeholder-name">Ekonomi</span>
-          <div class="placeholder-note">preview-video-assets/screen-4.png</div>
+        <!-- SKÄRM 4: VÅR EKONOMI -->
+        <div class="screen screen-4">
+          <div class="screen-content">
+            <div class="screen-title">Vår ekonomi</div>
+            <div class="screen-subtitle">Månadsbudget tillsammans.</div>
+            <div class="screen-card" style="padding: 26px 22px;">
+              <div class="s4-status-pill">🎯 Snyggt! Budget i balans</div>
+              <div class="s4-saldo-label">Saldo (mål: 0 kr)</div>
+              <div class="s4-saldo-big">+21 500 kr</div>
+              <div class="s4-line"></div>
+              <div class="s4-row"><span class="s4-row-label">Inkomster</span><span class="s4-row-value">+87 500 kr</span></div>
+              <div class="s4-row"><span class="s4-row-label">Fasta utgifter</span><span class="s4-row-value s4-neg">−41 800 kr</span></div>
+              <div class="s4-row"><span class="s4-row-label">Rörliga utgifter</span><span class="s4-row-value s4-neg">−12 200 kr</span></div>
+              <div class="s4-row"><span class="s4-row-label">Sparande</span><span class="s4-row-value s4-neg">−12 000 kr</span></div>
+            </div>
+          </div>
         </div>
 
-        <!-- SKÄRM 5: Närhet (PIN-skärm) -->
-        <div class="screen screen-5 screen-placeholder">
-          <span class="placeholder-icon">🔥</span>
-          <span class="placeholder-name">Närhet</span>
-          <div class="placeholder-note">preview-video-assets/screen-5.png</div>
+        <!-- SKÄRM 5: NÄRHET (privat hint - inget intimt visas) -->
+        <div class="screen screen-5">
+          <div class="screen-content">
+            <div class="screen-title">Närhet</div>
+            <div class="s5-privat">Privat - bara du och Eva ser detta.</div>
+            <div class="s5-fire-card">
+              <div class="s5-fire">🔥</div>
+              <div>
+                <div class="s5-fire-title">Skicka snabbfråga</div>
+                <div class="s5-fire-sub">Skicka "Vill du ligga NU?" till Eva.</div>
+              </div>
+            </div>
+            <div class="s5-q-label">IDAG</div>
+            <div class="s5-q-card">
+              <div class="s5-q-question">Öppen för intimitet idag?</div>
+              <div class="s5-q-help">Helt privat. Eva ser inte ditt svar - bara om ni båda säger ja samma dag.</div>
+              <div class="s5-q-btn">Ja</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- TEXT-OVERLAYS - en per skärm -->
-  <div class="caption caption-1">Allt ni delar</div>
-  <div class="caption-sub caption-1-sub">- på ett ställe</div>
+  <!-- TEXT-OVERLAYS - en per skärm, matchar skärmens innehåll -->
+  <div class="caption caption-1">Pontus &amp; Eva</div>
+  <div class="caption-sub caption-1-sub">Er gemensamma plats</div>
 
-  <div class="caption caption-2">Veckan i ett ögonkast</div>
-  <div class="caption-sub caption-2-sub">Slipp jonglera mellan appar</div>
+  <div class="caption caption-2">Påminn varandra</div>
+  <div class="caption-sub caption-2-sub">Utan att tjata</div>
 
   <div class="caption caption-3">Familjen samlad</div>
-  <div class="caption-sub caption-3-sub">Aldrig leta efter skostorleken igen</div>
+  <div class="caption-sub caption-3-sub">Allt på ett ställe</div>
 
   <div class="caption caption-4">Hushållets ekonomi</div>
-  <div class="caption-sub caption-4-sub">Ni ser samma siffror</div>
+  <div class="caption-sub caption-4-sub">Tillsammans, transparent</div>
 
   <div class="caption caption-5">Bara mellan er två</div>
   <div class="caption-sub caption-5-sub">End-to-end-krypterat</div>

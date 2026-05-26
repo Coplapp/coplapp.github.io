@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<title>Copl - App Store Preview (15s)</title>
+<style>
+  /* ============================================================
+     COPL APP STORE PREVIEW VIDEO
+     15-sekunders animation i Frost-stil.
+
+     STORLEK: 1080x1920 (vertikal iPhone). Visas i CSS som 540x960
+     på vanlig skärm; faktisk render-storlek styrs av .stage-scale.
+
+     SPELA IN: öppna i Chrome, F11 för fullskärm (eller använd
+     dimensions nedan), använd QuickTime/OBS skärminspelning,
+     spela in EN HEL CYKEL (15s).
+
+     STORYBOARD (15 sek):
+       0.0 - 2.0s : Intro - pulsande logga + 'Få ihop livspusslet'
+       2.0 - 4.5s : Skärm 1 - Dashboard
+       4.5 - 7.0s : Skärm 2 - Kalender
+       7.0 - 9.5s : Skärm 3 - Familj
+       9.5 - 12.0s: Skärm 4 - Ekonomi
+       12.0-13.5s : Skärm 5 - Närhet (PIN-skärm)
+       13.5-15.0s : Outro - logga + 'Snart i App Store'
+     ============================================================ */
+
+  :root {
+    --canvas: #061018;
+    --surface: rgba(20,32,40,0.92);
+    --ink: #FFFFFF;
+    --ink-muted: #D0E0E5;
+    --accent: #B8E8E8;
+    --logo-blue: #7BD4D0;
+    --duration: 15s;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #000;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+
+  /* STAGE - render-canvas exakt 1080x1920. Skala ner med CSS transform
+     för att passa på din skärm (540x960 visas). Bibehåller pixel-perfect
+     position vid skärminspelning genom att INSPELA stage:n exakt. */
+  .stage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1080px;
+    height: 1920px;
+    margin: -960px 0 0 -540px;       /* Center exakt */
+    background: var(--canvas);
+    overflow: hidden;
+    /* Skala ner till 0.5 = 540x960 så stage får plats på vanlig laptop.
+       VID INSPELNING: ändra till "scale(1)" och justera browser-fönster
+       till exakt 1080x1920, eller skärminspelaren plockar nedskalad bild
+       och sen FFmpeg uppskalar (kvalitetsförlust). */
+    transform: scale(0.5);
+    transform-origin: top left;
+    margin: 0;
+    top: 0;
+    left: 0;
+  }
+
+  /* När du vill rendera fullstorlek (1080x1920), kommentera bort
+     transform: scale(0.5) ovan, eller använd ?fullsize=1 i URL:en. */
+
+  /* ============================================================
+     BAKGRUNDS-EFFEKTER
+     Mjuka aqua-glows som driftar långsamt över stage. Ger
+     "andas-känsla" utan att stjäla fokus.
+     ============================================================ */
+
+  .bg-glow-1, .bg-glow-2 {
+    position: absolute;
+    width: 1400px;
+    height: 1400px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+  }
+  .bg-glow-1 {
+    background: radial-gradient(circle, rgba(123,212,208,0.18), transparent 60%);
+    top: -300px;
+    right: -400px;
+    animation: drift-glow-1 12s ease-in-out infinite;
+  }
+  .bg-glow-2 {
+    background: radial-gradient(circle, rgba(184,232,232,0.12), transparent 60%);
+    bottom: -300px;
+    left: -400px;
+    animation: drift-glow-2 14s ease-in-out infinite;
+  }
+  @keyframes drift-glow-1 {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-60px, 40px); }
+  }
+  @keyframes drift-glow-2 {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(80px, -60px); }
+  }
+
+  /* ============================================================
+     INTRO/OUTRO LOGO
+     Pulserande logga med heart-pulse rytm. Visas i 0-2s + 13.5-15s.
+     ============================================================ */
+
+  .intro {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    opacity: 0;
+    animation: intro-show var(--duration) linear infinite;
+  }
+  @keyframes intro-show {
+    0%       { opacity: 0; }
+    1%       { opacity: 1; }
+    13.3%    { opacity: 1; }
+    16%      { opacity: 0; }
+    /* Vänta tills outro */
+    88%      { opacity: 0; }
+    93%      { opacity: 1; }
+    100%     { opacity: 1; }
+  }
+
+  .intro-logo {
+    width: 480px;
+    height: 480px;
+    filter:
+      drop-shadow(0 0 60px rgba(123,212,208,0.65))
+      drop-shadow(0 0 120px rgba(184,232,232,0.30));
+    animation: logo-pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes logo-pulse {
+    0%, 100% {
+      transform: scale(1);
+      filter:
+        drop-shadow(0 0 60px rgba(123,212,208,0.65))
+        drop-shadow(0 0 120px rgba(184,232,232,0.30));
+    }
+    50% {
+      transform: scale(1.04);
+      filter:
+        drop-shadow(0 0 100px rgba(123,212,208,0.90))
+        drop-shadow(0 0 180px rgba(184,232,232,0.50));
+    }
+  }
+
+  .intro-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    font-size: 84px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    text-shadow: 0 0 24px rgba(184,232,232,0.4);
+  }
+  .intro-tagline {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink-muted);
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: -30px;
+  }
+
+  /* OUTRO-specifik text (visas 13.5-15s) */
+  .outro-cta {
+    position: absolute;
+    bottom: 280px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #0a141d 0%, #182532 100%);
+    color: var(--ink);
+    padding: 28px 56px;
+    border-radius: 22px;
+    border: 2px solid rgba(184,232,232,0.55);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow:
+      0 0 50px rgba(184,232,232,0.35),
+      0 12px 36px rgba(0,0,0,0.6);
+    opacity: 0;
+    animation: outro-cta-show var(--duration) linear infinite;
+  }
+  @keyframes outro-cta-show {
+    0%, 89%   { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    93%       { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100%      { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  /* ============================================================
+     PHONE MOCKUP + SKÄRMAR
+     Phone-mockup som visas 2-13.5s. Inuti cyklas 5 skärmar igenom
+     med crossfade.
+     ============================================================ */
+
+  .phone-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: phone-show var(--duration) linear infinite;
+  }
+  @keyframes phone-show {
+    0%, 13.3% { opacity: 0; transform: scale(0.92); }
+    16%       { opacity: 1; transform: scale(1); }
+    88%       { opacity: 1; transform: scale(1); }
+    91%       { opacity: 0; transform: scale(0.92); }
+    100%      { opacity: 0; transform: scale(0.92); }
+  }
+
+  .phone-frame {
+    position: relative;
+    width: 540px;
+    height: 1130px;
+    background: linear-gradient(140deg, #1a2530, #0a141d);
+    border-radius: 72px;
+    padding: 18px;
+    box-shadow:
+      0 0 80px rgba(123,212,208,0.30),
+      0 25px 60px rgba(0,0,0,0.7),
+      inset 0 2px 0 rgba(255,255,255,0.08),
+      inset 0 -2px 0 rgba(0,0,0,0.5);
+  }
+  .phone-notch {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 32px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 10;
+  }
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 56px;
+    overflow: hidden;
+    position: relative;
+    background: var(--canvas);
+  }
+
+  /* Varje "screen" är en absolut-positionerad div i phone-screen */
+  .screen {
+    position: absolute;
+    inset: 0;
+    background: var(--canvas);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: screen-cycle var(--duration) linear infinite;
+  }
+
+  /* PLACEHOLDER-skärmar (visas tills du ersatt med screenshots).
+     Färgade gradients med ikonen + namnet i mitten. ERSÄTT genom
+     att sätta background-image: url('./preview-video-assets/screen-N.png')
+     på respektive .screen-N nedan. */
+  .screen-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  .placeholder-icon { font-size: 200px; }
+  .placeholder-name { font-size: 56px; font-weight: 700; letter-spacing: -1px; }
+  .placeholder-note {
+    margin-top: 60px;
+    padding: 16px 28px;
+    background: rgba(184,232,232,0.15);
+    border: 1px solid rgba(184,232,232,0.4);
+    border-radius: 16px;
+    font-size: 22px;
+    color: var(--accent);
+    text-align: center;
+  }
+
+  /* Timing per skärm (crossfade) */
+  .screen-1 {
+    background: linear-gradient(180deg, #0a1620 0%, #0e1a26 100%);
+    animation-delay: 0s;
+  }
+  .screen-2 {
+    background: linear-gradient(180deg, #0e1a26 0%, #122030 100%);
+    animation-delay: 0s;
+  }
+  .screen-3 {
+    background: linear-gradient(180deg, #122030 0%, #0e1a26 100%);
+    animation-delay: 0s;
+  }
+  .screen-4 {
+    background: linear-gradient(180deg, #0e1a26 0%, #0a1620 100%);
+    animation-delay: 0s;
+  }
+  .screen-5 {
+    background: linear-gradient(180deg, #1a1020 0%, #0a141d 100%);
+    animation-delay: 0s;
+  }
+
+  /* Cykel-fördelning över 15s.
+     Varje skärm är synlig i ~2.5s med 0.4s crossfade in/out.
+     Phone visas 2.0-13.5s = 11.5s aktiv tid.
+     Skärmar fördelas: 2.0, 4.3, 6.6, 8.9, 11.2 (~2.3s vardera) */
+
+  @keyframes screen-cycle {
+    /* SKÄRM 1 — Dashboard */
+    0%, 13%       { opacity: 0; }
+    16%           { opacity: 1; }
+    27%           { opacity: 1; }
+    30%           { opacity: 0; }
+    100%          { opacity: 0; }
+  }
+
+  /* Varje skärm har sin egen keyframe så vi kan styra tajming precist */
+  .screen-1 { animation-name: cycle-s1; }
+  .screen-2 { animation-name: cycle-s2; }
+  .screen-3 { animation-name: cycle-s3; }
+  .screen-4 { animation-name: cycle-s4; }
+  .screen-5 { animation-name: cycle-s5; }
+
+  /* 15s = 100%. Phone aktiv 2-13.5s = 13.3% - 90% av animation.
+     Aktiv zon: 76.6% av tid. Dela i 5 skärmar = 15.3% var. */
+  @keyframes cycle-s1 {  /* Dashboard 2.0-4.5s = 13.3-30% */
+    0%, 13.3%   { opacity: 0; }
+    16.3%       { opacity: 1; }
+    27%         { opacity: 1; }
+    30%         { opacity: 0; }
+    100%        { opacity: 0; }
+  }
+  @keyframes cycle-s2 {  /* Kalender 4.5-7.0s = 30-46.6% */
+    0%, 27%     { opacity: 0; }
+    30%         { opacity: 1; }
+    43.6%       { opacity: 1; }
+    46.6%       { opacity: 0; }
+    100%        { opacity: 0; }
+  }
+  @keyframes cycle-s3 {  /* Familj 7.0-9.5s = 46.6-63.3% */
+    0%, 43.6%   { opacity: 0; }
+    46.6%       { opacity: 1; }
+    60.3%       { opacity: 1; }
+    63.3%       { opacity: 0; }
+    100%        { opacity: 0; }
+  }
+  @keyframes cycle-s4 {  /* Ekonomi 9.5-12.0s = 63.3-80% */
+    0%, 60.3%   { opacity: 0; }
+    63.3%       { opacity: 1; }
+    77%         { opacity: 1; }
+    80%         { opacity: 0; }
+    100%        { opacity: 0; }
+  }
+  @keyframes cycle-s5 {  /* Närhet 12.0-13.5s = 80-90% */
+    0%, 77%     { opacity: 0; }
+    80%         { opacity: 1; }
+    88%         { opacity: 1; }
+    91%         { opacity: 0; }
+    100%        { opacity: 0; }
+  }
+
+  /* ============================================================
+     TEXT-OVERLAYS — varje skärm har en text-bubbla nedanför phone
+     som glider in från botten + fadar in synkront med skärmen
+     ============================================================ */
+
+  .caption {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 16px rgba(0,0,0,0.7);
+    opacity: 0;
+    white-space: nowrap;
+  }
+  .caption-sub {
+    position: absolute;
+    bottom: 145px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 12px rgba(0,0,0,0.7);
+    opacity: 0;
+  }
+
+  .caption-1, .caption-1-sub { animation: cap1 var(--duration) linear infinite; }
+  .caption-2, .caption-2-sub { animation: cap2 var(--duration) linear infinite; }
+  .caption-3, .caption-3-sub { animation: cap3 var(--duration) linear infinite; }
+  .caption-4, .caption-4-sub { animation: cap4 var(--duration) linear infinite; }
+  .caption-5, .caption-5-sub { animation: cap5 var(--duration) linear infinite; }
+
+  /* Caption-tajming matchar skärm-keyframes med 0.2s offset */
+  @keyframes cap1 {
+    0%, 14%       { opacity: 0; transform: translate(-50%, 20px); }
+    18%           { opacity: 1; transform: translate(-50%, 0); }
+    27%           { opacity: 1; transform: translate(-50%, 0); }
+    30%           { opacity: 0; }
+    100%          { opacity: 0; }
+  }
+  @keyframes cap2 {
+    0%, 28%       { opacity: 0; transform: translate(-50%, 20px); }
+    32%           { opacity: 1; transform: translate(-50%, 0); }
+    43.6%         { opacity: 1; transform: translate(-50%, 0); }
+    46.6%         { opacity: 0; }
+    100%          { opacity: 0; }
+  }
+  @keyframes cap3 {
+    0%, 44.6%     { opacity: 0; transform: translate(-50%, 20px); }
+    48.6%         { opacity: 1; transform: translate(-50%, 0); }
+    60.3%         { opacity: 1; transform: translate(-50%, 0); }
+    63.3%         { opacity: 0; }
+    100%          { opacity: 0; }
+  }
+  @keyframes cap4 {
+    0%, 61.3%     { opacity: 0; transform: translate(-50%, 20px); }
+    65.3%         { opacity: 1; transform: translate(-50%, 0); }
+    77%           { opacity: 1; transform: translate(-50%, 0); }
+    80%           { opacity: 0; }
+    100%          { opacity: 0; }
+  }
+  @keyframes cap5 {
+    0%, 78%       { opacity: 0; transform: translate(-50%, 20px); }
+    82%           { opacity: 1; transform: translate(-50%, 0); }
+    88%           { opacity: 1; transform: translate(-50%, 0); }
+    91%           { opacity: 0; }
+    100%          { opacity: 0; }
+  }
+
+  /* ============================================================
+     FULLSIZE-LÄGE — för inspelning
+     Lägg till ?fullsize i URL:en för att rendera 1080x1920 utan
+     scale-ned. Användbart vid skärminspelning.
+     ============================================================ */
+  .stage.fullsize {
+    transform: scale(1);
+    transform-origin: top left;
+  }
+
+  /* Hjälp-info som inte syns vid inspelning (göms vid ?fullsize) */
+  .helper {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    font-family: -apple-system, monospace;
+    font-size: 11px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(184,232,232,0.3);
+    z-index: 100;
+    line-height: 1.5;
+    max-width: 280px;
+  }
+  body.fullsize .helper { display: none; }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <!-- Bakgrunds-glows som driftar -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- INTRO + OUTRO: pulserande logga med rubrik -->
+  <div class="intro">
+    <img src="assets/copl-logo.png" alt="Copl" class="intro-logo" />
+    <div class="intro-title">Få ihop livspusslet</div>
+    <div class="intro-tagline">Appen för par. Designad för det praktiska och det fina.</div>
+  </div>
+
+  <!-- OUTRO CTA - visas bara i 13.5-15s -->
+  <div class="outro-cta">🍎 Snart i App Store</div>
+
+  <!-- PHONE-MOCKUP - cyklar genom 5 skärmar 2-13.5s -->
+  <div class="phone-stage">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <!-- SKÄRM 1: Dashboard.
+             ERSÄTT: lägg din screenshot som ./preview-video-assets/screen-1.png
+             och kommentera bort placeholdern + sätt background-image i CSS -->
+        <div class="screen screen-1 screen-placeholder">
+          <span class="placeholder-icon">🏠</span>
+          <span class="placeholder-name">Dashboard</span>
+          <div class="placeholder-note">Ersätt med din screenshot:<br>preview-video-assets/screen-1.png</div>
+        </div>
+
+        <!-- SKÄRM 2: Kalender -->
+        <div class="screen screen-2 screen-placeholder">
+          <span class="placeholder-icon">📅</span>
+          <span class="placeholder-name">Kalender</span>
+          <div class="placeholder-note">preview-video-assets/screen-2.png</div>
+        </div>
+
+        <!-- SKÄRM 3: Familj -->
+        <div class="screen screen-3 screen-placeholder">
+          <span class="placeholder-icon">👨‍👩‍👧</span>
+          <span class="placeholder-name">Familj</span>
+          <div class="placeholder-note">preview-video-assets/screen-3.png</div>
+        </div>
+
+        <!-- SKÄRM 4: Ekonomi -->
+        <div class="screen screen-4 screen-placeholder">
+          <span class="placeholder-icon">💰</span>
+          <span class="placeholder-name">Ekonomi</span>
+          <div class="placeholder-note">preview-video-assets/screen-4.png</div>
+        </div>
+
+        <!-- SKÄRM 5: Närhet (PIN-skärm) -->
+        <div class="screen screen-5 screen-placeholder">
+          <span class="placeholder-icon">🔥</span>
+          <span class="placeholder-name">Närhet</span>
+          <div class="placeholder-note">preview-video-assets/screen-5.png</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEXT-OVERLAYS - en per skärm -->
+  <div class="caption caption-1">Allt ni delar</div>
+  <div class="caption-sub caption-1-sub">- på ett ställe</div>
+
+  <div class="caption caption-2">Veckan i ett ögonkast</div>
+  <div class="caption-sub caption-2-sub">Slipp jonglera mellan appar</div>
+
+  <div class="caption caption-3">Familjen samlad</div>
+  <div class="caption-sub caption-3-sub">Aldrig leta efter skostorleken igen</div>
+
+  <div class="caption caption-4">Hushållets ekonomi</div>
+  <div class="caption-sub caption-4-sub">Ni ser samma siffror</div>
+
+  <div class="caption caption-5">Bara mellan er två</div>
+  <div class="caption-sub caption-5-sub">End-to-end-krypterat</div>
+</div>
+
+<!-- HJÄLP-INFO (syns inte vid inspelning) -->
+<div class="helper">
+  <strong>Copl Preview Video</strong><br>
+  Lägg <code>?fullsize</code> i URL:en för 1080x1920-läge.<br>
+  Cykel: 15s. Animationen loopar.<br>
+  Ersätt placeholders i <code>preview-video-assets/</code>
+</div>
+
+<script>
+  // Aktivera fullsize-läge om ?fullsize finns i URL:en
+  if (window.location.search.includes('fullsize')) {
+    document.getElementById('stage').classList.add('fullsize');
+    document.body.classList.add('fullsize');
+  }
+</script>
+
+</body>
+</html>

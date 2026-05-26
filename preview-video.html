@@ -132,27 +132,19 @@
     100%     { opacity: 1; }
   }
 
-  .intro-logo {
+  /* Splash-video: den riktiga app-splash som intro. Pulsen ligger
+     redan i videon, så vi behöver ingen CSS-animation - bara visa
+     videon med samma storlek som tidigare logo-bilden. */
+  .intro-video {
     width: 480px;
     height: 480px;
+    object-fit: contain;
+    background: transparent;
+    /* Extra glow utöver videons egen — gör logan ännu mer poppig
+       mot dark canvas */
     filter:
-      drop-shadow(0 0 60px rgba(123,212,208,0.65))
-      drop-shadow(0 0 120px rgba(184,232,232,0.30));
-    animation: logo-pulse 2.5s ease-in-out infinite;
-  }
-  @keyframes logo-pulse {
-    0%, 100% {
-      transform: scale(1);
-      filter:
-        drop-shadow(0 0 60px rgba(123,212,208,0.65))
-        drop-shadow(0 0 120px rgba(184,232,232,0.30));
-    }
-    50% {
-      transform: scale(1.04);
-      filter:
-        drop-shadow(0 0 100px rgba(123,212,208,0.90))
-        drop-shadow(0 0 180px rgba(184,232,232,0.50));
-    }
+      drop-shadow(0 0 40px rgba(123,212,208,0.40))
+      drop-shadow(0 0 80px rgba(184,232,232,0.20));
   }
 
   .intro-title {
@@ -485,9 +477,17 @@
   <div class="bg-glow-1"></div>
   <div class="bg-glow-2"></div>
 
-  <!-- INTRO + OUTRO: pulserande logga med rubrik -->
+  <!-- INTRO + OUTRO: faktiska splash-videon från appen + rubrik -->
   <div class="intro">
-    <img src="assets/copl-logo.png" alt="Copl" class="intro-logo" />
+    <video
+      src="preview-video-assets/splash-intro.mp4"
+      class="intro-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    ></video>
     <div class="intro-title">Få ihop livspusslet</div>
     <div class="intro-tagline">Appen för par. Designad för det praktiska och det fina.</div>
   </div>

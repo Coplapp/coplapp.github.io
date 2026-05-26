@@ -388,9 +388,18 @@ a:hover {
      premium-känsla. De som lyfts fram täcker både logistik (Kalender,
      To-do, Familj, Ekonomi, Träning) och relation (Närhet) - dvs
      hela Copl-storyn utan att skärmen blir plottrig. */
-  .hero { min-height: 760px; }
-  .hero-stage { width: 240px; height: 240px; }
-  .hero-logo { width: 220px; height: 220px; }
+  .hero { min-height: 780px; }
+  .hero-stage { width: 280px; height: 280px; }
+  .hero-logo {
+    width: 260px;
+    height: 260px;
+    /* Säkerställ att heart-pulse-animationen körs även på mobil
+       (matchar desktop-beteendet). !important skyddar mot ev.
+       andra mobil-overrides som råkar nollställa animationen. */
+    animation: heart-pulse 5s ease-in-out infinite !important;
+    /* Lite starkare basglow så pulsen syns tydligare på mörk bg */
+    filter: drop-shadow(0 0 32px rgba(123,212,208,0.50));
+  }
 
   /* Dölj 7 moduler: Chat, Måltider, Rutiner, Läxor, Avtal,
      Uppskattning, Påminnelser - inte mindre viktiga, bara
@@ -416,20 +425,21 @@ a:hover {
   .float-label { font-size: 8.5px; letter-spacing: 0.1px; }
 
   /* Layout - symmetrisk 3×2-grid med modulpar i höjdled:
-     Topp-par ovanför logo, mitt-par vid sidorna av logo,
-     botten-par längs subtitle-zonen. */
+     Topp-par ovanför logo, mitt-par vid sidorna av logo
+     (relations-modulerna närmast logon), botten-par längs
+     subtitle-zonen. */
 
-  /* Topp-par — ovanför logo, lätt symmetri */
+  /* Topp-par — ovanför logo */
   .float-mod.m3  { top:  3%; left: 14%; margin-left: 0; }   /* 📅 Kalender */
   .float-mod.m8  { top:  3%; left: 66%; }                    /* 🏠 Familj */
 
-  /* Mitt-par — vid sidan av logo, längst ut mot kanten */
-  .float-mod.m2  { top: 32%; left:  0%; }                    /* ✅ To-do */
-  .float-mod.m7  { top: 32%; left: 80%; }                    /* 💰 Ekonomi */
+  /* Mitt-par — vid sidan av logo (närhet + träning - personliga moduler) */
+  .float-mod.m13 { top: 32%; left:  0%; }                    /* 🔥 Närhet */
+  .float-mod.m5  { top: 32%; left: 80%; }                    /* 🏋️ Träning */
 
-  /* Botten-par — vid sidan av subtitle-zonen */
-  .float-mod.m13 { top: 64%; left:  0%; }                    /* 🔥 Närhet */
-  .float-mod.m5  { top: 64%; left: 80%; }                    /* 🏋️ Träning */
+  /* Botten-par — vid sidan av subtitle-zonen (vardags-modulerna) */
+  .float-mod.m2  { top: 64%; left:  0%; }                    /* ✅ To-do */
+  .float-mod.m7  { top: 64%; left: 80%; }                    /* 💰 Ekonomi */
 
   /* Mjukare skugga på mobil för balans mot mindre yta */
   .float-mod {

@@ -443,14 +443,14 @@ a:hover {
   .float-mod.m8  { top:  2%; left: 58%; }                    /* 🏠 Familj */
 
   /* Övre sido-par — Närhet + Träning i logos övre tredjedel,
-     tryckt in mot logo */
-  .float-mod.m13 { top: 22%; left:  3%; }                    /* 🔥 Närhet */
-  .float-mod.m5  { top: 22%; left: 84%; }                    /* 🏋️ Träning */
+     trycks in tightare mot logo (kramar logo-kanten med ~8px
+     z-överlapp som hidden bakom logon → visuellt halo-effekt) */
+  .float-mod.m13 { top: 22%; left:  5%; }                    /* 🔥 Närhet */
+  .float-mod.m5  { top: 22%; left: 82%; }                    /* 🏋️ Träning */
 
-  /* Nedre sido-par — To-do + Ekonomi i logos nedre tredjedel,
-     tryckt in mot logo */
-  .float-mod.m2  { top: 36%; left:  3%; }                    /* ✅ To-do */
-  .float-mod.m7  { top: 36%; left: 84%; }                    /* 💰 Ekonomi */
+  /* Nedre sido-par — To-do + Ekonomi i logos nedre tredjedel */
+  .float-mod.m2  { top: 36%; left:  5%; }                    /* ✅ To-do */
+  .float-mod.m7  { top: 36%; left: 82%; }                    /* 💰 Ekonomi */
 
   /* Använd mindre drift-animation på mobil så modulerna inte åker
      in i logon eller utanför skärmen. drift-mobile ger ±5px rörelse
@@ -1231,6 +1231,61 @@ a.feature-item {
   font-size: 15px;
   color: var(--ink);
   line-height: 1.5;
+}
+
+/* CTA-knapp under "Så här fungerar Copl" - anchor-länk till
+   modulrutnätet längre ner på sidan. Frost-stil med aqua-glow. */
+.showcase-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #0e1822 0%, #15212c 55%, #1b2834 100%);
+  color: var(--ink) !important;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border-radius: 14px;
+  border: 1px solid rgba(184,232,232,0.32);
+  position: relative;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  box-shadow:
+    0 0 24px rgba(184,232,232,0.18),
+    0 4px 14px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  align-self: flex-start;
+}
+
+.showcase-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184,232,232,0.55);
+  color: var(--ink) !important;
+  box-shadow:
+    0 0 36px rgba(184,232,232,0.32),
+    0 8px 22px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.09);
+}
+
+/* Pil-ikonen "studsar" lite ner-upp för att visa att den scrollar */
+.showcase-cta-arrow {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  animation: cta-arrow-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes cta-arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(3px); }
+}
+
+@media (max-width: 860px) {
+  .showcase-cta { align-self: center; }
 }
 
 /* ============================================================

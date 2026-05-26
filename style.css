@@ -388,17 +388,16 @@ a:hover {
      premium-känsla. De som lyfts fram täcker både logistik (Kalender,
      To-do, Familj, Ekonomi, Träning) och relation (Närhet) - dvs
      hela Copl-storyn utan att skärmen blir plottrig. */
-  .hero { min-height: 780px; }
+  /* Mobil-hero: tightare höjd eftersom alla moduler samlas RUNT logon,
+     ingen i text-zonen nedanför. Text-zonen är helt ren. */
+  .hero { min-height: 720px; }
   .hero-stage { width: 280px; height: 280px; }
   .hero-logo {
     width: 260px;
     height: 260px;
-    /* Säkerställ att heart-pulse-animationen körs även på mobil
-       (matchar desktop-beteendet). !important skyddar mot ev.
-       andra mobil-overrides som råkar nollställa animationen. */
+    /* Säkerställ att heart-pulse körs på mobil + extra stark basglow */
     animation: heart-pulse 5s ease-in-out infinite !important;
-    /* Lite starkare basglow så pulsen syns tydligare på mörk bg */
-    filter: drop-shadow(0 0 32px rgba(123,212,208,0.50));
+    filter: drop-shadow(0 0 36px rgba(123,212,208,0.55));
   }
 
   /* Dölj 7 moduler: Chat, Måltider, Rutiner, Läxor, Avtal,
@@ -413,50 +412,72 @@ a:hover {
   .float-mod.m12    /* 🔔 Påminnelser */
   { display: none; }
 
-  /* Modul-storlek - något större än desktop-skala (60px vs 56px)
-     eftersom vi nu har färre moduler så de tål att vara lite mer
-     framträdande. */
+  /* Mindre moduler (50px) så de får plats i sido-gutterna kring
+     logon utan att krocka. Med 260px logo i 280px stage centrerad
+     på 375px viewport blir vänster/höger-gutter ca 47.5px - 50px
+     moduler passar precis med liten buffer mot logon. */
   .float-mod {
-    width: 60px;
-    padding: 7px 3px 6px;
-    border-radius: 12px;
+    width: 50px;
+    padding: 5px 2px 5px;
+    border-radius: 10px;
   }
-  .float-icon { font-size: 19px; }
-  .float-label { font-size: 8.5px; letter-spacing: 0.1px; }
+  .float-icon { font-size: 16px; line-height: 18px; }
+  .float-label { font-size: 7.5px; letter-spacing: 0; line-height: 10px; }
 
-  /* Layout - symmetrisk 3×2-grid med modulpar i höjdled:
-     Topp-par ovanför logo, mitt-par vid sidorna av logo
-     (relations-modulerna närmast logon), botten-par längs
-     subtitle-zonen. */
+  /* HALO-LAYOUT runt logon — alla 6 moduler i övre 46% av hero,
+     ingen i text-zonen nedanför. Hero är 720px → 46% = 331px.
+     Logo slutar runt 360px (100px padding + 260px logo). Mina
+     moduler hamnar 0-310px (43%) — säker marginal till heading. */
 
-  /* Topp-par — ovanför logo */
-  .float-mod.m3  { top:  3%; left: 14%; margin-left: 0; }   /* 📅 Kalender */
-  .float-mod.m8  { top:  3%; left: 66%; }                    /* 🏠 Familj */
+  /* Topp-par — ovanför logon, indragna från kanterna */
+  .float-mod.m3  { top:  2%; left: 16%; margin-left: 0; }   /* 📅 Kalender */
+  .float-mod.m8  { top:  2%; left: 64%; }                    /* 🏠 Familj */
 
-  /* Mitt-par — vid sidan av logo (närhet + träning - personliga moduler) */
-  .float-mod.m13 { top: 32%; left:  0%; }                    /* 🔥 Närhet */
-  .float-mod.m5  { top: 32%; left: 80%; }                    /* 🏋️ Träning */
+  /* Övre sido-par — Närhet + Träning i logos övre tredjedel */
+  .float-mod.m13 { top: 22%; left:  1%; }                    /* 🔥 Närhet */
+  .float-mod.m5  { top: 22%; left: 86%; }                    /* 🏋️ Träning */
 
-  /* Botten-par — vid sidan av subtitle-zonen (vardags-modulerna) */
-  .float-mod.m2  { top: 64%; left:  0%; }                    /* ✅ To-do */
-  .float-mod.m7  { top: 64%; left: 80%; }                    /* 💰 Ekonomi */
+  /* Nedre sido-par — To-do + Ekonomi i logos nedre tredjedel */
+  .float-mod.m2  { top: 42%; left:  1%; }                    /* ✅ To-do */
+  .float-mod.m7  { top: 42%; left: 86%; }                    /* 💰 Ekonomi */
+
+  /* Använd mindre drift-animation på mobil så modulerna inte åker
+     in i logon eller utanför skärmen. drift-mobile ger ±5px rörelse
+     istället för ±20px som desktop. */
+  .float-mod {
+    animation:
+      fade-in-mod 1s ease-out var(--delay, 0s) forwards,
+      drift-mobile 7s ease-in-out var(--delay, 0s) infinite !important;
+  }
 
   /* Mjukare skugga på mobil för balans mot mindre yta */
   .float-mod {
     box-shadow:
-      0 0 18px rgba(123,212,208,0.24),
-      0 0 36px rgba(184,232,232,0.10),
-      0 4px 12px rgba(0,0,0,0.45);
+      0 0 14px rgba(123,212,208,0.24),
+      0 0 28px rgba(184,232,232,0.10),
+      0 3px 8px rgba(0,0,0,0.45);
   }
   .floating-modules { transform: scale(1); }
 }
 
-/* Extra smal mobil (≤360px) — ännu mindre moduler så de håller sig
-   väl inom skärmen även med drift-animationerna */
+/* Mobil-säker drift med ±5px amplitud (desktop har ±20-24px).
+   Räcker för att modulerna ska kännas levande utan att kollidera
+   med logon eller åka utanför smala skärmar. */
+@keyframes drift-mobile {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%      { transform: translate(-4px, 3px) rotate(-1.5deg); }
+  66%      { transform: translate(4px, -3px) rotate(1.5deg); }
+}
+
+/* Extra smal mobil (≤360px) — mindre logo + ännu mindre moduler
+   så halot fortfarande funkar på iPhone SE och liknande */
 @media (max-width: 360px) {
-  .float-mod { width: 54px; padding: 6px 2px 5px; }
-  .float-icon { font-size: 17px; }
-  .float-label { font-size: 8px; }
+  .hero-stage { width: 240px; height: 240px; }
+  .hero-logo { width: 220px; height: 220px; }
+
+  .float-mod { width: 44px; padding: 4px 2px 4px; }
+  .float-icon { font-size: 14px; line-height: 16px; }
+  .float-label { font-size: 7px; line-height: 9px; }
 }
 
 .hero h1 {
@@ -1226,31 +1247,47 @@ a.feature-item {
 
 /* Hero-logga som ett vilande hjärta - långsam lub-DUB med lång paus.
    Dämpad amplitud + 5s-cykel ger ~12 BPM = meditativ rytm, inget hetsigt.
-   Illustrerar ett förhållande i god vila - inte i panik. */
+   Illustrerar ett förhållande i god vila - inte i panik.
+
+   Glow består av två lager: tight inner-glow i logo-blå + diffus outer
+   halo i pastell-aqua. Vid DUB-peaken pumpas båda upp för en tydlig
+   lysande effekt utan att tappa det rofyllda. */
 @keyframes heart-pulse {
   0% {
     transform: scale(1);
-    filter: drop-shadow(0 0 24px rgba(123,212,208,0.32));
+    filter:
+      drop-shadow(0 0 28px rgba(123,212,208,0.45))
+      drop-shadow(0 0 0 rgba(184,232,232,0));
   }
   8% {
     transform: scale(1.015);
-    filter: drop-shadow(0 0 28px rgba(123,212,208,0.42));
+    filter:
+      drop-shadow(0 0 36px rgba(123,212,208,0.60))
+      drop-shadow(0 0 30px rgba(184,232,232,0.20));
   }
   18% {
     transform: scale(1);
-    filter: drop-shadow(0 0 24px rgba(123,212,208,0.32));
+    filter:
+      drop-shadow(0 0 28px rgba(123,212,208,0.45))
+      drop-shadow(0 0 0 rgba(184,232,232,0));
   }
   28% {
-    transform: scale(1.035);
-    filter: drop-shadow(0 0 36px rgba(123,212,208,0.55));
+    transform: scale(1.04);
+    filter:
+      drop-shadow(0 0 52px rgba(123,212,208,0.85))
+      drop-shadow(0 0 90px rgba(184,232,232,0.45));
   }
   42% {
     transform: scale(1);
-    filter: drop-shadow(0 0 24px rgba(123,212,208,0.32));
+    filter:
+      drop-shadow(0 0 28px rgba(123,212,208,0.45))
+      drop-shadow(0 0 0 rgba(184,232,232,0));
   }
   100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 24px rgba(123,212,208,0.32));
+    filter:
+      drop-shadow(0 0 28px rgba(123,212,208,0.45))
+      drop-shadow(0 0 0 rgba(184,232,232,0));
   }
 }
 

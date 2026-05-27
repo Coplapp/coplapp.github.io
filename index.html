@@ -93,19 +93,17 @@
             <div class="phone-notch"></div>
             <div class="phone-screen">
               <!-- Video: autoplay + loop + muted + playsinline (krav för iOS auto-play).
-                   Lägg in din MP4 i landing/assets/copl-demo.mp4 så syns den här.
-                   poster="..." kan användas för fallback-bild medan videon laddar. -->
+                   540x960 (9:16) skärminspelning av appen i action. -->
               <video
                 class="phone-video"
                 autoplay
                 muted
                 loop
                 playsinline
-                preload="metadata"
-                poster="assets/copl-demo-poster.png"
+                preload="auto"
               >
                 <source src="assets/copl-demo.mp4" type="video/mp4" />
-                <!-- Fallback om videon inte laddas: visa logga -->
+                <!-- Fallback om videon inte laddas: phone-placeholder visas under -->
               </video>
               <!-- Platshållare som syns tills videofilen är på plats -->
               <div class="phone-placeholder">

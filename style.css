@@ -799,10 +799,16 @@ a.feature-item {
 
 /* Ionicons (modulkort + svävande moduler) - matchar mobilappens copl-blå
    outline-ikoner i Verktygslådan. ion-icon respekterar font-size för storlek
-   och color (currentColor i SVG) för linje-färg. */
+   och color (currentColor i SVG) för linje-färg. Hårdkodad #7BD4D0 + extra
+   selektorer för att vinna över ev. cascading. */
 ion-icon.icon,
-ion-icon.float-icon {
-  color: var(--logo-blue);
+ion-icon.float-icon,
+.feature-item ion-icon,
+.float-mod ion-icon {
+  color: #7BD4D0 !important;
+  --ionicon-fill-color: #7BD4D0;
+  fill: #7BD4D0;
+  stroke: #7BD4D0;
   /* Liten visuell finish: subtil glow så ikonen poppar mot mörk yta */
   filter: drop-shadow(0 0 6px rgba(123, 212, 208, 0.25));
 }

@@ -797,6 +797,16 @@ a.feature-item {
   display: block;
 }
 
+/* Ionicons (modulkort + svävande moduler) - matchar mobilappens copl-blå
+   outline-ikoner i Verktygslådan. ion-icon respekterar font-size för storlek
+   och color (currentColor i SVG) för linje-färg. */
+ion-icon.icon,
+ion-icon.float-icon {
+  color: var(--logo-blue);
+  /* Liten visuell finish: subtil glow så ikonen poppar mot mörk yta */
+  filter: drop-shadow(0 0 6px rgba(123, 212, 208, 0.25));
+}
+
 .feature-item h3 {
   font-size: 16px;
   font-weight: 600;

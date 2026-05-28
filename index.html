@@ -13,6 +13,9 @@
 <meta property="og:type" content="website" />
 <link rel="icon" href="assets/copl-logo.png" type="image/png" />
 <link rel="stylesheet" href="style.css" />
+<!-- Ionicons: samma ikon-bibliotek som mobilappen använder (matchar Verktygslådan) -->
+<script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
 
@@ -37,19 +40,19 @@
          Sprids längs sidorna + topp/botten, fri zon i mitten där
          logga + rubrik + tagline ligger. -->
     <div class="floating-modules" aria-hidden="true">
-      <div class="float-mod m1"  style="--delay: 0.0s"><span class="float-icon">💬</span><span class="float-label">Chat</span></div>
-      <div class="float-mod m2"  style="--delay: 0.3s"><span class="float-icon">✅</span><span class="float-label">To-do</span></div>
-      <div class="float-mod m3"  style="--delay: 0.6s"><span class="float-icon">📅</span><span class="float-label">Kalender</span></div>
-      <div class="float-mod m4"  style="--delay: 0.9s"><span class="float-icon">🍽️</span><span class="float-label">Måltider</span></div>
-      <div class="float-mod m5"  style="--delay: 1.2s"><span class="float-icon">🏋️</span><span class="float-label">Träning</span></div>
-      <div class="float-mod m6"  style="--delay: 1.5s"><span class="float-icon">🔁</span><span class="float-label">Rutiner</span></div>
-      <div class="float-mod m7"  style="--delay: 1.8s"><span class="float-icon">💰</span><span class="float-label">Ekonomi</span></div>
-      <div class="float-mod m8"  style="--delay: 2.1s"><span class="float-icon">🏠</span><span class="float-label">Familj</span></div>
-      <div class="float-mod m9"  style="--delay: 2.4s"><span class="float-icon">📚</span><span class="float-label">Läxor</span></div>
-      <div class="float-mod m10" style="--delay: 2.7s"><span class="float-icon">🤝</span><span class="float-label">Avtal</span></div>
-      <div class="float-mod m11" style="--delay: 3.0s"><span class="float-icon">💌</span><span class="float-label">Uppskattning</span></div>
-      <div class="float-mod m12" style="--delay: 3.3s"><span class="float-icon">🔔</span><span class="float-label">Påminnelser</span></div>
-      <div class="float-mod m13" style="--delay: 3.6s"><span class="float-icon">🔥</span><span class="float-label">Närhet</span></div>
+      <div class="float-mod m1"  style="--delay: 0.0s"><ion-icon class="float-icon" name="chatbubbles-outline"></ion-icon><span class="float-label">Chat</span></div>
+      <div class="float-mod m2"  style="--delay: 0.3s"><ion-icon class="float-icon" name="checkbox-outline"></ion-icon><span class="float-label">To-do</span></div>
+      <div class="float-mod m3"  style="--delay: 0.6s"><ion-icon class="float-icon" name="calendar-outline"></ion-icon><span class="float-label">Kalender</span></div>
+      <div class="float-mod m4"  style="--delay: 0.9s"><ion-icon class="float-icon" name="restaurant-outline"></ion-icon><span class="float-label">Måltider</span></div>
+      <div class="float-mod m5"  style="--delay: 1.2s"><ion-icon class="float-icon" name="barbell-outline"></ion-icon><span class="float-label">Träning</span></div>
+      <div class="float-mod m6"  style="--delay: 1.5s"><ion-icon class="float-icon" name="repeat-outline"></ion-icon><span class="float-label">Rutiner</span></div>
+      <div class="float-mod m7"  style="--delay: 1.8s"><ion-icon class="float-icon" name="wallet-outline"></ion-icon><span class="float-label">Ekonomi</span></div>
+      <div class="float-mod m8"  style="--delay: 2.1s"><ion-icon class="float-icon" name="people-outline"></ion-icon><span class="float-label">Familj</span></div>
+      <div class="float-mod m9"  style="--delay: 2.4s"><ion-icon class="float-icon" name="school-outline"></ion-icon><span class="float-label">Läxor</span></div>
+      <div class="float-mod m10" style="--delay: 2.7s"><ion-icon class="float-icon" name="ribbon-outline"></ion-icon><span class="float-label">Avtal</span></div>
+      <div class="float-mod m11" style="--delay: 3.0s"><ion-icon class="float-icon" name="heart-outline"></ion-icon><span class="float-label">Uppskattning</span></div>
+      <div class="float-mod m12" style="--delay: 3.3s"><ion-icon class="float-icon" name="notifications-outline"></ion-icon><span class="float-label">Påminnelser</span></div>
+      <div class="float-mod m13" style="--delay: 3.6s"><ion-icon class="float-icon" name="flame-outline"></ion-icon><span class="float-label">Närhet</span></div>
     </div>
 
     <div class="hero-inner">
@@ -228,72 +231,72 @@
       </p>
       <div class="feature-list">
         <a href="features.html#kalender" class="feature-item reveal">
-          <span class="icon">📅</span>
+          <ion-icon class="icon" name="calendar-outline"></ion-icon>
           <h3>Gemensam kalender</h3>
           <p>Alla händelser på ett ställe. Hämtningar, möten, läxor, lediga kvällar.</p>
         </a>
         <a href="features.html#todo" class="feature-item reveal">
-          <span class="icon">✅</span>
+          <ion-icon class="icon" name="checkbox-outline"></ion-icon>
           <h3>Vår to-do</h3>
           <p>Listor som båda ser. Vem ska göra vad, när det är klart.</p>
         </a>
         <a href="features.html#inkop" class="feature-item reveal">
-          <span class="icon">🛒</span>
+          <ion-icon class="icon" name="cart-outline"></ion-icon>
           <h3>Inköpslistor</h3>
           <p>Storhandla, ny pryl, julklappar. Flera listor parallellt.</p>
         </a>
         <a href="features.html#familj" class="feature-item reveal">
-          <span class="icon">🏠</span>
+          <ion-icon class="icon" name="people-outline"></ion-icon>
           <h3>Familj</h3>
           <p>Profilkort för varje familjemedlem. Aldrig leta i mail igen.</p>
         </a>
         <a href="features.html#laxor" class="feature-item reveal">
-          <span class="icon">📚</span>
+          <ion-icon class="icon" name="school-outline"></ion-icon>
           <h3>Läxor</h3>
           <p>Vad ska göras, när, av vem. Deadline-markering om något halkar efter.</p>
         </a>
         <a href="features.html#maltider" class="feature-item reveal">
-          <span class="icon">🍽️</span>
+          <ion-icon class="icon" name="restaurant-outline"></ion-icon>
           <h3>Måltidsplanering</h3>
           <p>Veckans middagar i förväg. Genererar inköpslista automatiskt.</p>
         </a>
         <a href="features.html#rutiner" class="feature-item reveal">
-          <span class="icon">🔁</span>
+          <ion-icon class="icon" name="repeat-outline"></ion-icon>
           <h3>Veckorutiner</h3>
           <p>Återkommande sysslor. Bocka av per dag. Streaks som motiverar.</p>
         </a>
         <a href="features.html#traning" class="feature-item reveal">
-          <span class="icon">🏋️</span>
+          <ion-icon class="icon" name="barbell-outline"></ion-icon>
           <h3>Träning</h3>
           <p>Logga pass, sätt veckomål, se streaks. Reflektion månadsvis.</p>
         </a>
         <a href="features.html#ekonomi" class="feature-item reveal">
-          <span class="icon">💰</span>
+          <ion-icon class="icon" name="wallet-outline"></ion-icon>
           <h3>Vår ekonomi</h3>
           <p>Hushållsbudget tillsammans. Sparmål, inkomster, utgifter, trender.</p>
         </a>
         <a href="features.html#overenskommelser" class="feature-item reveal">
-          <span class="icon">🤝</span>
+          <ion-icon class="icon" name="ribbon-outline"></ion-icon>
           <h3>Överenskommelser</h3>
           <p>Skriv ner det ni kommit överens om. Synligt för båda.</p>
         </a>
         <a href="features.html#uppskattningar" class="feature-item reveal">
-          <span class="icon">💌</span>
+          <ion-icon class="icon" name="heart-outline"></ion-icon>
           <h3>Uppskattningar</h3>
           <p>Korta tacksamhets-meddelanden. Små texter som bygger stort över tid.</p>
         </a>
         <a href="features.html#paminnelser" class="feature-item reveal">
-          <span class="icon">🔔</span>
+          <ion-icon class="icon" name="notifications-outline"></ion-icon>
           <h3>Påminnelser</h3>
           <p>Tänker du på något viktigt för den andra? Skicka påminnelse direkt.</p>
         </a>
         <a href="features.html#narhet" class="feature-item reveal">
-          <span class="icon">🔥</span>
+          <ion-icon class="icon" name="flame-outline"></ion-icon>
           <h3>Närhet</h3>
           <p>Verktyg för att hålla närheten levande. PIN-låst och E2E-krypterat.</p>
         </a>
         <a href="features.html#puls" class="feature-item reveal">
-          <span class="icon">📊</span>
+          <ion-icon class="icon" name="pulse-outline"></ion-icon>
           <h3>Relationspulsen</h3>
           <p>Dagliga humör-checkins. Honeymoon, stabil, stormig? Trender över tid.</p>
         </a>

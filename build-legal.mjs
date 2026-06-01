@@ -68,7 +68,7 @@ ${htmlBody}
         <li><a href="terms.html">Användarvillkor</a></li>
         <li><a href="mailto:copl-app@outlook.com">Kontakt</a></li>
       </ul>
-      <div class="footer-copy">© 2026 Pontus Brunzell</div>
+      <div class="footer-copy">© 2026 Copl</div>
     </div>
   </footer>
 

@@ -41,9 +41,6 @@
 
   <!-- Hero -->
   <header class="hero">
-    <!-- Svävande modulkort i hela hero-sektionen - INTE runt loggan.
-         Sprids längs sidorna + topp/botten, fri zon i mitten där
-         logga + rubrik + tagline ligger. -->
     <div class="floating-modules" aria-hidden="true">
       <div class="float-mod m1"  style="--delay: 0.0s"><ion-icon class="float-icon" name="chatbubbles-outline"></ion-icon><span class="float-label">Chat</span></div>
       <div class="float-mod m2"  style="--delay: 0.3s"><ion-icon class="float-icon" name="checkbox-outline"></ion-icon><span class="float-label">To-do</span></div>
@@ -61,7 +58,6 @@
     </div>
 
     <div class="hero-inner">
-      <!-- Stage: bara loggan, ingen extra plats för svävande element -->
       <div class="hero-stage">
         <img src="assets/copl-logo.png" alt="Copl-logga" class="hero-logo" />
       </div>
@@ -76,7 +72,6 @@
       <div class="store-buttons">
         <a href="#" class="store-btn disabled" title="Lanseras snart i App Store" aria-disabled="true">
           <span class="store-icon" aria-hidden="true">
-            <!-- Apples officiella logotyp som SVG (offentlig glyph) -->
             <svg viewBox="0 0 384 512" focusable="false">
               <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
             </svg>
@@ -95,25 +90,13 @@
   <section class="showcase">
     <div class="container">
       <div class="showcase-grid">
-        <!-- iPhone-mockup med video-loop -->
         <div class="phone-mockup reveal">
           <div class="phone-frame">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <!-- Video: autoplay + loop + muted + playsinline (krav för iOS auto-play).
-                   540x960 (9:16) skärminspelning av appen i action. -->
-              <video
-                class="phone-video"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="auto"
-              >
+              <video class="phone-video" autoplay muted loop playsinline preload="auto">
                 <source src="assets/copl-demo.mp4" type="video/mp4" />
-                <!-- Fallback om videon inte laddas: phone-placeholder visas under -->
               </video>
-              <!-- Platshållare som syns tills videofilen är på plats -->
               <div class="phone-placeholder">
                 <img src="assets/copl-logo.png" alt="Copl" class="phone-placeholder-logo" />
                 <div class="phone-placeholder-text">Filmen kommer hit</div>
@@ -122,7 +105,6 @@
           </div>
         </div>
 
-        <!-- Säljtext bredvid -->
         <div class="showcase-text reveal">
           <h2>Så här fungerar Copl</h2>
           <p>
@@ -152,12 +134,187 @@
             </li>
           </ul>
 
-          <!-- CTA till modulrutnätet nedanför -->
           <a href="#moduler" class="showcase-cta">
             Kolla in alla modulerna
             <span class="showcase-cta-arrow" aria-hidden="true">↓</span>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funktionsöversikt - alla 15 moduler med full beskrivning -->
+  <section class="section" id="moduler">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 600; text-align: center; margin-bottom: 12px; letter-spacing: -0.4px;">
+        Allt ni delar - på ett ställe
+      </h2>
+      <p style="text-align: center; color: var(--ink-muted); font-size: 14px; margin-bottom: 32px;">
+        Femton moduler - allt det praktiska, plus det som håller er nära.
+      </p>
+      <div class="feature-list">
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="chatbubbles-outline"></ion-icon>
+          <h3>Chatt</h3>
+          <p>
+            En delad chatt för text, bilder och korta videoklipp. Skicka bilder
+            och klipp som "visa en gång" - de försvinner när mottagaren öppnat
+            dem, med möjlighet att be om att få se igen. Lås chatten med PIN eller
+            Face ID, välj auto-radering av historiken, och redigera eller radera
+            skickade meddelanden.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="calendar-outline"></ion-icon>
+          <h3>Gemensam kalender</h3>
+          <p>
+            Alla händelser på ett ställe - hämtningar, läkarbesök, lediga kvällar,
+            jobbresor. Sätt upp återkommande rutiner så lägger de sig automatiskt.
+            Notifikationer dyker upp för båda samtidigt. Markera privata händelser
+            om du vill ha något bara för dig. Exportera kalendern till telefonen
+            och vidare till Outlook, Google eller iCloud - privata händelser hålls
+            alltid utanför. Veckonummer visas i alla vyer.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="checkbox-outline"></ion-icon>
+          <h3>Vår to-do</h3>
+          <p>
+            Delade listor som båda ser i realtid. Tilldela uppgifter till dig
+            själv, partnern eller "vem som hinner först". Bocka av med ett tap -
+            partnern ser direkt att det är klart. Bra för allt från hämtningar och
+            bokningar till "ring försäkringsbolaget om bilen".
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="cart-outline"></ion-icon>
+          <h3>Inköpslistor</h3>
+          <p>
+            Skapa parallella listor - veckohandling, ny pryl till hemmet,
+            julklappar, sommarsemestern. Lägg till varor från valfri enhet, bocka
+            av i butiken. Arkivera klara listor. Båda ser samma listor, alltid.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="people-outline"></ion-icon>
+          <h3>Familj</h3>
+          <p>
+            Profilkort för varje familjemedlem med skostorlek, klädstorlek,
+            allergier, läkarkontakter och namnsdag. Slipp gräva i mejlen inför
+            varje shopping-runda. Familjenoteringar är end-to-end-krypterade.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="school-outline"></ion-icon>
+          <h3>Läxor</h3>
+          <p>
+            Håll koll på vad som ska göras, när det ska vara klart och vem som tar
+            det. Tydlig deadline-markering visar direkt om något halkat efter så ni
+            hinner steppa in.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="restaurant-outline"></ion-icon>
+          <h3>Måltidsplanering</h3>
+          <p>
+            Planera veckans middagar i förväg och tilldela vem som lagar vilken
+            dag. Spara bra maträtter i "Vår receptbank" och lägg in dem i en
+            framtida veckoplanering med ett tryck - välj vilken dag. Markera om en
+            rätt behöver handlas så skapas en inköpslista automatiskt. Veckonummer
+            och "kopiera förra veckan" finns också.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="repeat-outline"></ion-icon>
+          <h3>Veckorutiner</h3>
+          <p>
+            Återkommande sysslor som städning, sophämtning, träning och läxhjälp.
+            Bocka av per dag och se streaks. Bra för att fördela ansvar rättvist
+            och synliggöra hur mycket var och en drar lasset.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="barbell-outline"></ion-icon>
+          <h3>Träning</h3>
+          <p>
+            Logga era pass - gym, löpning, simning, yoga. Sätt individuella
+            veckomål och se streaks. Månadsvis reflektion hjälper er se vad som
+            funkar och justera när livet ändrar sig.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="wallet-outline"></ion-icon>
+          <h3>Vår ekonomi</h3>
+          <p>
+            Bygg er hushållsbudget tillsammans - inkomster, fasta utgifter,
+            sparmål. Färgkodad status visar direkt om budgeten är i balans, har
+            pengar kvar att fördela eller är överskriden. Månadssnapshots ger en
+            trend över tid.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="ribbon-outline"></ion-icon>
+          <h3>Överenskommelser</h3>
+          <p>
+            Skriv ner det ni kommit överens om - fördelning av hushållssysslor,
+            skärmtidsregler, vad som gäller på semestrar, hur ni hanterar pengar.
+            Tydligt och synligt för båda så det inte glöms eller förvrängs över tid.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="heart-outline"></ion-icon>
+          <h3>Uppskattningar</h3>
+          <p>
+            Skicka korta meddelanden av tacksamhet till varandra. Små texter som
+            byggs på och stärker relationen över tid. Spara som minnen att gå
+            tillbaka till.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="notifications-outline"></ion-icon>
+          <h3>Påminnelser</h3>
+          <p>
+            Skicka en planerad påminnelse till partnern om något viktigt - "kom
+            ihåg tandläkaren på torsdag", "köp blommor till mamma". Anländer när
+            det behövs, utan att störa just nu.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="flame-outline"></ion-icon>
+          <h3>Närhet (opt-in)</h3>
+          <p>
+            Verktyg för att hålla närheten levande - skicka spontana önskningar
+            (kram, puss, dejtkväll, filmkväll) och ta tillbaka dem om du ångrar
+            dig, preferenser att utforska tillsammans, en intimacy-logg för att
+            följa rytm och frekvens, och veckans match. PIN-låst och helt frivillig
+            modul.
+          </p>
+        </div>
+
+        <div class="feature-item reveal">
+          <ion-icon class="icon" name="pulse-outline"></ion-icon>
+          <h3>Relationspulsen</h3>
+          <p>
+            Dagliga och veckovisa humör-checkins - hur mår ni just nu? Honeymoon,
+            stabil, lite trögt, stormig? Se en trendgraf över tid så ni kan
+            upptäcka mönster och prata om det innan det blir större.
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -245,95 +402,6 @@
           på våra servrar. Inne i appen kan ni dessutom verifiera er säkerhetskod med
           varandra — så ni vet att ingen lyssnar.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Funktionsöversikt - alla 15 moduler, klickbara -->
-  <section class="section" id="moduler">
-    <div class="container">
-      <h2 style="font-size: 28px; font-weight: 600; text-align: center; margin-bottom: 12px; letter-spacing: -0.4px;">
-        Allt ni delar - på ett ställe
-      </h2>
-      <p style="text-align: center; color: var(--ink-muted); font-size: 14px; margin-bottom: 32px;">
-        Klicka på en modul för att läsa mer →
-      </p>
-      <div class="feature-list">
-        <a href="features.html#chatt" class="feature-item reveal">
-          <ion-icon class="icon" name="chatbubbles-outline"></ion-icon>
-          <h3>Krypterad chatt</h3>
-          <p>Text, bilder och videoklipp - bara mellan er. "Visa en gång", lås och redigera/radera.</p>
-        </a>
-        <a href="features.html#kalender" class="feature-item reveal">
-          <ion-icon class="icon" name="calendar-outline"></ion-icon>
-          <h3>Gemensam kalender</h3>
-          <p>Alla händelser på ett ställe. Hämtningar, möten, läxor, lediga kvällar.</p>
-        </a>
-        <a href="features.html#todo" class="feature-item reveal">
-          <ion-icon class="icon" name="checkbox-outline"></ion-icon>
-          <h3>Vår to-do</h3>
-          <p>Listor som båda ser. Vem ska göra vad, när det är klart.</p>
-        </a>
-        <a href="features.html#inkop" class="feature-item reveal">
-          <ion-icon class="icon" name="cart-outline"></ion-icon>
-          <h3>Inköpslistor</h3>
-          <p>Storhandla, ny pryl, julklappar. Flera listor parallellt.</p>
-        </a>
-        <a href="features.html#familj" class="feature-item reveal">
-          <ion-icon class="icon" name="people-outline"></ion-icon>
-          <h3>Familj</h3>
-          <p>Profilkort för varje familjemedlem. Aldrig leta i mail igen.</p>
-        </a>
-        <a href="features.html#laxor" class="feature-item reveal">
-          <ion-icon class="icon" name="school-outline"></ion-icon>
-          <h3>Läxor</h3>
-          <p>Vad ska göras, när, av vem. Deadline-markering om något halkar efter.</p>
-        </a>
-        <a href="features.html#maltider" class="feature-item reveal">
-          <ion-icon class="icon" name="restaurant-outline"></ion-icon>
-          <h3>Måltidsplanering</h3>
-          <p>Veckans middagar i förväg. Genererar inköpslista automatiskt.</p>
-        </a>
-        <a href="features.html#rutiner" class="feature-item reveal">
-          <ion-icon class="icon" name="repeat-outline"></ion-icon>
-          <h3>Veckorutiner</h3>
-          <p>Återkommande sysslor. Bocka av per dag. Streaks som motiverar.</p>
-        </a>
-        <a href="features.html#traning" class="feature-item reveal">
-          <ion-icon class="icon" name="barbell-outline"></ion-icon>
-          <h3>Träning</h3>
-          <p>Logga pass, sätt veckomål, se streaks. Reflektion månadsvis.</p>
-        </a>
-        <a href="features.html#ekonomi" class="feature-item reveal">
-          <ion-icon class="icon" name="wallet-outline"></ion-icon>
-          <h3>Vår ekonomi</h3>
-          <p>Hushållsbudget tillsammans. Sparmål, inkomster, utgifter, trender.</p>
-        </a>
-        <a href="features.html#overenskommelser" class="feature-item reveal">
-          <ion-icon class="icon" name="ribbon-outline"></ion-icon>
-          <h3>Överenskommelser</h3>
-          <p>Skriv ner det ni kommit överens om. Synligt för båda.</p>
-        </a>
-        <a href="features.html#uppskattningar" class="feature-item reveal">
-          <ion-icon class="icon" name="heart-outline"></ion-icon>
-          <h3>Uppskattningar</h3>
-          <p>Korta tacksamhets-meddelanden. Små texter som bygger stort över tid.</p>
-        </a>
-        <a href="features.html#paminnelser" class="feature-item reveal">
-          <ion-icon class="icon" name="notifications-outline"></ion-icon>
-          <h3>Påminnelser</h3>
-          <p>Tänker du på något viktigt för den andra? Skicka påminnelse direkt.</p>
-        </a>
-        <a href="features.html#narhet" class="feature-item reveal">
-          <ion-icon class="icon" name="flame-outline"></ion-icon>
-          <h3>Närhet</h3>
-          <p>Verktyg för att hålla närheten levande. PIN-låst och E2E-krypterat.</p>
-        </a>
-        <a href="features.html#puls" class="feature-item reveal">
-          <ion-icon class="icon" name="pulse-outline"></ion-icon>
-          <h3>Relationspulsen</h3>
-          <p>Dagliga humör-checkins. Honeymoon, stabil, stormig? Trender över tid.</p>
-        </a>
       </div>
     </div>
   </section>

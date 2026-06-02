@@ -4,6 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#061018" />
+<script>
+(function(){try{var l=localStorage.getItem('copl-lang');if(l==='sv')return;var f=location.pathname.split('/').pop()||'index.html';if(l==='en'||(navigator.language||'').toLowerCase().indexOf('sv')!==0){location.replace('en/'+f);}}catch(e){}})();
+</script>
 <title>Integritetspolicy - Copl</title>
 <meta name="description" content="Vad Copl gör med din data. Sammanfattning: ingenting du inte vill att vi gör." />
 <link rel="icon" href="assets/copl-logo.png" type="image/png" />
@@ -21,6 +24,7 @@
         <li><a href="index.html">Hem</a></li>
         <li><a href="features.html">Funktioner</a></li>
         <li><a href="privacy.html" class="active">Integritet</a></li>
+        <li><a href="en/privacy.html" onclick="localStorage.setItem('copl-lang','en')">EN</a></li>
       </ul>
     </div>
   </nav>

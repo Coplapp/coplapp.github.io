@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#061018" />
+<!-- If the visitor has chosen Swedish, send them back to the Swedish page. -->
+<script>
+(function(){try{if(localStorage.getItem('copl-lang')==='sv'){var f=location.pathname.split('/').pop()||'index.html';location.replace('../'+f);}}catch(e){}})();
+</script>
+<title>Copl - Everyday life, together</title>
+<meta name="description" content="Copl is the app for couples. Calendar, tasks, family, budget and closeness in one place. End-to-end encrypted, no ads." />
+<meta property="og:title" content="Copl - Everyday life, together" />
+<meta property="og:description" content="The app for couples who want everyday life to flow - calendar, tasks, family and closeness in one." />
+<meta property="og:image" content="https://coplapp.com/assets/copl-logo.png" />
+<meta property="og:url" content="https://coplapp.com/en/" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="../assets/copl-logo.png" type="image/png" />
+<link rel="stylesheet" href="../style.css" />
+<script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="../assets/copl-logo.png" alt="Copl" class="nav-logo" />
+        <span>Copl</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="../index.html" onclick="localStorage.setItem('copl-lang','sv')">SV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="floating-modules" aria-hidden="true">
+      <div class="float-mod m1"  style="--delay: 0.0s"><ion-icon class="float-icon" name="chatbubbles-outline"></ion-icon><span class="float-label">Chat</span></div>
+      <div class="float-mod m2"  style="--delay: 0.3s"><ion-icon class="float-icon" name="checkbox-outline"></ion-icon><span class="float-label">To-do</span></div>
+      <div class="float-mod m3"  style="--delay: 0.6s"><ion-icon class="float-icon" name="calendar-outline"></ion-icon><span class="float-label">Calendar</span></div>
+      <div class="float-mod m4"  style="--delay: 0.9s"><ion-icon class="float-icon" name="restaurant-outline"></ion-icon><span class="float-label">Meals</span></div>
+      <div class="float-mod m5"  style="--delay: 1.2s"><ion-icon class="float-icon" name="barbell-outline"></ion-icon><span class="float-label">Workouts</span></div>
+      <div class="float-mod m6"  style="--delay: 1.5s"><ion-icon class="float-icon" name="repeat-outline"></ion-icon><span class="float-label">Routines</span></div>
+      <div class="float-mod m7"  style="--delay: 1.8s"><ion-icon class="float-icon" name="wallet-outline"></ion-icon><span class="float-label">Budget</span></div>
+      <div class="float-mod m8"  style="--delay: 2.1s"><ion-icon class="float-icon" name="people-outline"></ion-icon><span class="float-label">Family</span></div>
+      <div class="float-mod m9"  style="--delay: 2.4s"><ion-icon class="float-icon" name="school-outline"></ion-icon><span class="float-label">Homework</span></div>
+      <div class="float-mod m10" style="--delay: 2.7s"><ion-icon class="float-icon" name="ribbon-outline"></ion-icon><span class="float-label">Agreements</span></div>
+      <div class="float-mod m11" style="--delay: 3.0s"><ion-icon class="float-icon" name="heart-outline"></ion-icon><span class="float-label">Appreciation</span></div>
+      <div class="float-mod m12" style="--delay: 3.3s"><ion-icon class="float-icon" name="notifications-outline"></ion-icon><span class="float-label">Reminders</span></div>
+      <div class="float-mod m13" style="--delay: 3.6s"><ion-icon class="float-icon" name="flame-outline"></ion-icon><span class="float-label">Closeness</span></div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-stage">
+        <img src="../assets/copl-logo.png" alt="Copl logo" class="hero-logo" />
+      </div>
+      <h1>Everyday life, together</h1>
+      <p class="subtitle">
+        Copl is the app that handles the logistics so you can take care of each other.
+        <br><br>
+        Calendar, family, plans, budget - all the practical stuff. Plus room for what actually keeps a relationship alive: appreciation, closeness, small moments.
+        <br>
+        Just between the two of you, completely private.
+      </p>
+      <div class="store-buttons">
+        <a href="#" class="store-btn disabled" title="Coming soon to the App Store" aria-disabled="true">
+          <span class="store-icon" aria-hidden="true">
+            <svg viewBox="0 0 384 512" focusable="false">
+              <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+            </svg>
+          </span>
+          <span class="store-text">
+            <span class="small">Coming soon to</span>
+            <span class="big">App Store</span>
+          </span>
+          <span class="store-badge" aria-hidden="true">Soon</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIDEO SHOWCASE -->
+  <section class="showcase">
+    <div class="container">
+      <div class="showcase-grid">
+        <div class="phone-mockup reveal">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <video class="phone-video" autoplay muted loop playsinline preload="auto">
+                <source src="../assets/copl-demo.mp4" type="video/mp4" />
+              </video>
+              <div class="phone-placeholder">
+                <img src="../assets/copl-logo.png" alt="Copl" class="phone-placeholder-logo" />
+                <div class="phone-placeholder-text">Video coming soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-text reveal">
+          <h2>How Copl works</h2>
+          <p>
+            This week's dinners are planned by the time Monday comes. The shopping
+            list is already in your pocket when you're at the store. The reminder
+            about her mum's birthday shows up in good time. And the kind things you
+            think about each other during the week - there's room for those too.
+            All the practical stuff in one place, so you have time and attention
+            left for what matters most: each other.
+          </p>
+          <ul class="showcase-bullets">
+            <li>
+              <span class="bullet-icon">💬</span>
+              <span class="bullet-text">Everything you share - in one calm, shared place.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">🔐</span>
+              <span class="bullet-text">End-to-end encrypted - the private stays between you.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">✨</span>
+              <span class="bullet-text">Built for couples who want order in both their private life and their relationship.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">🇸🇪</span>
+              <span class="bullet-text">Data stored in Sweden. No ads, no trackers.</span>
+            </li>
+          </ul>
+
+          <a href="#modules" class="showcase-cta">
+            See all the modules
+            <span class="showcase-cta-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 selling points -->
+  <section class="section">
+    <div class="container">
+      <div class="features">
+        <div class="feature reveal">
+          <span class="icon">💑</span>
+          <h3>Built for two</h3>
+          <p>
+            Copl is made for the rhythm of a relationship. A calm, shared space
+            where everyday life is handled together - and where there's still
+            room for what actually keeps you close.
+          </p>
+        </div>
+        <div class="feature reveal">
+          <span class="icon">🔐</span>
+          <h3>End-to-end encrypted</h3>
+          <p>
+            Sensitive data (intimacy, family info, agreements, appreciations) is
+            encrypted on your device before it leaves your phone. Not even we who
+            run the app can read the content.
+          </p>
+        </div>
+        <div class="feature reveal">
+          <span class="icon">🌿</span>
+          <h3>No ads, no trackers</h3>
+          <p>
+            We don't sell your data. No analytics, no ad networks, no cookies.
+            All data is stored in Sweden (Stockholm).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust block -->
+  <section class="container">
+    <div class="trust reveal">
+      <h2>Everyday life together, without middlemen</h2>
+      <p>
+        Everything in one place - but on your terms. We built Copl for couples who
+        want both structure and closeness, without compromising on privacy.
+      </p>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="icon">🇸🇪</span>
+          <div class="text">Data stored in Sweden</div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">🔒</span>
+          <div class="text">No passwords - magic links</div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">📋</span>
+          <div class="text">GDPR-compliant</div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">⚖️</span>
+          <div class="text">You own your data</div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">🔐</span>
+          <div class="text">End-to-end encrypted</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End-to-end encryption -->
+  <section class="section">
+    <div class="container">
+      <div class="trust reveal">
+        <h2>🔐 End-to-end encrypted where it matters</h2>
+        <p>
+          Your most sensitive things — closeness, family info, agreements, appreciations,
+          check-ins and the entire chat (messages, photos and video clips) — are
+          <strong>end-to-end encrypted</strong>. Only the two of you can read them. Not even
+          we who run Copl can see the content.
+        </p>
+        <p>
+          Everything else (calendar, to-dos, budget, meals) is encrypted in transit and
+          on our servers. Inside the app you can also verify your security code with each
+          other — so you know no one is listening.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module overview - all 15 modules, clickable -->
+  <section class="section" id="modules">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 600; text-align: center; margin-bottom: 12px; letter-spacing: -0.4px;">
+        Everything you share - in one place
+      </h2>
+      <p style="text-align: center; color: var(--ink-muted); font-size: 14px; margin-bottom: 32px;">
+        Tap a module to read more →
+      </p>
+      <div class="feature-list">
+        <a href="features.html#chatt" class="feature-item reveal">
+          <ion-icon class="icon" name="chatbubbles-outline"></ion-icon>
+          <h3>Encrypted chat</h3>
+          <p>Text, photos and video clips - just between you. "View once", lock and edit/delete.</p>
+        </a>
+        <a href="features.html#kalender" class="feature-item reveal">
+          <ion-icon class="icon" name="calendar-outline"></ion-icon>
+          <h3>Shared calendar</h3>
+          <p>All events in one place. Pickups, meetings, homework, free evenings.</p>
+        </a>
+        <a href="features.html#todo" class="feature-item reveal">
+          <ion-icon class="icon" name="checkbox-outline"></ion-icon>
+          <h3>Our to-do</h3>
+          <p>Lists you both see. Who does what, when it's done.</p>
+        </a>
+        <a href="features.html#inkop" class="feature-item reveal">
+          <ion-icon class="icon" name="cart-outline"></ion-icon>
+          <h3>Shopping lists</h3>
+          <p>Big shop, new gadget, Christmas gifts. Several lists at once.</p>
+        </a>
+        <a href="features.html#familj" class="feature-item reveal">
+          <ion-icon class="icon" name="people-outline"></ion-icon>
+          <h3>Family</h3>
+          <p>Profile cards for every family member. Never dig through email again.</p>
+        </a>
+        <a href="features.html#laxor" class="feature-item reveal">
+          <ion-icon class="icon" name="school-outline"></ion-icon>
+          <h3>Homework</h3>
+          <p>What to do, when, by whom. Deadline flag if something slips.</p>
+        </a>
+        <a href="features.html#maltider" class="feature-item reveal">
+          <ion-icon class="icon" name="restaurant-outline"></ion-icon>
+          <h3>Meal planning</h3>
+          <p>This week's dinners in advance. Generates the shopping list automatically.</p>
+        </a>
+        <a href="features.html#rutiner" class="feature-item reveal">
+          <ion-icon class="icon" name="repeat-outline"></ion-icon>
+          <h3>Weekly routines</h3>
+          <p>Recurring chores. Check off per day. Streaks that motivate.</p>
+        </a>
+        <a href="features.html#traning" class="feature-item reveal">
+          <ion-icon class="icon" name="barbell-outline"></ion-icon>
+          <h3>Workouts</h3>
+          <p>Log sessions, set weekly goals, see streaks. Monthly reflection.</p>
+        </a>
+        <a href="features.html#ekonomi" class="feature-item reveal">
+          <ion-icon class="icon" name="wallet-outline"></ion-icon>
+          <h3>Our budget</h3>
+          <p>Household budget together. Savings goals, income, expenses, trends.</p>
+        </a>
+        <a href="features.html#overenskommelser" class="feature-item reveal">
+          <ion-icon class="icon" name="ribbon-outline"></ion-icon>
+          <h3>Agreements</h3>
+          <p>Write down what you've agreed on. Visible to both.</p>
+        </a>
+        <a href="features.html#uppskattningar" class="feature-item reveal">
+          <ion-icon class="icon" name="heart-outline"></ion-icon>
+          <h3>Appreciations</h3>
+          <p>Short notes of gratitude. Small texts that build big over time.</p>
+        </a>
+        <a href="features.html#paminnelser" class="feature-item reveal">
+          <ion-icon class="icon" name="notifications-outline"></ion-icon>
+          <h3>Reminders</h3>
+          <p>Thinking of something important for the other? Send a reminder.</p>
+        </a>
+        <a href="features.html#narhet" class="feature-item reveal">
+          <ion-icon class="icon" name="flame-outline"></ion-icon>
+          <h3>Closeness</h3>
+          <p>Tools to keep closeness alive. PIN-locked and E2E encrypted.</p>
+        </a>
+        <a href="features.html#puls" class="feature-item reveal">
+          <ion-icon class="icon" name="pulse-outline"></ion-icon>
+          <h3>Relationship pulse</h3>
+          <p>Daily mood check-ins. Honeymoon, stable, stormy? Trends over time.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <img src="../assets/copl-logo.png" alt="Copl" class="footer-logo" />
+      <p class="footer-tagline">Built with care, from one couple to another.</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="mailto:copl-app@outlook.com">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Copl</div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+</body>
+</html>

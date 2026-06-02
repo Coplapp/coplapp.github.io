@@ -4,6 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#061018" />
+<!-- Språkdetektering: icke-svenska webbläsare → engelska sidan (/en/). Sparar val i localStorage. -->
+<script>
+(function(){try{var l=localStorage.getItem('copl-lang');if(l==='sv')return;var f=location.pathname.split('/').pop()||'index.html';if(l==='en'||(navigator.language||'').toLowerCase().indexOf('sv')!==0){location.replace('en/'+f);}}catch(e){}})();
+</script>
 <title>Copl - Få ihop livspusslet</title>
 <meta name="description" content="Copl är appen för par. Få ihop kalender, uppgifter, familj, ekonomi och närhet på ett ställe. End-to-end-krypterat, ingen reklam." />
 <meta property="og:title" content="Copl - Få ihop livspusslet" />
@@ -30,6 +34,7 @@
         <li><a href="index.html" class="active">Hem</a></li>
         <li><a href="features.html">Funktioner</a></li>
         <li><a href="privacy.html">Integritet</a></li>
+        <li><a href="en/index.html" onclick="localStorage.setItem('copl-lang','en')">EN</a></li>
       </ul>
     </div>
   </nav>

@@ -4,6 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#061018" />
+<!-- Språkdetektering: icke-svenska webbläsare → engelska sidan (/en/). Sparar val i localStorage. -->
+<script>
+(function(){try{var l=localStorage.getItem('copl-lang');if(l==='sv')return;var f=location.pathname.split('/').pop()||'index.html';if(l==='en'||(navigator.language||'').toLowerCase().indexOf('sv')!==0){location.replace('en/'+f);}}catch(e){}})();
+</script>
 <title>Funktioner - Copl</title>
 <meta name="description" content="Allt Copl kan: kalender, uppgifter, familj, ekonomi, måltider, närhet och mer. Designad för par." />
 <link rel="icon" href="assets/copl-logo.png" type="image/png" />
@@ -24,6 +28,7 @@
         <li><a href="index.html">Hem</a></li>
         <li><a href="features.html" class="active">Funktioner</a></li>
         <li><a href="privacy.html">Integritet</a></li>
+        <li><a href="en/features.html" onclick="localStorage.setItem('copl-lang','en')">EN</a></li>
       </ul>
     </div>
   </nav>

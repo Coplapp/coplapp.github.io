@@ -27,13 +27,11 @@ const LANGS = {
     prefix: '',
     nav: [
       { href: 'index.html', label: 'Hem', key: 'home' },
-      { href: 'features.html', label: 'Funktioner', key: 'features' },
       { href: 'privacy.html', label: 'Integritet', key: 'privacy' },
     ],
     footerTagline: 'Byggd med omtanke från ett par till ett annat.',
     footerLinks: [
       { href: 'index.html', label: 'Hem' },
-      { href: 'features.html', label: 'Funktioner' },
       { href: 'privacy.html', label: 'Integritet' },
       { href: 'terms.html', label: 'Användarvillkor' },
       { href: 'mailto:copl-app@outlook.com', label: 'Kontakt' },
@@ -47,13 +45,11 @@ const LANGS = {
     prefix: '../',
     nav: [
       { href: 'index.html', label: 'Home', key: 'home' },
-      { href: 'features.html', label: 'Features', key: 'features' },
       { href: 'privacy.html', label: 'Privacy', key: 'privacy' },
     ],
     footerTagline: 'Built with care, from one couple to another.',
     footerLinks: [
       { href: 'index.html', label: 'Home' },
-      { href: 'features.html', label: 'Features' },
       { href: 'privacy.html', label: 'Privacy' },
       { href: 'terms.html', label: 'Terms' },
       { href: 'mailto:copl-app@outlook.com', label: 'Contact' },

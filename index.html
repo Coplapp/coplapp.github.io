@@ -84,6 +84,21 @@
     </div>
   </header>
 
+  <!-- VÄNTELISTA -->
+  <section class="waitlist" id="vantelista">
+    <div class="container waitlist-inner">
+      <h2>Få veta när Copl släpps</h2>
+      <p>Lämna din mejl så hör vi av oss när appen finns i App Store. Inga utskick däremellan.</p>
+      <form id="wl-form" class="wl-form" novalidate>
+        <input type="email" id="wl-email" class="wl-input" placeholder="din@mejl.se" required autocomplete="email" />
+        <input type="text" id="wl-company" class="wl-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button type="submit" class="wl-button">Notifiera mig</button>
+      </form>
+      <p id="wl-msg" class="wl-msg" role="status" aria-live="polite"></p>
+      <p class="wl-fine">Vi sparar bara din mejl för lanseringsnotisen och raderar listan efteråt. <a href="privacy.html">Integritetspolicy</a></p>
+    </div>
+  </section>
+
   <!-- VIDEO-SHOWCASE - appen i action -->
   <section class="showcase">
     <div class="container">
@@ -405,5 +420,30 @@
   </footer>
 
   <script src="reveal.js"></script>
+  <script>
+  (function () {
+    var ENDPOINT = 'https://acapdkovkusuewtertul.supabase.co/rest/v1/waitlist';
+    var KEY = 'sb_publishable_-rDlVpw5qq5NfXbpGY-ptw_mUg1kkuf';
+    var f = document.getElementById('wl-form');
+    if (!f) return;
+    var msg = document.getElementById('wl-msg');
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (document.getElementById('wl-company').value) return; // honeypot → bot
+      var email = (document.getElementById('wl-email').value || '').trim();
+      if (!email) return;
+      msg.textContent = 'Skickar…';
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { apikey: KEY, Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+        body: JSON.stringify({ email: email, source: 'web' }),
+      }).then(function (r) {
+        if (r.ok) { msg.textContent = 'Tack! Vi hör av oss vid lansering. 🎉'; f.reset(); }
+        else if (r.status === 409) { msg.textContent = 'Du står redan på listan ✓'; f.reset(); }
+        else { msg.textContent = 'Något gick fel — försök igen.'; }
+      }).catch(function () { msg.textContent = 'Något gick fel — försök igen.'; });
+    });
+  })();
+  </script>
 </body>
 </html>

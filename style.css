@@ -1506,3 +1506,82 @@ ion-icon.float-icon,
     transform: none !important;
   }
 }
+
+/* ============================================================
+   Väntelista
+   ============================================================ */
+.waitlist {
+  padding: 56px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+.waitlist-inner {
+  max-width: 560px;
+  text-align: center;
+}
+.waitlist h2 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.waitlist p {
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.wl-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.wl-input {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  outline: none;
+}
+.wl-input::placeholder { color: var(--ink-muted); opacity: 0.6; }
+.wl-input:focus { border-color: var(--logo-blue); }
+.wl-button {
+  padding: 14px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #061018;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.wl-button:hover { opacity: 0.9; }
+/* Honeypot — dold för människor, lockar bottar */
+.wl-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.wl-msg {
+  min-height: 20px;
+  margin-top: 14px !important;
+  margin-bottom: 6px !important;
+  font-size: 14px;
+  color: var(--logo-blue);
+}
+.wl-fine {
+  font-size: 12px !important;
+  color: var(--ink-muted) !important;
+  opacity: 0.75;
+  margin-bottom: 0 !important;
+}
+.wl-fine a { color: var(--logo-blue); }

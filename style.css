@@ -1238,9 +1238,12 @@ ion-icon.float-icon,
 }
 
 .bullet-icon {
-  font-size: 22px;
-  line-height: 1.4;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--logo-blue);
   flex-shrink: 0;
+  margin-top: 6px;
 }
 
 .bullet-text {

@@ -437,8 +437,8 @@
       }).then(function (r) {
         if (r.ok) { msg.textContent = 'Thanks! We\'ll be in touch at launch. 🎉'; f.reset(); }
         else if (r.status === 409) { msg.textContent = 'You\'re already on the list ✓'; f.reset(); }
-        else { msg.textContent = 'Something went wrong — try again.'; }
-      }).catch(function () { msg.textContent = 'Something went wrong — try again.'; });
+        else { msg.textContent = 'Something went wrong - try again.'; }
+      }).catch(function () { msg.textContent = 'Something went wrong - try again.'; });
     });
   })();
   </script>

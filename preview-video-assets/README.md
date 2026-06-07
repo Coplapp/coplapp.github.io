@@ -18,16 +18,16 @@ Ta 5 screenshots på din iPhone (Settings → Screen Recording, eller Volume-Up 
 
 | Filnamn | Vad ska visas |
 |---|---|
-| `screen-1.png` | **Dashboard** — startsidan med modulkort + pulserande logga |
-| `screen-2.png` | **Kalender** — månadsvy eller agenda |
-| `screen-3.png` | **Familj** — översikten med familjemedlemmar |
-| `screen-4.png` | **Ekonomi** — översikten med balans + sparande |
-| `screen-5.png` | **Närhet** — PIN-låsskärmen (INTE innehållet bakom!) |
+| `screen-1.png` | **Dashboard** - startsidan med modulkort + pulserande logga |
+| `screen-2.png` | **Kalender** - månadsvy eller agenda |
+| `screen-3.png` | **Familj** - översikten med familjemedlemmar |
+| `screen-4.png` | **Ekonomi** - översikten med balans + sparande |
+| `screen-5.png` | **Närhet** - PIN-låsskärmen (INTE innehållet bakom!) |
 
 **Krav på screenshots:**
 - iPhone-skärmupplösning (1170×2532 px för 6.7", 1242×2688 för 6.5", t.ex.)
 - PNG-format
-- Mörk Frost-bakgrund (canvas #061018) — passar med video-bakgrunden
+- Mörk Frost-bakgrund (canvas #061018) - passar med video-bakgrunden
 
 **Lägg filerna i:** `landing/preview-video-assets/`
 
@@ -106,10 +106,10 @@ ffmpeg -i din-inspelning.mov \
 ```
 
 **Förklaring:**
-- `-ss 00:00:00 -t 15` — börja vid 0, klipp 15 sek
-- `-vf "scale=1080:1920,fps=30"` — skala till App Store-spec
-- `-c:v libx264 -crf 18` — hög kvalitet H.264
-- `-pix_fmt yuv420p` — App Store-kompatibel pixel-format
+- `-ss 00:00:00 -t 15` - börja vid 0, klipp 15 sek
+- `-vf "scale=1080:1920,fps=30"` - skala till App Store-spec
+- `-c:v libx264 -crf 18` - hög kvalitet H.264
+- `-pix_fmt yuv420p` - App Store-kompatibel pixel-format
 
 **För andra storlekar:**
 - 6.5" iPhone XS Max: `scale=886:1920`
@@ -119,13 +119,13 @@ ffmpeg -i din-inspelning.mov \
 
 1. Logga in på `appstoreconnect.apple.com`
 2. Din app → App Preview and Screenshots
-3. Välj storlek (6.7", 6.5", 5.5") — ladda upp respektive `.mp4`
+3. Välj storlek (6.7", 6.5", 5.5") - ladda upp respektive `.mp4`
 4. Drag-and-drop tills uppladdningen är klar
 
 ## Tips
 
 - **Inspelning på Mac med exakt 1080×1920:** öppna preview-video.html, F11 fullskärm, justera ev. Chrome-storleken till 1080×1920 via DevTools (Cmd+Shift+M → välj iPhone 12 Pro Max)
-- **Loopen är 15s exakt** — vänta tills animationen står på intro (logga i mitten) innan du börjar inspelning
+- **Loopen är 15s exakt** - vänta tills animationen står på intro (logga i mitten) innan du börjar inspelning
 - **Om FFmpeg klagar** på pixel-format, lägg till `-pix_fmt yuv420p` (redan inkluderat ovan)
 - **Apple kräver INGA tredjepartslogos** i preview-videon (bara din app + Copl-logga är OK)
 

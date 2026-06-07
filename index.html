@@ -440,8 +440,8 @@
       }).then(function (r) {
         if (r.ok) { msg.textContent = 'Tack! Vi hör av oss vid lansering. 🎉'; f.reset(); }
         else if (r.status === 409) { msg.textContent = 'Du står redan på listan ✓'; f.reset(); }
-        else { msg.textContent = 'Något gick fel — försök igen.'; }
-      }).catch(function () { msg.textContent = 'Något gick fel — försök igen.'; });
+        else { msg.textContent = 'Något gick fel - försök igen.'; }
+      }).catch(function () { msg.textContent = 'Något gick fel - försök igen.'; });
     });
   })();
   </script>

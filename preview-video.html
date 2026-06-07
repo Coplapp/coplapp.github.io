@@ -106,7 +106,7 @@
   }
 
   /* ============================================================
-     INTRO/OUTRO — riktiga splash-videon (3s lång) + rubrik
+     INTRO/OUTRO - riktiga splash-videon (3s lång) + rubrik
      Visas i 0-3s + 13-15s. Phone-mockup tar över sömlöst när
      videons första cykel just har slutat → känns som "appen öppnas"
      ============================================================ */
@@ -140,7 +140,7 @@
     height: 480px;
     object-fit: contain;
     background: transparent;
-    /* Extra glow utöver videons egen — gör logan ännu mer poppig
+    /* Extra glow utöver videons egen - gör logan ännu mer poppig
        mot dark canvas */
     filter:
       drop-shadow(0 0 40px rgba(123,212,208,0.40))
@@ -228,7 +228,7 @@
       inset 0 -2px 0 rgba(0,0,0,0.5);
   }
 
-  /* Glass-morphism reflektion längs vänster kant — glider sakta över
+  /* Glass-morphism reflektion längs vänster kant - glider sakta över
      phone-framen för en levande premium-känsla */
   .phone-frame::before {
     content: '';
@@ -252,7 +252,7 @@
     50%      { opacity: 0.85; transform: translateY(15px); }
   }
 
-  /* Light-streak — diagonal aqua-strimma som sveper över phone-frame
+  /* Light-streak - diagonal aqua-strimma som sveper över phone-frame
      vid varje skärmskifte. Skapar en "wow"-blixt utan att vara plottrig. */
   .phone-frame::after {
     content: '';
@@ -673,7 +673,7 @@
   }
 
   /* ============================================================
-     TEXT-OVERLAYS — varje skärm har en text-bubbla nedanför phone
+     TEXT-OVERLAYS - varje skärm har en text-bubbla nedanför phone
      som glider in från botten + fadar in synkront med skärmen
      ============================================================ */
 
@@ -752,7 +752,7 @@
   }
 
   /* ============================================================
-     FULLSIZE-LÄGE — för inspelning
+     FULLSIZE-LÄGE - för inspelning
      Lägg till ?fullsize i URL:en för att rendera 1080x1920 utan
      scale-ned. Användbart vid skärminspelning.
      ============================================================ */

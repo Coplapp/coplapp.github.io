@@ -437,18 +437,18 @@ a:hover {
 
   /* HALO-LAYOUT - alla 6 moduler tighter runt logon */
 
-  /* Topp-par — ovanför logon, närmare mitten (har gott om plats
+  /* Topp-par - ovanför logon, närmare mitten (har gott om plats
      ovanför logo så vi kan tighta mer aggressivt här) */
   .float-mod.m3  { top:  2%; left: 22%; margin-left: 0; }   /* 📅 Kalender */
   .float-mod.m8  { top:  2%; left: 58%; }                    /* 🏠 Familj */
 
-  /* Övre sido-par — Närhet + Träning i logos övre tredjedel,
+  /* Övre sido-par - Närhet + Träning i logos övre tredjedel,
      trycks in tightare mot logo (kramar logo-kanten med ~8px
      z-överlapp som hidden bakom logon → visuellt halo-effekt) */
   .float-mod.m13 { top: 22%; left:  5%; }                    /* 🔥 Närhet */
   .float-mod.m5  { top: 22%; left: 82%; }                    /* 🏋️ Träning */
 
-  /* Nedre sido-par — To-do + Ekonomi i logos nedre tredjedel */
+  /* Nedre sido-par - To-do + Ekonomi i logos nedre tredjedel */
   .float-mod.m2  { top: 36%; left:  5%; }                    /* ✅ To-do */
   .float-mod.m7  { top: 36%; left: 82%; }                    /* 💰 Ekonomi */
 
@@ -480,7 +480,7 @@ a:hover {
   66%      { transform: translate(4px, -3px) rotate(1.5deg); }
 }
 
-/* Extra smal mobil (≤360px) — mindre logo + ännu mindre moduler
+/* Extra smal mobil (≤360px) - mindre logo + ännu mindre moduler
    så halot fortfarande funkar på iPhone SE och liknande */
 @media (max-width: 360px) {
   .hero-stage { width: 240px; height: 240px; }
@@ -1566,7 +1566,7 @@ ion-icon.float-icon,
   transition: opacity 0.15s ease;
 }
 .wl-button:hover { opacity: 0.9; }
-/* Honeypot — dold för människor, lockar bottar */
+/* Honeypot - dold för människor, lockar bottar */
 .wl-hp {
   position: absolute;
   left: -9999px;

@@ -107,6 +107,7 @@
 <li>Short messages</li>
 </ul>
 <p>We <em>don&#39;t ask</em> for any of this - you choose what to enter.</p>
+<p>If you enter information about someone else (e.g. your partner or your children in the family module), you are responsible for having the right to do so. Our legal basis for storing it is to perform the contract with you (Art. 6.1.b); for sensitive data (e.g. allergies), your explicit consent (Art. 9.2.a).</p>
 <h3>1.3 Technical data</h3>
 <ul>
 <li><strong>Push token</strong> for the device (so we can send notifications to that device)</li>
@@ -172,7 +173,7 @@
 <tbody><tr>
 <td><strong>Supabase</strong></td>
 <td>All database content, authentication, files</td>
-<td><strong>Sweden (Stockholm)</strong> - EU region, data never leaves the EU</td>
+<td><strong>Sweden (Stockholm)</strong> - EU region. Supabase data never leaves the EU.</td>
 </tr>
 <tr>
 <td><strong>Apple Push Notification Service (APNS)</strong></td>
@@ -200,10 +201,12 @@
 <h2>4. How long data is kept</h2>
 <ul>
 <li><strong>Active accounts:</strong> No automatic deletion. Data lives as long as you use the app.</li>
+<li><strong>Inactive accounts:</strong> If you haven&#39;t logged in for 3 years we contact you first, then close the account - your data is deleted within 30 days.</li>
 <li><strong>Ended relationships</strong> (where both partners have ended or you deleted your account): Soft delete first. <strong>Hard deletion within 30 days.</strong></li>
 <li><strong>Closed accounts:</strong> All your data is deleted within 30 days.</li>
 <li><strong>Backups:</strong> We take manual backups with limited retention. Backups older than 3 months are deleted.</li>
 <li><strong>Server logs:</strong> Maximum 7 days.</li>
+<li><strong>Crash reports (when Sentry is active):</strong> Technical crash reports without your content, deleted per Sentry&#39;s standard retention (approx. 90 days).</li>
 </ul>
 <hr>
 <h2>5. Who sees data</h2>

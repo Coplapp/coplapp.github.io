@@ -104,6 +104,7 @@
 <li>Korta meddelanden</li>
 </ul>
 <p>Vi <em>ber inte</em> om något av detta - ni väljer själva vad ni lägger in.</p>
+<p>Om du lägger in uppgifter om någon annan (t.ex. din partner eller era barn i familjemodulen) ansvarar du för att du har rätt att göra det. Vår rättsliga grund för att lagra det är att fullgöra avtalet med dig (art. 6.1.b); för känsliga uppgifter (t.ex. allergier), ditt uttryckliga samtycke (art. 9.2.a).</p>
 <h3>1.3 Tekniska data</h3>
 <ul>
 <li><strong>Push-token</strong> för enheten (för att kunna skicka notiser till just den enheten)</li>
@@ -169,7 +170,7 @@
 <tbody><tr>
 <td><strong>Supabase</strong></td>
 <td>All databas-innehåll, autentisering, filer</td>
-<td><strong>Sverige (Stockholm)</strong> - EU-region, data lämnar aldrig EU</td>
+<td><strong>Sverige (Stockholm)</strong> - EU-region. Supabase-data lämnar aldrig EU.</td>
 </tr>
 <tr>
 <td><strong>Apple Push Notification Service (APNS)</strong></td>
@@ -197,10 +198,12 @@
 <h2>4. Hur länge sparas data</h2>
 <ul>
 <li><strong>Aktiva konton:</strong> Ingen automatisk radering. Data lever så länge du använder appen.</li>
+<li><strong>Inaktiva konton:</strong> Om du inte loggat in på 3 år hör vi av oss först och stänger sedan kontot - din data raderas inom 30 dagar.</li>
 <li><strong>Avslutade relationer</strong> (där båda partners avslutat eller du raderat ditt konto): Soft-delete först. <strong>Hård radering inom 30 dagar.</strong></li>
 <li><strong>Avslutade konton:</strong> All din data raderas inom 30 dagar.</li>
 <li><strong>Backuper:</strong> Vi tar manuella backuper med begränsad retention. Backuper äldre än 3 månader raderas.</li>
 <li><strong>Server-loggar:</strong> Maximalt 7 dagar.</li>
+<li><strong>Felrapporter (när Sentry är aktivt):</strong> Tekniska crash-rapporter utan ditt innehåll, raderas enligt Sentrys standardretention (ca 90 dagar).</li>
 </ul>
 <hr>
 <h2>5. Vem ser data</h2>

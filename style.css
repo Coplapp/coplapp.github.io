@@ -1594,12 +1594,19 @@ ion-icon.float-icon,
    plattan tonar över till Copl-navy och loggan kliver fram.
    Sektionen ligger direkt efter modulerna. Logik: puzzle.js
    ============================================================ */
-.puzzle-wrap { height: 160vh; position: relative; }
+.puzzle-wrap {
+  height: 150vh; position: relative;
+  /* Dra in mot grannsektionernas 80px-paddings så det inte blir luftigt */
+  margin: -56px 0;
+}
 .puzzle-sticky {
-  position: sticky; top: 0; height: 100vh;
+  position: sticky; top: 7vh; height: 86vh;
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   overflow: hidden;
+}
+@media (max-width: 640px) {
+  .puzzle-wrap { margin: -32px 0; }
 }
 .pz-title {
   font-size: clamp(18px, 2.4vw, 28px); font-weight: 600; letter-spacing: -0.4px;

@@ -1715,9 +1715,11 @@ ion-icon.float-icon,
 .download-cta { text-align: center; }
 .download-cta h2 {
   font-size: 28px; font-weight: 600; letter-spacing: -0.4px; margin-bottom: 10px;
+  text-align: center;
 }
 .download-cta p {
   color: var(--ink-muted); font-size: 15px; margin-bottom: 26px;
+  text-align: center;
 }
 .download-cta .store-buttons {
   display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;

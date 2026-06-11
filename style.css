@@ -1594,7 +1594,7 @@ ion-icon.float-icon,
    plattan tonar över till Copl-navy och loggan kliver fram.
    Sektionen ligger direkt efter modulerna. Logik: puzzle.js
    ============================================================ */
-.puzzle-wrap { height: 280vh; position: relative; }
+.puzzle-wrap { height: 160vh; position: relative; }
 .puzzle-sticky {
   position: sticky; top: 0; height: 100vh;
   display: flex; flex-direction: column;
@@ -1602,8 +1602,8 @@ ion-icon.float-icon,
   overflow: hidden;
 }
 .pz-title {
-  font-size: clamp(22px, 3.4vw, 36px); font-weight: 700; letter-spacing: -0.4px;
-  margin-bottom: 3vh; text-align: center; padding: 0 6vw;
+  font-size: clamp(18px, 2.4vw, 28px); font-weight: 600; letter-spacing: -0.4px;
+  margin-bottom: 2.5vh; text-align: center; padding: 0 6vw;
   transition: opacity 0.5s ease;
 }
 .pz-title span { color: var(--logo-blue); }
@@ -1611,7 +1611,7 @@ ion-icon.float-icon,
 .pz-scene { perspective: 900px; }
 .pz-stage {
   position: relative;
-  width: min(440px, 82vw); aspect-ratio: 1;
+  width: min(300px, 64vw); aspect-ratio: 1;
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -1690,7 +1690,7 @@ ion-icon.float-icon,
 }
 
 .pz-slogan {
-  margin-top: 4vh; font-size: clamp(18px, 2.6vw, 28px); font-weight: 700;
+  margin-top: 3vh; font-size: clamp(15px, 1.9vw, 21px); font-weight: 600;
   display: flex; gap: 0.5em; flex-wrap: wrap; justify-content: center; padding: 0 6vw;
 }
 .pz-slogan span { opacity: 0.2; transition: opacity 0.5s ease, text-shadow 0.5s; }

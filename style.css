@@ -1708,3 +1708,17 @@ ion-icon.float-icon,
   .puzzle-wrap { height: auto; padding: 60px 0; }
   .puzzle-sticky { position: static; height: auto; }
 }
+
+/* ============================================================
+   NEDLADDNINGS-CTA - sista sektionen före sidfoten
+   ============================================================ */
+.download-cta { text-align: center; }
+.download-cta h2 {
+  font-size: 28px; font-weight: 600; letter-spacing: -0.4px; margin-bottom: 10px;
+}
+.download-cta p {
+  color: var(--ink-muted); font-size: 15px; margin-bottom: 26px;
+}
+.download-cta .store-buttons {
+  display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+}

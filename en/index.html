@@ -335,6 +335,25 @@
     </div>
   </section>
 
+  <!-- SCROLL PUZZLE - pieces tumble in 3D and snap together into the logo (puzzle.js + style.css) -->
+  <div class="puzzle-wrap" id="puzzle" data-puzzle aria-label="Puzzle animation: the pieces of everyday life fall into place and form the Copl logo">
+    <div class="puzzle-sticky">
+      <div class="pz-title">Piece by piece, <span>it falls into place.</span></div>
+      <div class="pz-scene">
+        <div class="pz-stage">
+          <div class="pz-plate"></div>
+          <div class="pz-flash"></div>
+          <div class="pz-sparkles"></div>
+          <div class="pz-rings"><i></i><i></i><i></i></div>
+          <div class="pz-logo"><img src="../assets/copl-logo-c.svg" alt="Copl" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="pz-slogan">
+        <span>One app.</span> <span>Two people.</span> <span class="pz-aq">Zero chaos.</span>
+      </div>
+    </div>
+  </div>
+
   <!-- 3 selling points -->
   <section class="section">
     <div class="container">
@@ -417,6 +436,7 @@
   </footer>
 
   <script src="../reveal.js"></script>
+  <script src="../puzzle.js" defer></script>
   <script>
   (function () {
     var ENDPOINT = 'https://acapdkovkusuewtertul.supabase.co/rest/v1/waitlist';

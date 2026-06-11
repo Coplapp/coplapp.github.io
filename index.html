@@ -338,6 +338,25 @@
     </div>
   </section>
 
+  <!-- SCROLLPUSSLET - bitarna tumlar in i 3D och kopplas samman till loggan (puzzle.js + style.css) -->
+  <div class="puzzle-wrap" id="pussel" data-puzzle aria-label="Pusselanimation: vardagens bitar faller på plats och bildar Copl-loggan">
+    <div class="puzzle-sticky">
+      <div class="pz-title">Bit för bit <span>faller det på plats.</span></div>
+      <div class="pz-scene">
+        <div class="pz-stage">
+          <div class="pz-plate"></div>
+          <div class="pz-flash"></div>
+          <div class="pz-sparkles"></div>
+          <div class="pz-rings"><i></i><i></i><i></i></div>
+          <div class="pz-logo"><img src="assets/copl-logo-c.svg" alt="Copl" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="pz-slogan">
+        <span>En app.</span> <span>Två personer.</span> <span class="pz-aq">Noll kaos.</span>
+      </div>
+    </div>
+  </div>
+
   <!-- 3 säljpunkter -->
   <section class="section">
     <div class="container">
@@ -420,6 +439,7 @@
   </footer>
 
   <script src="reveal.js"></script>
+  <script src="puzzle.js" defer></script>
   <script>
   (function () {
     var ENDPOINT = 'https://acapdkovkusuewtertul.supabase.co/rest/v1/waitlist';

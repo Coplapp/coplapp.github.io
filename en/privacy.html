@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Privacy Policy - Copl</h1>
-<p><strong>Version 2.0 - effective from 2026-05-24</strong></p>
+<p><strong>Version 3.0 - effective from 2026-06-12</strong></p>
 <p>This policy explains what Copl does with the data you and your partner enter in the app. We&#39;ve tried to write it in plain language - if anything is unclear, get in touch.</p>
 <blockquote>
 <p><em>Note: this is an English translation of the Swedish original. The Swedish version is the authoritative one in case of any discrepancy. Synchronize both files when updating the policy.</em></p>
@@ -66,7 +66,12 @@
 <tbody><tr>
 <td><strong>Email address</strong></td>
 <td>Your email</td>
-<td>Login via magic link. We send only a link there.</td>
+<td>Login and account verification. We send one-time codes there. If you sign in with Apple or Google we receive the address from them (Apple may give you a relay address that hides your real one).</td>
+</tr>
+<tr>
+<td><strong>Password</strong> (if you create an account with email)</td>
+<td>Your chosen password</td>
+<td>Login. Never stored in plain text - only as a cryptographic hash with Supabase Auth. We cannot see it.</td>
 </tr>
 <tr>
 <td><strong>Nickname</strong></td>
@@ -125,7 +130,7 @@
 <li>Health data beyond what you yourself log in the intimacy module</li>
 </ul>
 <blockquote>
-<p><strong>About the website (coplapp.com):</strong> it sets no cookies and has no analytics or tracking. The only thing stored is your <strong>language choice</strong> (Swedish/English), saved locally in your browser (localStorage). This is a functional setting, not tracking, and therefore requires no consent.</p>
+<p><strong>About the website (coplapp.com):</strong> it sets no cookies and has no analytics or tracking. The only thing stored is your <strong>language choice</strong> (Swedish/English), saved locally in your browser (localStorage). This is a functional setting, not tracking, and therefore requires no consent. The site is static and served via GitHub Pages, with DNS via Cloudflare - these providers may keep normal technical access logs (IP address) to deliver the site, but we do not access them and nothing is linked to your app account.</p>
 <p><strong>Waitlist:</strong> if you voluntarily submit your email to the waitlist, we store it (with your consent, GDPR Art. 6.1.a) <strong>only</strong> to notify you when Copl launches. We send no other emails, and the list is deleted after launch. You can ask us to remove your address at any time (<a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>).</p>
 </blockquote>
 <hr>
@@ -186,6 +191,11 @@
 <td>Google&#39;s global infrastructure</td>
 </tr>
 <tr>
+<td><strong>Resend</strong></td>
+<td>Email delivery (login codes and verification emails) - your email address and message content in transit</td>
+<td><strong>EU (Ireland)</strong> - sent via AWS eu-west-1</td>
+</tr>
+<tr>
 <td><strong>Expo</strong></td>
 <td>App builds, OTA updates (no user data)</td>
 <td>USA</td>
@@ -222,7 +232,9 @@
 <h3>Third parties</h3>
 <ul>
 <li><strong>Supabase</strong> stores the data but has no routines that open it. They have their own privacy policy.</li>
+<li><strong>Resend</strong> delivers our emails (login codes, verifications) and therefore sees your email address and the message content. Emails are sent from the EU (Ireland).</li>
 <li><strong>Apple and Google</strong> see push notification content on the way to your phone. We send generic notification texts (&quot;Something new from your partner&quot;) where possible.</li>
+<li><strong>Apple or Google as sign-in provider</strong> - only if you yourself choose to sign in with Sign in with Apple or Google. Then Apple/Google knows you sign in to Copl, and we receive your email address (Apple may provide a relay address) and a signed login token. Nothing more - no contacts, photos, or other account data.</li>
 <li><strong>No others.</strong></li>
 </ul>
 <h3>What we <em>don&#39;t</em> do</h3>
@@ -239,7 +251,7 @@
 <li><strong>End-to-end encryption is implemented</strong> for sensitive fields (intimacy, family notes, agreements, appreciations) since 2026-05-23. Not even we as operators can read the content - it is encrypted on your device before being stored, with a key that only exists on your and your partner&#39;s phones. Algorithm: tweetnacl/XSalsa20-Poly1305 with AAD binding and version prefix. You can verify the encryption via Settings → Encryption Verification (shows your and your partner&#39;s fingerprint for verbal comparison).</li>
 <li><strong>PIN lock</strong> on the intimacy module can be activated locally on your device.</li>
 <li><strong>Discreet mode</strong> hides sensitive sections from the app&#39;s home screen.</li>
-<li><strong>Passwords don&#39;t exist</strong> - we use magic links via email, which eliminates password leak risks.</li>
+<li><strong>Sign-in:</strong> you sign in with a one-time code via email, with a password, or with Sign in with Apple/Google. Passwords are never stored in plain text - only as a cryptographic hash with Supabase Auth. Forgotten passwords are handled by signing in with a one-time code (no reset link that can be hijacked).</li>
 </ul>
 <hr>
 <h2>7. Your rights under GDPR</h2>
@@ -322,6 +334,11 @@
 <td>2026-05-24</td>
 <td>End-to-end encryption has been implemented and verified in production on 2026-05-23. Sections that described E2EE as &quot;planned&quot; or &quot;future&quot; updated to present tense. Encryption verification via fingerprint in Settings documented.</td>
 </tr>
+<tr>
+<td>3.0</td>
+<td>2026-06-12</td>
+<td>New sign-in methods documented: Sign in with Apple, Google, and email with password (in addition to one-time codes via email). Resend added as a subprocessor for email delivery (EU/Ireland). Clarification about website hosting (GitHub Pages, Cloudflare DNS).</td>
+</tr>
 </tbody></table>
 <hr>
 <h2>12. Contact</h2>
@@ -329,8 +346,8 @@
 <p><strong>Email:</strong> <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a></p>
 <p><strong>Postal address:</strong> provided on request</p>
 <hr>
-<p><em>The Swedish version of this policy is authoritative. In case of discrepancy between translations, the Swedish version applies. See <a href="PRIVACY.md">PRIVACY.md</a> for the Swedish original.</em></p>
-<p><em>Internal source document with technical details (for developers): <a href="docs/INTEGRITET.md"><code>docs/INTEGRITET.md</code></a> in the codebase.</em></p>
+<p><em>The Swedish version of this policy is authoritative. In case of discrepancy between translations, the Swedish version applies. See <a href="../privacy.html">the Swedish original</a>.</em></p>
+<p><em>Internal source document with technical details (for developers): <code>docs/INTEGRITET.md</code> in the codebase.</em></p>
 
     </article>
   </main>

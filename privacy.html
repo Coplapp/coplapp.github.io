@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Integritetspolicy - Copl</h1>
-<p><strong>Version 2.0 - gäller från 2026-05-24</strong></p>
+<p><strong>Version 3.0 - gäller från 2026-06-12</strong></p>
 <p>Den här policyn berättar vad Copl gör med den data du och din partner lägger in i appen. Vi har försökt skriva den i klartext - om något är otydligt, hör av dig.</p>
 <hr>
 <h2>Vem är ansvarig</h2>
@@ -63,7 +63,12 @@
 <tbody><tr>
 <td><strong>E-postadress</strong></td>
 <td>Din mejl</td>
-<td>Inloggning via magic link. Vi skickar bara en länk dit.</td>
+<td>Inloggning och kontoverifiering. Vi skickar engångskoder dit. Loggar du in med Apple eller Google får vi adressen därifrån (Apple kan ge dig en reläadress som döljer din riktiga).</td>
+</tr>
+<tr>
+<td><strong>Lösenord</strong> (om du skapar konto med e-post)</td>
+<td>Ditt valda lösenord</td>
+<td>Inloggning. Lagras aldrig i klartext - endast som kryptografisk hash hos Supabase Auth. Vi kan inte se det.</td>
 </tr>
 <tr>
 <td><strong>Smeknamn</strong></td>
@@ -122,7 +127,7 @@
 <li>Hälsodata utöver det du själv loggar in i intimitet-modulen</li>
 </ul>
 <blockquote>
-<p><strong>Om webbsidan (coplapp.com):</strong> den sätter inga cookies och har ingen analytics eller spårning. Den enda lagringen är ditt <strong>språkval</strong> (svenska/engelska), som sparas lokalt i din webbläsare (localStorage). Det är en funktionell inställning, inte spårning, och kräver därför inget samtycke.</p>
+<p><strong>Om webbsidan (coplapp.com):</strong> den sätter inga cookies och har ingen analytics eller spårning. Den enda lagringen är ditt <strong>språkval</strong> (svenska/engelska), som sparas lokalt i din webbläsare (localStorage). Det är en funktionell inställning, inte spårning, och kräver därför inget samtycke. Sidan är statisk och serveras via GitHub Pages, med DNS via Cloudflare - dessa leverantörer kan föra normala tekniska åtkomstloggar (IP-adress) för att leverera sidan, men vi tar inte del av dem och kopplar inget till ditt app-konto.</p>
 <p><strong>Väntelista:</strong> om du frivilligt anmäler din mejladress till väntelistan sparar vi den (med ditt samtycke, GDPR art. 6.1.a) <strong>enbart</strong> för att meddela dig när Copl släpps. Vi skickar inga andra utskick, och listan raderas efter lanseringen. Du kan när som helst be oss ta bort din adress (<a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>).</p>
 </blockquote>
 <hr>
@@ -183,6 +188,11 @@
 <td>Googles globala infrastruktur</td>
 </tr>
 <tr>
+<td><strong>Resend</strong></td>
+<td>Mejlleverans (inloggningskoder och verifieringsmejl) - din e-postadress och mejlinnehållet i transit</td>
+<td><strong>EU (Irland)</strong> - skickas via AWS eu-west-1</td>
+</tr>
+<tr>
 <td><strong>Expo</strong></td>
 <td>App-byggen, OTA-uppdateringar (ingen användardata)</td>
 <td>USA</td>
@@ -219,7 +229,9 @@
 <h3>Tredjeparter</h3>
 <ul>
 <li><strong>Supabase</strong> lagrar datan men har inga rutiner som öppnar den. De har sin egen integritetspolicy.</li>
+<li><strong>Resend</strong> levererar våra mejl (inloggningskoder, verifieringar) och ser därmed din e-postadress och mejlets innehåll. Mejlen skickas från EU (Irland).</li>
 <li><strong>Apple och Google</strong> ser push-innehåll på vägen till din telefon. Vi skickar generiska notistexter (&quot;Något nytt från din partner&quot;) där det är möjligt.</li>
+<li><strong>Apple respektive Google som inloggningsleverantör</strong> - bara om du själv väljer att logga in med Sign in with Apple eller Google. Då vet Apple/Google att du loggar in på Copl, och vi får din e-postadress (Apple kan ge en reläadress) och en signerad inloggningstoken. Inget mer - inga kontakter, foton eller annan kontodata.</li>
 <li><strong>Inga andra.</strong></li>
 </ul>
 <h3>Vad vi <em>inte</em> gör</h3>
@@ -236,7 +248,7 @@
 <li><strong>End-to-end-kryptering är implementerad</strong> för känsliga fält (intimitet, familjenoteringar, överenskommelser, uppskattningar) sedan 2026-05-23. Inte ens vi som driftar appen kan läsa innehållet - det är krypterat på din enhet innan det sparas, med en nyckel som bara finns på din och din partners telefoner. Algoritm: tweetnacl/XSalsa20-Poly1305 med AAD-binding och version-prefix. Du kan verifiera krypteringen via Inställningar → Krypteringsverifiering (visar din och partners fingerprint för muntlig jämförelse).</li>
 <li><strong>PIN-lås</strong> på intimitet-modulen kan aktiveras lokalt på din enhet.</li>
 <li><strong>Diskret läge</strong> döljer känsliga sektioner från appens startsida.</li>
-<li><strong>Lösenord existerar inte</strong> - vi använder magic link via mejl, vilket eliminerar lösenords-läckage-risker.</li>
+<li><strong>Inloggning:</strong> du loggar in med engångskod via mejl, med lösenord, eller med Sign in with Apple/Google. Lösenord lagras aldrig i klartext - endast som kryptografisk hash hos Supabase Auth. Glömt lösenord löses genom inloggning med engångskod (ingen reset-länk som kan kapas).</li>
 </ul>
 <hr>
 <h2>7. Dina rättigheter enligt GDPR</h2>
@@ -319,6 +331,11 @@
 <td>2026-05-24</td>
 <td>End-to-end-kryptering har implementerats och verifierats i produktion 2026-05-23. Sektioner som beskrev E2EE som &quot;planerad&quot; eller &quot;kommande&quot; uppdaterade till nutid. Krypteringsverifiering via fingerprint i Inställningar dokumenterad.</td>
 </tr>
+<tr>
+<td>3.0</td>
+<td>2026-06-12</td>
+<td>Nya inloggningssätt dokumenterade: Sign in with Apple, Google och e-post med lösenord (utöver engångskod via mejl). Resend tillagd som underleverantör för mejlleverans (EU/Irland). Förtydligande om webbsidans drift (GitHub Pages, Cloudflare DNS).</td>
+</tr>
 </tbody></table>
 <hr>
 <h2>12. Kontakt</h2>
@@ -327,7 +344,7 @@
 <p><strong>Postadress:</strong> lämnas på begäran</p>
 <hr>
 <p><em>Denna policy är skriven på svenska. Vid avvikelse från översättning gäller den svenska versionen.</em></p>
-<p><em>Källdokument med tekniska detaljer (för utvecklare): <a href="docs/INTEGRITET.md"><code>docs/INTEGRITET.md</code></a> i kodbasen.</em></p>
+<p><em>Källdokument med tekniska detaljer (för utvecklare): <code>docs/INTEGRITET.md</code> i kodbasen.</em></p>
 
     </article>
   </main>

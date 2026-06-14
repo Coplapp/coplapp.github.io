@@ -95,6 +95,16 @@
         <button type="submit" class="wl-button">Notifiera mig</button>
       </form>
       <p id="wl-msg" class="wl-msg" role="status" aria-live="polite"></p>
+      <div id="wl-success" class="wl-success" hidden>
+        <p class="wl-success-title">Tack! Du står på listan 🎉</p>
+        <p id="wl-count" class="wl-count"></p>
+        <p class="wl-success-sub">Copl funkar bäst när ni är två. Bjud in din partner - då är ni redo direkt vid lansering.</p>
+        <button type="button" class="wl-button" id="wl-share">Bjud in din partner</button>
+        <div class="wl-reflink">
+          <input id="wl-reflink-input" class="wl-input" readonly aria-label="Din inbjudningslänk" />
+          <button type="button" class="wl-copy" id="wl-copy">Kopiera</button>
+        </div>
+      </div>
       <p class="wl-fine">Vi sparar bara din mejl för lanseringsnotisen och raderar listan efteråt. <a href="privacy.html">Integritetspolicy</a></p>
     </div>
   </section>
@@ -474,23 +484,71 @@
   <script src="puzzle.js" defer></script>
   <script>
   (function () {
-    var ENDPOINT = 'https://acapdkovkusuewtertul.supabase.co/rest/v1/waitlist';
+    var BASE = 'https://acapdkovkusuewtertul.supabase.co/rest/v1';
     var KEY = 'sb_publishable_-rDlVpw5qq5NfXbpGY-ptw_mUg1kkuf';
+    var HEADERS = { apikey: KEY, Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json' };
+
+    // Fanga referral-koden fran lanken (?ref=) och spara den.
+    try {
+      var ref = new URLSearchParams(location.search).get('ref');
+      if (ref) localStorage.setItem('copl_ref', ref);
+    } catch (e) {}
+
     var f = document.getElementById('wl-form');
     if (!f) return;
     var msg = document.getElementById('wl-msg');
+    var success = document.getElementById('wl-success');
+
+    function randomCode() {
+      var s = '', c = 'abcdefghijklmnopqrstuvwxyz0123456789';
+      for (var i = 0; i < 10; i++) s += c.charAt(Math.floor(Math.random() * c.length));
+      return s;
+    }
+
+    function copyLink(link, btn) {
+      var label = btn.textContent;
+      var done = function () { btn.textContent = 'Kopierad!'; setTimeout(function () { btn.textContent = label; }, 2000); };
+      if (navigator.clipboard) { navigator.clipboard.writeText(link).then(done).catch(done); }
+      else { var inp = document.getElementById('wl-reflink-input'); if (inp) { inp.select(); try { document.execCommand('copy'); } catch (e) {} } done(); }
+    }
+
+    function showSuccess(code) {
+      f.style.display = 'none';
+      msg.textContent = '';
+      var link = location.origin + location.pathname + '?ref=' + code;
+      var input = document.getElementById('wl-reflink-input');
+      if (input) input.value = link;
+      if (success) success.hidden = false;
+
+      fetch(BASE + '/rpc/waitlist_count', { method: 'POST', headers: HEADERS, body: '{}' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (n) { var el = document.getElementById('wl-count'); if (el && typeof n === 'number' && n > 0) el.textContent = n + ' par väntar redan.'; })
+        .catch(function () {});
+
+      var shareBtn = document.getElementById('wl-share');
+      if (shareBtn) shareBtn.onclick = function () {
+        var data = { title: 'Copl', text: 'Jag har anmält oss till Copl - en privat app för par. Gå med så är vi redo direkt vid lansering!', url: link };
+        if (navigator.share) { navigator.share(data).catch(function () {}); } else { copyLink(link, shareBtn); }
+      };
+      var copyBtn = document.getElementById('wl-copy');
+      if (copyBtn) copyBtn.onclick = function () { copyLink(link, copyBtn); };
+    }
+
     f.addEventListener('submit', function (e) {
       e.preventDefault();
       if (document.getElementById('wl-company').value) return; // honeypot → bot
       var email = (document.getElementById('wl-email').value || '').trim();
       if (!email) return;
       msg.textContent = 'Skickar…';
-      fetch(ENDPOINT, {
+      var code = randomCode();
+      var referredBy = null;
+      try { referredBy = localStorage.getItem('copl_ref'); } catch (e) {}
+      fetch(BASE + '/waitlist', {
         method: 'POST',
         headers: { apikey: KEY, Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
-        body: JSON.stringify({ email: email, source: 'web' }),
+        body: JSON.stringify({ email: email, source: 'web', referral_code: code, referred_by: referredBy }),
       }).then(function (r) {
-        if (r.ok) { msg.textContent = 'Tack! Vi hör av oss vid lansering. 🎉'; f.reset(); }
+        if (r.ok) { showSuccess(code); }
         else if (r.status === 409) { msg.textContent = 'Du står redan på listan ✓'; f.reset(); }
         else { msg.textContent = 'Något gick fel - försök igen.'; }
       }).catch(function () { msg.textContent = 'Något gick fel - försök igen.'; });

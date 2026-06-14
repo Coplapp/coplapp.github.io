@@ -1627,6 +1627,53 @@ ion-icon.float-icon,
 }
 .wl-fine a { color: var(--logo-blue); }
 
+/* Referral-block (visas efter anmalan) */
+.wl-success {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.wl-success-title {
+  font-size: 18px !important;
+  font-weight: 700;
+  color: var(--ink) !important;
+  margin: 0 !important;
+}
+.wl-count {
+  font-size: 14px !important;
+  color: var(--logo-blue) !important;
+  margin: 0 !important;
+}
+.wl-success-sub {
+  font-size: 14px !important;
+  color: var(--ink-muted) !important;
+  max-width: 420px;
+  margin: 2px 0 4px !important;
+}
+.wl-reflink {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 460px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.wl-reflink .wl-input { flex: 1 1 220px; font-size: 13px; }
+.wl-copy {
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.wl-copy:hover { border-color: var(--logo-blue); }
+
 /* ============================================================
    SCROLLPUSSLET - bitarna tumlar in i 3D och kopplas samman,
    plattan tonar över till Copl-navy och loggan kliver fram.

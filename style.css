@@ -859,8 +859,12 @@ ion-icon.float-icon,
   padding: 36px;
   text-align: center;
   box-shadow: 0 0 22px rgba(184,232,232,0.18);
-  margin: 60px 0;
+  margin: 20px 0 48px;
 }
+
+/* Mindre luft mellan 3-kortssektionen och trygghetsblocket (scopat, rör inga
+   andra .section-block). Total visuell luft blir ~60px i stallet for ~140px. */
+.section:has(.features) { padding-bottom: 40px; }
 
 .trust h2 {
   font-size: 24px;

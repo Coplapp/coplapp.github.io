@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Privacy Policy - Copl</h1>
-<p><strong>Version 3.0 - effective from 2026-06-12</strong></p>
+<p><strong>Version 3.1 - effective from 2026-06-29</strong></p>
 <p>This policy explains what Copl does with the data you and your partner enter in the app. We&#39;ve tried to write it in plain language - if anything is unclear, get in touch.</p>
 <blockquote>
 <p><em>Note: this is an English translation of the Swedish original. The Swedish version is the authoritative one in case of any discrepancy. Synchronize both files when updating the policy.</em></p>
@@ -48,7 +48,7 @@
 <ul>
 <li><strong>You and your partner are the only ones who see your content.</strong> Not us.</li>
 <li><strong>No ad SDKs, no analytics, no trackers.</strong> None.</li>
-<li><strong>All database content is stored in Sweden.</strong> Region: Stockholm (Supabase). Push notifications pass through Apple/Google on the way to your phone (see section 3).</li>
+<li><strong>All database content is stored within the EU/EEA</strong> (Supabase, EU region). Push notifications pass through Apple/Google on the way to your phone (see section 3).</li>
 <li><strong>You can at any time</strong> view all data about you, export it, or delete your account.</li>
 <li><strong>Sensitive data</strong> (intimacy, family notes, agreements, appreciations) is end-to-end encrypted since 2026-05-23. Not even we as operators can read the content.</li>
 </ul>
@@ -163,6 +163,10 @@
 <td>Error reporting (when Sentry is active)</td>
 <td><strong>Legitimate interest</strong> - technical crash reports without personal data</td>
 </tr>
+<tr>
+<td>Export calendar events to your Outlook calendar (if you enable it)</td>
+<td><strong>Consent</strong> (Art. 6.1.a) - you connect the service voluntarily and can disconnect at any time</td>
+</tr>
 </tbody></table>
 <p>Intimacy data is a <strong>special category of personal data</strong> under GDPR Art. 9. We handle it with extra care: opt-in, optional PIN lock, and <strong>end-to-end encryption</strong> (implemented 2026-05-23 - only you and your partner hold the decryption key).</p>
 <hr>
@@ -178,7 +182,7 @@
 <tbody><tr>
 <td><strong>Supabase</strong></td>
 <td>All database content, authentication, files</td>
-<td><strong>Sweden (Stockholm)</strong> - EU region. Supabase data never leaves the EU.</td>
+<td><strong>EU/EEA</strong> - stored in an EU region. Supabase data never leaves the EU/EEA.</td>
 </tr>
 <tr>
 <td><strong>Apple Push Notification Service (APNS)</strong></td>
@@ -189,6 +193,11 @@
 <td><strong>Google Firebase Cloud Messaging (FCM)</strong></td>
 <td>Push token + notification content in transit</td>
 <td>Google&#39;s global infrastructure</td>
+</tr>
+<tr>
+<td><strong>Microsoft (Outlook calendar)</strong></td>
+<td>Calendar events you choose to export (title, description, location, time)</td>
+<td>Microsoft&#39;s global infrastructure. Only if you connect your Outlook calendar in Settings. Private events are never exported.</td>
 </tr>
 <tr>
 <td><strong>Resend</strong></td>
@@ -206,7 +215,8 @@
 <td>EU region (configured)</td>
 </tr>
 </tbody></table>
-<p>No other third parties have access to data.</p>
+<p>Beyond the providers listed above, we do not share data with any third party.</p>
+<p>For the providers that process personal data outside the EU/EEA (e.g. Apple and Google for push notifications, Microsoft for calendar sync, and Expo for app services), we rely on the European Commission's Standard Contractual Clauses (SCC) and, where applicable, the EU-US Data Privacy Framework.</p>
 <hr>
 <h2>4. How long data is kept</h2>
 <ul>
@@ -235,7 +245,8 @@
 <li><strong>Resend</strong> delivers our emails (login codes, verifications) and therefore sees your email address and the message content. Emails are sent from the EU (Ireland).</li>
 <li><strong>Apple and Google</strong> see push notification content on the way to your phone. We send generic notification texts (&quot;Something new from your partner&quot;) where possible.</li>
 <li><strong>Apple or Google as sign-in provider</strong> - only if you yourself choose to sign in with Sign in with Apple or Google. Then Apple/Google knows you sign in to Copl, and we receive your email address (Apple may provide a relay address) and a signed login token. Nothing more - no contacts, photos, or other account data.</li>
-<li><strong>No others.</strong></li>
+<li><strong>Microsoft</strong> - only if you yourself enable Outlook sync in Settings. The calendar events you choose to export (title, description, location, time) are then sent to your own Outlook calendar via Microsoft Graph. Sign-in happens directly with Microsoft on your device; your access tokens are stored encrypted locally on the phone and never pass through our servers. Private events are never exported, and you can disconnect at any time.</li>
+<li><strong>Beyond these providers, we do not share data with any other third party.</strong></li>
 </ul>
 <h3>What we <em>don&#39;t</em> do</h3>
 <ul>
@@ -338,6 +349,11 @@
 <td>3.0</td>
 <td>2026-06-12</td>
 <td>New sign-in methods documented: Sign in with Apple, Google, and email with password (in addition to one-time codes via email). Resend added as a subprocessor for email delivery (EU/Ireland). Clarification about website hosting (GitHub Pages, Cloudflare DNS).</td>
+</tr>
+<tr>
+<td>3.1</td>
+<td>2026-06-29</td>
+<td>Microsoft (Outlook calendar sync) added as a recipient with consent as legal basis. Clarification of the safeguard (SCC/EU-US Data Privacy Framework) for transfers outside the EU/EEA, and of absolute wording. Region wording generalized to EU/EEA.</td>
 </tr>
 </tbody></table>
 <hr>

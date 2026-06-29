@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Integritetspolicy - Copl</h1>
-<p><strong>Version 3.0 - gäller från 2026-06-12</strong></p>
+<p><strong>Version 3.1 - gäller från 2026-06-29</strong></p>
 <p>Den här policyn berättar vad Copl gör med den data du och din partner lägger in i appen. Vi har försökt skriva den i klartext - om något är otydligt, hör av dig.</p>
 <hr>
 <h2>Vem är ansvarig</h2>
@@ -45,7 +45,7 @@
 <ul>
 <li><strong>Du och din partner är de enda som ser ert innehåll.</strong> Inte vi.</li>
 <li><strong>Inga reklam-SDK:er, inga analytics, inga trackers.</strong> Inget.</li>
-<li><strong>Allt databasinnehåll lagras i Sverige.</strong> Region: Stockholm (Supabase). Push-notiser passerar Apple/Google på vägen till din telefon (se avsnitt 3).</li>
+<li><strong>Allt databasinnehåll lagras inom EU/EES</strong> (Supabase, EU-region). Push-notiser passerar Apple/Google på vägen till din telefon (se avsnitt 3).</li>
 <li><strong>Du kan när som helst</strong> se all data om dig, exportera den, eller radera ditt konto.</li>
 <li><strong>Känslig data</strong> (intimitet, familjenoteringar, överenskommelser, uppskattningar) är end-to-end-krypterad sedan 2026-05-23. Inte ens vi som driftar appen kan läsa innehållet.</li>
 </ul>
@@ -160,6 +160,10 @@
 <td>Felrapportering (när Sentry är aktivt)</td>
 <td><strong>Berättigat intresse</strong> - tekniska crash-rapporter utan personuppgifter</td>
 </tr>
+<tr>
+<td>Exportera kalenderhändelser till din Outlook-kalender (om du aktiverar det)</td>
+<td><strong>Samtycke</strong> (Art. 6.1.a) - du kopplar tjänsten frivilligt och kan koppla bort den när som helst</td>
+</tr>
 </tbody></table>
 <p>Intimitet-data är en <strong>särskild kategori av personuppgifter</strong> enligt GDPR Art. 9. Vi hanterar det med extra försiktighet: opt-in, möjlighet att låsa med PIN, <strong>end-to-end-kryptering</strong> (implementerad 2026-05-23 - bara du och din partner har dekrypteringsnyckeln).</p>
 <hr>
@@ -175,7 +179,7 @@
 <tbody><tr>
 <td><strong>Supabase</strong></td>
 <td>All databas-innehåll, autentisering, filer</td>
-<td><strong>Sverige (Stockholm)</strong> - EU-region. Supabase-data lämnar aldrig EU.</td>
+<td><strong>EU/EES</strong> - lagras i en EU-region. Supabase-data lämnar aldrig EU/EES.</td>
 </tr>
 <tr>
 <td><strong>Apple Push Notification Service (APNS)</strong></td>
@@ -186,6 +190,11 @@
 <td><strong>Google Firebase Cloud Messaging (FCM)</strong></td>
 <td>Push-token + notisinnehåll i transit</td>
 <td>Googles globala infrastruktur</td>
+</tr>
+<tr>
+<td><strong>Microsoft (Outlook-kalender)</strong></td>
+<td>Kalenderhändelser du valt att exportera (titel, beskrivning, plats, tid)</td>
+<td>Microsofts globala infrastruktur. Endast om du själv kopplar din Outlook-kalender i Inställningar. Privata händelser exporteras aldrig.</td>
 </tr>
 <tr>
 <td><strong>Resend</strong></td>
@@ -203,7 +212,8 @@
 <td>EU-region (konfigurerat)</td>
 </tr>
 </tbody></table>
-<p>Inga andra tredjeparter har tillgång till data.</p>
+<p>Utöver de leverantörer som listas ovan delar vi inte data med någon tredjepart.</p>
+<p>För de leverantörer som behandlar personuppgifter utanför EU/EES (t.ex. Apple och Google för push-notiser, Microsoft för kalendersynk, samt Expo för apptjänster) stödjer vi oss på EU-kommissionens standardavtalsklausuler (SCC) och, där det är tillämpligt, EU-US Data Privacy Framework.</p>
 <hr>
 <h2>4. Hur länge sparas data</h2>
 <ul>
@@ -232,7 +242,8 @@
 <li><strong>Resend</strong> levererar våra mejl (inloggningskoder, verifieringar) och ser därmed din e-postadress och mejlets innehåll. Mejlen skickas från EU (Irland).</li>
 <li><strong>Apple och Google</strong> ser push-innehåll på vägen till din telefon. Vi skickar generiska notistexter (&quot;Något nytt från din partner&quot;) där det är möjligt.</li>
 <li><strong>Apple respektive Google som inloggningsleverantör</strong> - bara om du själv väljer att logga in med Sign in with Apple eller Google. Då vet Apple/Google att du loggar in på Copl, och vi får din e-postadress (Apple kan ge en reläadress) och en signerad inloggningstoken. Inget mer - inga kontakter, foton eller annan kontodata.</li>
-<li><strong>Inga andra.</strong></li>
+<li><strong>Microsoft</strong> - bara om du själv aktiverar Outlook-synk i Inställningar. Då skickas de kalenderhändelser du väljer att exportera (titel, beskrivning, plats, tid) till din egen Outlook-kalender via Microsoft Graph. Inloggningen sker direkt mot Microsoft på din enhet; dina åtkomst-token lagras krypterat lokalt på telefonen och passerar aldrig våra servrar. Privata händelser exporteras aldrig, och du kan koppla bort när som helst.</li>
+<li><strong>Utöver dessa leverantörer delar vi inte data med någon annan tredjepart.</strong></li>
 </ul>
 <h3>Vad vi <em>inte</em> gör</h3>
 <ul>
@@ -335,6 +346,11 @@
 <td>3.0</td>
 <td>2026-06-12</td>
 <td>Nya inloggningssätt dokumenterade: Sign in with Apple, Google och e-post med lösenord (utöver engångskod via mejl). Resend tillagd som underleverantör för mejlleverans (EU/Irland). Förtydligande om webbsidans drift (GitHub Pages, Cloudflare DNS).</td>
+</tr>
+<tr>
+<td>3.1</td>
+<td>2026-06-29</td>
+<td>Microsoft (Outlook-kalendersynk) tillagd som mottagare med rättslig grund samtycke. Förtydligande om skyddsmekanism (SCC/EU-US Data Privacy Framework) för överföringar utanför EU/EES, och om absoluta formuleringar. Regionangivelse generaliserad till EU/EES.</td>
 </tr>
 </tbody></table>
 <hr>

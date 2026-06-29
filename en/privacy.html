@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Privacy Policy - Copl</h1>
-<p><strong>Version 3.1 - effective from 2026-06-29</strong></p>
+<p><strong>Version 3.2 - effective from 2026-06-29</strong></p>
 <p>This policy explains what Copl does with the data you and your partner enter in the app. We&#39;ve tried to write it in plain language - if anything is unclear, get in touch.</p>
 <blockquote>
 <p><em>Note: this is an English translation of the Swedish original. The Swedish version is the authoritative one in case of any discrepancy. Synchronize both files when updating the policy.</em></p>
@@ -116,7 +116,7 @@
 <h3>1.3 Technical data</h3>
 <ul>
 <li><strong>Push token</strong> for the device (so we can send notifications to that device)</li>
-<li><strong>Device type and app version</strong> (iOS/Android, for debugging)</li>
+<li><strong>Device type</strong> (iOS/Android, for debugging). App version is only included if you submit feedback via "Suggest".</li>
 <li><strong>Timestamps</strong> on your actions (when you logged in, when a row was created)</li>
 </ul>
 <h3>1.4 What we do <strong>not</strong> collect</h3>
@@ -200,9 +200,9 @@
 <td>Microsoft&#39;s global infrastructure. Only if you connect your Outlook calendar in Settings. Private events are never exported.</td>
 </tr>
 <tr>
-<td><strong>Resend</strong></td>
-<td>Email delivery (login codes and verification emails) - your email address and message content in transit</td>
-<td><strong>EU (Ireland)</strong> - sent via AWS eu-west-1</td>
+<td><strong>Supabase Auth (email)</strong></td>
+<td>Delivery of login codes and verification emails - your email address and message content in transit</td>
+<td>Sent via our authentication service (Supabase)</td>
 </tr>
 <tr>
 <td><strong>Expo</strong></td>
@@ -228,6 +228,7 @@
 <li><strong>Server logs:</strong> Maximum 7 days.</li>
 <li><strong>Crash reports (when Sentry is active):</strong> Technical crash reports without your content, deleted per Sentry&#39;s standard retention (approx. 90 days).</li>
 </ul>
+<p>When you delete your account, deletion happens immediately (within seconds) via the app. The limits above for inactive accounts and backups are enforced through periodic routines rather than in real time. If you want your data deleted immediately, you can always delete your account yourself or contact us.</p>
 <hr>
 <h2>5. Who sees data</h2>
 <h3>You and your partner</h3>
@@ -242,7 +243,7 @@
 <h3>Third parties</h3>
 <ul>
 <li><strong>Supabase</strong> stores the data but has no routines that open it. They have their own privacy policy.</li>
-<li><strong>Resend</strong> delivers our emails (login codes, verifications) and therefore sees your email address and the message content. Emails are sent from the EU (Ireland).</li>
+<li><strong>Supabase Auth</strong> sends our login and verification emails and therefore sees your email address and the message content.</li>
 <li><strong>Apple and Google</strong> see push notification content on the way to your phone. We send generic notification texts (&quot;Something new from your partner&quot;) where possible.</li>
 <li><strong>Apple or Google as sign-in provider</strong> - only if you yourself choose to sign in with Sign in with Apple or Google. Then Apple/Google knows you sign in to Copl, and we receive your email address (Apple may provide a relay address) and a signed login token. Nothing more - no contacts, photos, or other account data.</li>
 <li><strong>Microsoft</strong> - only if you yourself enable Outlook sync in Settings. The calendar events you choose to export (title, description, location, time) are then sent to your own Outlook calendar via Microsoft Graph. Sign-in happens directly with Microsoft on your device; your access tokens are stored encrypted locally on the phone and never pass through our servers. Private events are never exported, and you can disconnect at any time.</li>
@@ -292,7 +293,7 @@
 </tr>
 <tr>
 <td><strong>Restrict</strong> processing</td>
-<td>Pause the relationship (Settings → Pause) - data becomes read-only</td>
+<td>Pause the relationship (Settings → Pause) - the app switches to read-only mode</td>
 </tr>
 <tr>
 <td><strong>Object</strong> to processing</td>
@@ -354,6 +355,11 @@
 <td>3.1</td>
 <td>2026-06-29</td>
 <td>Microsoft (Outlook calendar sync) added as a recipient with consent as legal basis. Clarification of the safeguard (SCC/EU-US Data Privacy Framework) for transfers outside the EU/EEA, and of absolute wording.</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>2026-06-29</td>
+<td>Email delivery described as Supabase Auth (replaced unverified Resend entry). Clarified that app version is only collected with feedback, that pause is a read-only mode in the app, and that some retention limits are enforced via routines. Complete data export and actual deletion of account and closeness data in place.</td>
 </tr>
 </tbody></table>
 <hr>

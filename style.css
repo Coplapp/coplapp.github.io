@@ -565,7 +565,7 @@ a:hover {
      (height: auto) och gör logon större så proportionen mot rubriken
      blir rätt - bort med luften runt om. */
   .hero-stage { width: auto; height: auto; margin: 0 auto 8px; }
-  .hero-logo { width: 200px; height: 200px; }
+  .hero-logo { width: 160px; height: 160px; }
   .hero h1 { font-size: 36px; }
   .hero p.subtitle { font-size: 16px; }
 }

@@ -38,22 +38,6 @@
 
   <!-- Hero -->
   <header class="hero">
-    <div class="floating-modules" aria-hidden="true">
-      <div class="float-mod m1"  style="--delay: 0.0s"><ion-icon class="float-icon" name="chatbubbles-outline"></ion-icon><span class="float-label">Chat</span></div>
-      <div class="float-mod m2"  style="--delay: 0.3s"><ion-icon class="float-icon" name="checkbox-outline"></ion-icon><span class="float-label">To-do</span></div>
-      <div class="float-mod m3"  style="--delay: 0.6s"><ion-icon class="float-icon" name="calendar-outline"></ion-icon><span class="float-label">Calendar</span></div>
-      <div class="float-mod m4"  style="--delay: 0.9s"><ion-icon class="float-icon" name="restaurant-outline"></ion-icon><span class="float-label">Meals</span></div>
-      <div class="float-mod m5"  style="--delay: 1.2s"><ion-icon class="float-icon" name="barbell-outline"></ion-icon><span class="float-label">Workouts</span></div>
-      <div class="float-mod m6"  style="--delay: 1.5s"><ion-icon class="float-icon" name="repeat-outline"></ion-icon><span class="float-label">Routines</span></div>
-      <div class="float-mod m7"  style="--delay: 1.8s"><ion-icon class="float-icon" name="wallet-outline"></ion-icon><span class="float-label">Budget</span></div>
-      <div class="float-mod m8"  style="--delay: 2.1s"><ion-icon class="float-icon" name="people-outline"></ion-icon><span class="float-label">Family</span></div>
-      <div class="float-mod m9"  style="--delay: 2.4s"><ion-icon class="float-icon" name="school-outline"></ion-icon><span class="float-label">Homework</span></div>
-      <div class="float-mod m10" style="--delay: 2.7s"><ion-icon class="float-icon" name="ribbon-outline"></ion-icon><span class="float-label">Agreements</span></div>
-      <div class="float-mod m11" style="--delay: 3.0s"><ion-icon class="float-icon" name="heart-outline"></ion-icon><span class="float-label">Appreciation</span></div>
-      <div class="float-mod m12" style="--delay: 3.3s"><ion-icon class="float-icon" name="notifications-outline"></ion-icon><span class="float-label">Reminders</span></div>
-      <div class="float-mod m13" style="--delay: 3.6s"><ion-icon class="float-icon" name="flame-outline"></ion-icon><span class="float-label">Closeness</span></div>
-    </div>
-
     <div class="hero-inner">
       <div class="hero-stage">
         <img src="../assets/copl-logo.png" alt="Copl logo" class="hero-logo" />
@@ -90,6 +74,38 @@
           </span>
           <span class="store-badge" aria-hidden="true">Soon</span>
         </a>
+      </div>
+    </div>
+
+    <!-- Module marquee: clickable chips that slide sideways. A click scrolls to the module's description. -->
+    <div class="module-marquee" aria-label="Quick links to the modules">
+      <div class="mm-track">
+        <a class="mm-chip" href="#chat"><ion-icon class="float-icon" name="chatbubbles-outline"></ion-icon><span class="float-label">Chat</span></a>
+        <a class="mm-chip" href="#todo"><ion-icon class="float-icon" name="checkbox-outline"></ion-icon><span class="float-label">To-do</span></a>
+        <a class="mm-chip" href="#calendar"><ion-icon class="float-icon" name="calendar-outline"></ion-icon><span class="float-label">Calendar</span></a>
+        <a class="mm-chip" href="#meals"><ion-icon class="float-icon" name="restaurant-outline"></ion-icon><span class="float-label">Meals</span></a>
+        <a class="mm-chip" href="#workouts"><ion-icon class="float-icon" name="barbell-outline"></ion-icon><span class="float-label">Workouts</span></a>
+        <a class="mm-chip" href="#routines"><ion-icon class="float-icon" name="repeat-outline"></ion-icon><span class="float-label">Routines</span></a>
+        <a class="mm-chip" href="#budget"><ion-icon class="float-icon" name="wallet-outline"></ion-icon><span class="float-label">Budget</span></a>
+        <a class="mm-chip" href="#family"><ion-icon class="float-icon" name="people-outline"></ion-icon><span class="float-label">Family</span></a>
+        <a class="mm-chip" href="#homework"><ion-icon class="float-icon" name="school-outline"></ion-icon><span class="float-label">Homework</span></a>
+        <a class="mm-chip" href="#agreements"><ion-icon class="float-icon" name="ribbon-outline"></ion-icon><span class="float-label">Agreements</span></a>
+        <a class="mm-chip" href="#appreciation"><ion-icon class="float-icon" name="heart-outline"></ion-icon><span class="float-label">Appreciation</span></a>
+        <a class="mm-chip" href="#reminders"><ion-icon class="float-icon" name="notifications-outline"></ion-icon><span class="float-label">Reminders</span></a>
+        <a class="mm-chip" href="#closeness"><ion-icon class="float-icon" name="flame-outline"></ion-icon><span class="float-label">Closeness</span></a>
+        <a class="mm-chip" href="#chat" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="chatbubbles-outline"></ion-icon><span class="float-label">Chat</span></a>
+        <a class="mm-chip" href="#todo" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="checkbox-outline"></ion-icon><span class="float-label">To-do</span></a>
+        <a class="mm-chip" href="#calendar" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="calendar-outline"></ion-icon><span class="float-label">Calendar</span></a>
+        <a class="mm-chip" href="#meals" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="restaurant-outline"></ion-icon><span class="float-label">Meals</span></a>
+        <a class="mm-chip" href="#workouts" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="barbell-outline"></ion-icon><span class="float-label">Workouts</span></a>
+        <a class="mm-chip" href="#routines" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="repeat-outline"></ion-icon><span class="float-label">Routines</span></a>
+        <a class="mm-chip" href="#budget" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="wallet-outline"></ion-icon><span class="float-label">Budget</span></a>
+        <a class="mm-chip" href="#family" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="people-outline"></ion-icon><span class="float-label">Family</span></a>
+        <a class="mm-chip" href="#homework" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="school-outline"></ion-icon><span class="float-label">Homework</span></a>
+        <a class="mm-chip" href="#agreements" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="ribbon-outline"></ion-icon><span class="float-label">Agreements</span></a>
+        <a class="mm-chip" href="#appreciation" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="heart-outline"></ion-icon><span class="float-label">Appreciation</span></a>
+        <a class="mm-chip" href="#reminders" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="notifications-outline"></ion-icon><span class="float-label">Reminders</span></a>
+        <a class="mm-chip" href="#closeness" aria-hidden="true" tabindex="-1"><ion-icon class="float-icon" name="flame-outline"></ion-icon><span class="float-label">Closeness</span></a>
       </div>
     </div>
   </header>
@@ -162,7 +178,7 @@
       </p>
       <div class="feature-list">
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="chat">
           <ion-icon class="icon" name="chatbubbles-outline"></ion-icon>
           <h3>Chat</h3>
           <p>
@@ -174,7 +190,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="calendar">
           <ion-icon class="icon" name="calendar-outline"></ion-icon>
           <h3>Shared calendar</h3>
           <p>
@@ -187,7 +203,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="todo">
           <ion-icon class="icon" name="checkbox-outline"></ion-icon>
           <h3>Our to-do</h3>
           <p>
@@ -209,7 +225,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="family">
           <ion-icon class="icon" name="people-outline"></ion-icon>
           <h3>Family</h3>
           <p>
@@ -219,7 +235,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="homework">
           <ion-icon class="icon" name="school-outline"></ion-icon>
           <h3>Homework</h3>
           <p>
@@ -229,7 +245,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="meals">
           <ion-icon class="icon" name="restaurant-outline"></ion-icon>
           <h3>Meal planning</h3>
           <p>
@@ -241,7 +257,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="routines">
           <ion-icon class="icon" name="repeat-outline"></ion-icon>
           <h3>Weekly routines</h3>
           <p>
@@ -251,7 +267,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="workouts">
           <ion-icon class="icon" name="barbell-outline"></ion-icon>
           <h3>Workouts</h3>
           <p>
@@ -265,7 +281,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="budget">
           <ion-icon class="icon" name="wallet-outline"></ion-icon>
           <h3>Our budget</h3>
           <p>
@@ -276,7 +292,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="agreements">
           <ion-icon class="icon" name="ribbon-outline"></ion-icon>
           <h3>Agreements</h3>
           <p>
@@ -297,7 +313,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="appreciation">
           <ion-icon class="icon" name="heart-outline"></ion-icon>
           <h3>Appreciations</h3>
           <p>
@@ -307,7 +323,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="reminders">
           <ion-icon class="icon" name="notifications-outline"></ion-icon>
           <h3>Reminders</h3>
           <p>
@@ -317,7 +333,7 @@
           </p>
         </div>
 
-        <div class="feature-item reveal">
+        <div class="feature-item reveal" id="closeness">
           <ion-icon class="icon" name="flame-outline"></ion-icon>
           <h3>Closeness (opt-in)</h3>
           <p>

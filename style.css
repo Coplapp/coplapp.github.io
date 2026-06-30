@@ -152,7 +152,7 @@ a:hover {
   right: -20%;
   width: 80%;
   height: 100%;
-  background: radial-gradient(circle, rgba(184,232,232,0.03), transparent 60%);
+  background: none;
   pointer-events: none;
   z-index: 0;
 }
@@ -164,7 +164,7 @@ a:hover {
   left: -20%;
   width: 70%;
   height: 80%;
-  background: radial-gradient(circle, rgba(184,232,232,0.02), transparent 60%);
+  background: none;
   pointer-events: none;
   z-index: 0;
 }

@@ -1093,7 +1093,7 @@ ion-icon.float-icon,
   left: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle, rgba(184,232,232,0.06), transparent 65%);
+  background: none;
   pointer-events: none;
   z-index: 0;
 }

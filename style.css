@@ -560,7 +560,12 @@ a:hover {
 
 @media (max-width: 640px) {
   .hero { padding: 60px 0 40px; }
-  .hero-logo { width: 110px; height: 110px; }
+  /* Modulerna som tidigare omgav logon bor numera i marquee-bandet, så
+     stage:n behöver inte vara en stor tom yta. Låt den hugga logon
+     (height: auto) och gör logon större så proportionen mot rubriken
+     blir rätt - bort med luften runt om. */
+  .hero-stage { width: auto; height: auto; margin: 0 auto 8px; }
+  .hero-logo { width: 200px; height: 200px; }
   .hero h1 { font-size: 36px; }
   .hero p.subtitle { font-size: 16px; }
 }

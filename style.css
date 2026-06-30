@@ -840,6 +840,46 @@ a.feature-item {
   cursor: pointer;
 }
 
+/* Modul-boxar som <details>: kort sammanfattning syns alltid, full text
+   vecklas ut vid klick. align-items:start gör att bara den öppnade boxen
+   växer - grannarna i samma rad sträcks inte med. */
+.feature-list { align-items: start; }
+details.feature-item > summary {
+  list-style: none;
+  cursor: pointer;
+  display: block;
+}
+details.feature-item > summary::-webkit-details-marker { display: none; }
+details.feature-item > summary::marker { content: ''; }
+details.feature-item > summary:focus-visible {
+  outline: 2px solid rgba(123,212,208,0.55);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+.feature-summary { margin-bottom: 0; }
+.feature-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7BD4D0;
+}
+.feature-more .lbl-less { display: none; }
+.feature-chev {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+details[open].feature-item > summary .lbl-more { display: none; }
+details[open].feature-item > summary .lbl-less { display: inline; }
+details[open].feature-item > summary .feature-chev { transform: rotate(180deg); }
+.feature-detail {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
 .feature-item .icon {
   font-size: 26px;
   margin-bottom: 10px;

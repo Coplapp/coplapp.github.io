@@ -812,7 +812,7 @@ a:hover {
 .feature-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 36px;
   margin: 40px 0;
 }
 
@@ -857,7 +857,17 @@ details.feature-item > summary:focus-visible {
   outline-offset: 3px;
   border-radius: 12px;
 }
-.feature-summary { margin-bottom: 0; }
+/* Lika höjd på alla ihopfällda boxar: min-height fyller ut 1-rads-boxar
+   så de matchar 2-rads, och line-clamp hindrar en sammanfattning från att
+   bli högre än 2 rader. Öppnad box växer förbi min-height som vanligt. */
+details.feature-item { min-height: 168px; }
+.feature-summary {
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .feature-more {
   display: inline-flex;
   align-items: center;

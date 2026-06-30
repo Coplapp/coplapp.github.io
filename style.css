@@ -860,7 +860,7 @@ details.feature-item > summary:focus-visible {
 /* Lika höjd på alla ihopfällda boxar: min-height fyller ut 1-rads-boxar
    så de matchar 2-rads, och line-clamp hindrar en sammanfattning från att
    bli högre än 2 rader. Öppnad box växer förbi min-height som vanligt. */
-details.feature-item { min-height: 168px; }
+details.feature-item { min-height: 184px; }
 .feature-summary {
   margin-bottom: 0;
   display: -webkit-box;

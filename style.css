@@ -318,6 +318,10 @@ a:hover {
   box-shadow: 0 6px 14px rgba(0,0,0,0.45);
   transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
+/* Fast ikon/etikett-storlek pa chipsen - vinner over de generiska
+   .float-icon/.float-label-reglerna som annars krymper dem pa mobil. */
+.mm-chip .float-icon { font-size: 28px; line-height: 1; }
+.mm-chip .float-label { font-size: 11.5px; line-height: 1.2; letter-spacing: 0.2px; }
 .mm-chip:hover,
 .mm-chip:focus-visible {
   transform: translateY(-4px);
@@ -326,8 +330,10 @@ a:hover {
   outline: none;
 }
 @media (max-width: 600px) {
-  .mm-chip { width: 80px; padding: 10px 5px 9px; }
-  .module-marquee { margin-top: 32px; }
+  .mm-chip { width: 98px; padding: 13px 7px 11px; }
+  /* Lika luft over och under sa bandet ligger centrerat i luckan mellan sektionerna
+     (nedre luckan far +40px fran hero-paddingen, sa mindre margin-bottom balanserar) */
+  .module-marquee { margin: 64px auto 24px; }
 }
 
 /* Sex olika drift-keyframes - varje med eget rörelsemönster.

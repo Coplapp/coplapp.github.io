@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#061018" />
+<title>Du är inbjuden till Copl</title>
+<meta name="description" content="Din partner har bjudit in dig till Copl - er gemensamma plats för kalender, listor, matplanering och närhet. Helt privat." />
+<meta name="robots" content="noindex" />
+<meta property="og:title" content="Du är inbjuden till Copl 🤍" />
+<meta property="og:description" content="Din partner vill dela vardagen med dig i Copl. Ladda ner appen och gå med - det tar en minut." />
+<meta property="og:image" content="https://coplapp.com/assets/copl-logo.png" />
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="../style.css" />
+<style>
+  .join-wrap { max-width: 560px; margin: 0 auto; padding: 48px 24px 80px; text-align: center; }
+  .join-logo { width: 120px; height: 120px; object-fit: contain; margin: 0 auto 8px; display: block; }
+  .join-title { font-size: 32px; font-weight: 600; letter-spacing: -0.5px; margin: 12px 0 10px; }
+  .join-sub { font-size: 16px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 28px; }
+  .join-code-card {
+    background: var(--surface); border: 1px solid rgba(184,232,232,0.25);
+    border-radius: 16px; padding: 22px 18px; margin-bottom: 12px;
+  }
+  .join-code-label { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 8px; }
+  .join-code { font-size: 40px; font-weight: 700; letter-spacing: 8px; color: #7BD4D0; font-variant-numeric: tabular-nums; }
+  .join-copy {
+    margin-top: 14px; display: inline-block; padding: 10px 22px; border-radius: 10px;
+    border: 1px solid #7BD4D0; background: transparent; color: var(--ink);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+  }
+  .join-steps { text-align: left; margin: 26px auto 30px; max-width: 420px; }
+  .join-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+  .join-step-num {
+    width: 26px; height: 26px; border-radius: 13px; flex-shrink: 0;
+    background: rgba(123,212,208,0.15); border: 1px solid rgba(123,212,208,0.5);
+    color: #7BD4D0; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .join-step-text { font-size: 15px; color: var(--ink); line-height: 1.5; padding-top: 3px; }
+  .join-open-app {
+    display: inline-block; margin-top: 6px; padding: 12px 26px; border-radius: 12px;
+    border: 1px solid rgba(184,232,232,0.3); color: var(--ink-muted);
+    font-size: 14px; text-decoration: none;
+  }
+  .join-en { margin-top: 34px; font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+  <div class="join-wrap">
+    <img src="../assets/copl-logo.png" alt="Copl" class="join-logo" />
+    <h1 class="join-title">Du är inbjuden 🤍</h1>
+    <p class="join-sub">
+      Din partner vill dela vardagen med dig i <strong>Copl</strong> - gemensam
+      kalender, listor, matplanering och det som håller er nära.
+      Helt privat, bara ni två.
+    </p>
+
+    <div class="join-code-card">
+      <div class="join-code-label">Din inbjudningskod</div>
+      <div class="join-code" id="code">&nbsp;</div>
+      <button class="join-copy" id="copy" type="button">Kopiera koden</button>
+    </div>
+
+    <div class="join-steps">
+      <div class="join-step"><div class="join-step-num">1</div><div class="join-step-text">Kopiera koden ovan.</div></div>
+      <div class="join-step"><div class="join-step-num">2</div><div class="join-step-text">Ladda ner Copl och skapa ett konto (Apple eller e-post).</div></div>
+      <div class="join-step"><div class="join-step-num">3</div><div class="join-step-text">Välj "Jag har en kod" och klistra in den - klart!</div></div>
+    </div>
+
+    <div class="store-buttons">
+      <a href="https://apps.apple.com/app/id6768803990" class="store-btn" rel="noopener">
+        <span class="store-icon" aria-hidden="true">
+          <svg viewBox="0 0 384 512" focusable="false">
+            <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+          </svg>
+        </span>
+        <span class="store-text">
+          <span class="small">Ladda ned i</span>
+          <span class="big">App Store</span>
+        </span>
+      </a>
+    </div>
+
+    <a class="join-open-app" id="open-app" href="#">Har du redan appen? Öppna Copl</a>
+
+    <p class="join-en">
+      🇬🇧 Invited? Your partner wants to share everyday life with you in Copl.
+      Copy the code above, download the app from the App Store, and choose
+      "I have a code".
+    </p>
+  </div>
+
+  <script>
+  (function () {
+    // Läs koden ur ?c= (eller ?code=) och visa den
+    var params = new URLSearchParams(location.search);
+    var raw = params.get('c') || params.get('code') || '';
+    var code = /^[a-zA-Z0-9]{6}$/.test(raw) ? raw.toUpperCase() : null;
+
+    var codeEl = document.getElementById('code');
+    var copyBtn = document.getElementById('copy');
+    var openApp = document.getElementById('open-app');
+
+    if (code) {
+      codeEl.textContent = code;
+      openApp.href = 'mobile://join?c=' + code;
+    } else {
+      codeEl.textContent = '· · · · · ·';
+      codeEl.style.letterSpacing = '4px';
+      copyBtn.style.display = 'none';
+      openApp.href = 'mobile://join';
+      var label = document.querySelector('.join-code-label');
+      if (label) label.textContent = 'Be din partner om koden';
+    }
+
+    copyBtn.addEventListener('click', function () {
+      if (!code) return;
+      var done = function () {
+        copyBtn.textContent = 'Kopierad ✓';
+        setTimeout(function () { copyBtn.textContent = 'Kopiera koden'; }, 2000);
+      };
+      if (navigator.clipboard) navigator.clipboard.writeText(code).then(done).catch(done);
+      else done();
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1866,17 +1866,29 @@ ion-icon.float-icon,
 }
 .pz-stage.pz-done .pz-logo { opacity: 1; transform: scale(1) rotate(0deg); }
 
-.pz-rings { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
-.pz-rings i {
-  position: absolute; width: 58%; aspect-ratio: 1; border-radius: 50%;
-  border: 1.5px solid rgba(123, 212, 208, 0.45); opacity: 0;
+/* Loggan slår som ett hjärta när pusslet gått ihop. Ersatte de utåtgående
+   ringarna, som drog blicken bort från loggan i stället för till den.
+
+   Animationen ligger på IMG:en och inte på .pz-logo, eftersom wrappern äger
+   entré-transformen (scale + rotate) - en animation där hade skrivit över den.
+   Två slag med kort vila emellan är det som gör att det läses som en puls och
+   inte som en studs. Glöden andas med i takt; ett hjärta som bara ändrar
+   storlek ser mekaniskt ut. */
+@keyframes pz-heartbeat {
+  0%   { transform: scale(1);     filter: drop-shadow(0 0 38px rgba(123, 212, 208, 0.55)) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5)); }
+  9%   { transform: scale(1.075); filter: drop-shadow(0 0 54px rgba(123, 212, 208, 0.82)) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5)); }
+  17%  { transform: scale(1.005); }
+  26%  { transform: scale(1.05);  filter: drop-shadow(0 0 46px rgba(123, 212, 208, 0.68)) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5)); }
+  38%  { transform: scale(1);     filter: drop-shadow(0 0 38px rgba(123, 212, 208, 0.55)) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5)); }
+  100% { transform: scale(1);     filter: drop-shadow(0 0 38px rgba(123, 212, 208, 0.55)) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5)); }
 }
-.pz-stage.pz-done .pz-rings i { animation: pz-ring-out 2.8s ease-out infinite 0.5s; }
-.pz-stage.pz-done .pz-rings i:nth-child(2) { animation-delay: 1.4s; }
-.pz-stage.pz-done .pz-rings i:nth-child(3) { animation-delay: 2.3s; }
-@keyframes pz-ring-out {
-  from { transform: scale(0.72); opacity: 0.8; }
-  to   { transform: scale(1.55); opacity: 0; }
+.pz-stage.pz-done .pz-logo img {
+  animation: pz-heartbeat 1.9s ease-in-out 0.75s infinite;
+  transform-origin: 50% 52%;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pz-stage.pz-done .pz-logo img { animation: none; }
 }
 
 .pz-sparkles { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }

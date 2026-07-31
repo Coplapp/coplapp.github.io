@@ -48,18 +48,29 @@
   }
 
   var R = 28;
+
+  /* Bokstäverna sitter i bitarna: C uppe vänster, O uppe höger, P nere
+     vänster, L nere höger. Sätt `letter: null` på en bit för att stänga av
+     dess bokstav utan att röra något annat. Färgen väljs per bit så
+     Alla fyra har samma mörka navy - önskat 2026-07-31. L:en satt tidigare i
+     ljust eftersom dess bit är mörkast; därför är den bitens gradient nu
+     ljusare i mitten så bokstaven fortfarande går att läsa. */
   var pieceDefs = [
     { d: 'M ' + R + ' 0 L 200 0' + emit(seamVTop, false) + emit(seamHLeft, true) + ' L 0 ' + R + ' Q 0 0 ' + R + ' 0 Z',
-      fill: 'url(#pzAqua)', stroke: '#BFF1EE',
+      fill: 'url(#pzAqua)', stroke: '#E8FFFD',
+      letter: 'C', lx: 96, ly: 104, letterFill: '#08222B', letterOpacity: 0.8,
       from: { x: -360, y: -180, z: 320, rx: 70, ry: -80, rz: -45 } },
     { d: 'M 200 0 L ' + (400 - R) + ' 0 Q 400 0 400 ' + R + ' L 400 200' + emit(seamHRight, true) + emit(seamVTop, true) + ' Z',
-      fill: 'url(#pzIce)', stroke: '#F2FCFC',
+      fill: 'url(#pzIce)', stroke: '#FFFFFF',
+      letter: 'O', lx: 302, ly: 104, letterFill: '#08222B', letterOpacity: 0.76,
       from: { x: 320, y: -260, z: -520, rx: -85, ry: 60, rz: 50 } },
     { d: 'M 0 200' + emit(seamHLeft, false) + emit(seamVBottom, false) + ' L ' + R + ' 400 Q 0 400 0 ' + (400 - R) + ' L 0 200 Z',
-      fill: 'url(#pzMint)', stroke: '#DCF7EB',
+      fill: 'url(#pzMint)', stroke: '#EDFFF7',
+      letter: 'P', lx: 98, ly: 304, letterFill: '#08222B', letterOpacity: 0.8,
       from: { x: -300, y: 300, z: -380, rx: 95, ry: 45, rz: 65 } },
     { d: 'M 200 200' + emit(seamHRight, false) + ' L 400 ' + (400 - R) + ' Q 400 400 ' + (400 - R) + ' 400 L 200 400' + emit(seamVBottom, true) + ' Z',
-      fill: 'url(#pzDeep)', stroke: '#9BDBD6',
+      fill: 'url(#pzDeep)', stroke: '#8FE9E4',
+      letter: 'L', lx: 302, ly: 304, letterFill: '#08222B', letterOpacity: 0.8,
       from: { x: 380, y: 220, z: 420, rx: -60, ry: -95, rz: -55 } },
   ];
 
@@ -73,11 +84,32 @@
   defsSvg.style.position = 'absolute';
   defsSvg.innerHTML =
     '<defs>' +
-    '<linearGradient id="pzAqua" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A9EBE7"/><stop offset=".55" stop-color="#7BD4D0"/><stop offset="1" stop-color="#3F938F"/></linearGradient>' +
-    '<linearGradient id="pzIce" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0FBFB"/><stop offset=".55" stop-color="#B8E8E8"/><stop offset="1" stop-color="#7FBDBD"/></linearGradient>' +
-    '<linearGradient id="pzMint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D2F4E5"/><stop offset=".55" stop-color="#9DDDC2"/><stop offset="1" stop-color="#5FAD8C"/></linearGradient>' +
-    '<linearGradient id="pzDeep" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#79CCC7"/><stop offset=".55" stop-color="#479C97"/><stop offset="1" stop-color="#235E5A"/></linearGradient>' +
-    '<filter id="pzDepth" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.5"/></filter>' +
+    /* Mättade gradienter med större spann. De gamla var ljusa pasteller som
+       dessutom låg på fill-opacity 0.96, så navyn lyste igenom och drog ner
+       kulören - bitarna blev grådaskiga mot bakgrunden. */
+    '<linearGradient id="pzAqua" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C4FFFB"/><stop offset=".45" stop-color="#5FD8D2"/><stop offset="1" stop-color="#17807B"/></linearGradient>' +
+    '<linearGradient id="pzIce" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#BDF2F2"/><stop offset="1" stop-color="#4FA5A5"/></linearGradient>' +
+    '<linearGradient id="pzMint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E4FFF2"/><stop offset=".45" stop-color="#6FDCB4"/><stop offset="1" stop-color="#1E8862"/></linearGradient>' +
+    /* Ljusare mitt och botten än de övriga fick, så den mörka L:en går att
+       läsa. Den är fortfarande tydligt setets mörkaste bit. */
+    '<linearGradient id="pzDeep" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7BE0DA"/><stop offset=".45" stop-color="#31B0A9"/><stop offset="1" stop-color="#12706B"/></linearGradient>' +
+    /* Dagerstrimma längs överkanten inuti biten - ger plastglans. */
+    '<linearGradient id="pzSheen" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".34"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".05"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>' +
+    /* Fasning: feSpecularLighting på biten egen alfa ger en riktig upphöjd
+       kant med ljus uppifrån vänster, i stället för bara en skugga under.
+       Sedan två skuggor - en mjuk för höjd, en tät för kontakt mot ytan. */
+    '<filter id="pzDepth" x="-45%" y="-45%" width="190%" height="190%">' +
+      '<feGaussianBlur in="SourceAlpha" stdDeviation="7" result="pzBlur"/>' +
+      /* Dämpad specular. Full styrka blekte de ljusa bitarna vita - fasningen
+         ska antyda höjd, inte lägga en vit slöja över kulören. */
+      '<feSpecularLighting in="pzBlur" surfaceScale="4" specularConstant="0.5" specularExponent="26" lighting-color="#FFFFFF" result="pzSpec">' +
+        '<fePointLight x="-120" y="-200" z="300"/>' +
+      '</feSpecularLighting>' +
+      '<feComposite in="pzSpec" in2="SourceAlpha" operator="in" result="pzSpecIn"/>' +
+      '<feComposite in="SourceGraphic" in2="pzSpecIn" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="pzLit"/>' +
+      '<feDropShadow in="pzLit" dx="0" dy="22" stdDeviation="20" flood-color="#000208" flood-opacity="0.62" result="pzS1"/>' +
+      '<feDropShadow in="pzS1" dx="0" dy="4" stdDeviation="3" flood-color="#000208" flood-opacity="0.5"/>' +
+    '</filter>' +
     '</defs>';
   stage.appendChild(defsSvg);
 
@@ -86,15 +118,51 @@
     layer.className = 'pz-layer';
     var svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('viewBox', '-70 -70 540 540');
+
+    // Bit + glans ligger i samma grupp så fasnings-filtret räknar på formens
+    // alfa. Full opacitet nu - navyn ska inte lysa igenom och blekna kulören.
+    var g = document.createElementNS(NS, 'g');
+    g.setAttribute('filter', 'url(#pzDepth)');
+
     var p = document.createElementNS(NS, 'path');
     p.setAttribute('d', def.d);
     p.setAttribute('fill', def.fill);
-    p.setAttribute('fill-opacity', '0.96');
     p.setAttribute('stroke', def.stroke);
-    p.setAttribute('stroke-width', '3');
+    p.setAttribute('stroke-width', '2.5');
     p.setAttribute('stroke-linejoin', 'round');
-    p.setAttribute('filter', 'url(#pzDepth)');
-    svg.appendChild(p);
+    g.appendChild(p);
+
+    var sheen = document.createElementNS(NS, 'path');
+    sheen.setAttribute('d', def.d);
+    sheen.setAttribute('fill', 'url(#pzSheen)');
+    sheen.setAttribute('stroke', 'none');
+    sheen.setAttribute('pointer-events', 'none');
+    g.appendChild(sheen);
+
+    svg.appendChild(g);
+
+    // Bokstaven ligger UTANFÖR filtret - annars tvättar glansen ur den.
+    // paint-order stroke ger en tunn ljus kontur som lyfter den från ytan.
+    if (def.letter) {
+      var tx = document.createElementNS(NS, 'text');
+      tx.setAttribute('x', String(def.lx));
+      tx.setAttribute('y', String(def.ly));
+      tx.setAttribute('text-anchor', 'middle');
+      tx.setAttribute('dominant-baseline', 'central');
+      tx.setAttribute('font-family', "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif");
+      tx.setAttribute('font-size', '112');
+      tx.setAttribute('font-weight', '700');
+      tx.setAttribute('letter-spacing', '-2');
+      tx.setAttribute('fill', def.letterFill);
+      tx.setAttribute('fill-opacity', String(def.letterOpacity));
+      tx.setAttribute('stroke', 'rgba(255,255,255,0.28)');
+      tx.setAttribute('stroke-width', '2');
+      tx.setAttribute('paint-order', 'stroke');
+      tx.setAttribute('pointer-events', 'none');
+      tx.textContent = def.letter;
+      svg.appendChild(tx);
+    }
+
     layer.appendChild(svg);
     stage.insertBefore(layer, stage.querySelector('.pz-plate'));
     return { el: layer, from: def.from };

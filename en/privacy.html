@@ -9,7 +9,7 @@
 </script>
 <title>Privacy Policy - Copl</title>
 <meta name="description" content="What Copl does with your data. Summary: nothing you would not want us to." />
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../assets/copl-logo.png" type="image/png" />
 <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Privacy Policy - Copl</h1>
-<p><strong>Version 3.2 - effective from 2026-06-29</strong></p>
+<p><strong>Version 3.0 - effective from 2026-07-31</strong></p>
 <p>This policy explains what Copl does with the data you and your partner enter in the app. We&#39;ve tried to write it in plain language - if anything is unclear, get in touch.</p>
 <blockquote>
 <p><em>Note: this is an English translation of the Swedish original. The Swedish version is the authoritative one in case of any discrepancy. Synchronize both files when updating the policy.</em></p>
@@ -48,9 +48,11 @@
 <ul>
 <li><strong>You and your partner are the only ones who see your content.</strong> Not us.</li>
 <li><strong>No ad SDKs, no analytics, no trackers.</strong> None.</li>
-<li><strong>All database content is stored in Sweden</strong> (Supabase, Stockholm region). Push notifications pass through Apple/Google on the way to your phone (see section 3).</li>
+<li><strong>All database content is stored in Sweden.</strong> Region: Stockholm (Supabase). Push notifications pass through Apple/Google on the way to your phone (see section 3).</li>
 <li><strong>You can at any time</strong> view all data about you, export it, or delete your account.</li>
-<li><strong>Sensitive data</strong> (intimacy, family notes, agreements, appreciations) is end-to-end encrypted since 2026-05-23. Not even we as operators can read the content.</li>
+<li><strong>Sensitive data</strong> is end-to-end encrypted since 2026-05-23 - intimacy, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders and mood check-ins. Not even we as operators can read the content.</li>
+<li><strong>The training module is private but not end-to-end encrypted.</strong> Your workouts and body measurements are never shared with your partner, but they are protected by database access control rather than by encryption. See section 6.</li>
+<li><strong>The AI help is optional and frugal.</strong> If you ask the app to fill a list for you, only the text you wrote yourself is sent to Anthropic, at most 400 characters. Never your existing lists, never relationship data. See section 3.</li>
 </ul>
 <hr>
 <h2>1. What we collect</h2>
@@ -66,12 +68,7 @@
 <tbody><tr>
 <td><strong>Email address</strong></td>
 <td>Your email</td>
-<td>Login and account verification. We send one-time codes there. If you sign in with Apple or Google we receive the address from them (Apple may give you a relay address that hides your real one).</td>
-</tr>
-<tr>
-<td><strong>Password</strong> (if you create an account with email)</td>
-<td>Your chosen password</td>
-<td>Login. Never stored in plain text - only as a cryptographic hash with Supabase Auth. We cannot see it.</td>
+<td>Login via magic link. We send only a link there.</td>
 </tr>
 <tr>
 <td><strong>Nickname</strong></td>
@@ -99,8 +96,10 @@
 <li>Tasks, to-do lists, shopping lists</li>
 <li>Calendar events</li>
 <li>Family information (children&#39;s names, shoe sizes, doctors, allergies)</li>
-<li>Meal planning</li>
-<li>Workout logs</li>
+<li>Meal planning, and recipes you save - including links, images or notes you attach to them</li>
+<li>Training plans, logged workouts and the sets you record</li>
+<li><strong>Body measurements you choose to enter yourself:</strong> weight, height and optionally body fat percentage. BMI is calculated in the app when shown and is never stored in the database.</li>
+<li>Training challenges and the sub-goals you set</li>
 <li>Weekly routines</li>
 <li>Homework</li>
 <li>Budget (income, expenses)</li>
@@ -110,13 +109,16 @@
 <li>Intimacy data (logs, preferences, goals) - only if you actively enable the module</li>
 <li>Reminders you send each other</li>
 <li>Short messages</li>
+<li>Notes, shared with your partner or private</li>
+<li>Questions and answers in Your relationship</li>
+<li>Suggestions and bug reports you send via &quot;Feedback&quot;</li>
 </ul>
 <p>We <em>don&#39;t ask</em> for any of this - you choose what to enter.</p>
 <p>If you enter information about someone else (e.g. your partner or your children in the family module), you are responsible for having the right to do so. Our legal basis for storing it is to perform the contract with you (Art. 6.1.b); for sensitive data (e.g. allergies), your explicit consent (Art. 9.2.a).</p>
 <h3>1.3 Technical data</h3>
 <ul>
 <li><strong>Push token</strong> for the device (so we can send notifications to that device)</li>
-<li><strong>Device type</strong> (iOS/Android, for debugging). App version is only included if you submit feedback via "Suggest".</li>
+<li><strong>Device type and app version</strong> (iOS/Android, for debugging)</li>
 <li><strong>Timestamps</strong> on your actions (when you logged in, when a row was created)</li>
 </ul>
 <h3>1.4 What we do <strong>not</strong> collect</h3>
@@ -127,12 +129,30 @@
 <li>Advertising identifiers (IDFA, GAID)</li>
 <li>Cookies (neither the app nor the website uses cookies or tracking)</li>
 <li>Bank transactions or card details</li>
-<li>Health data beyond what you yourself log in the intimacy module</li>
+<li>Health data beyond what you yourself choose to enter in the intimacy and training modules (see 1.2). We pull nothing from Apple Health, Google Fit, Health Connect or any wearable device.</li>
 </ul>
 <blockquote>
-<p><strong>About the website (coplapp.com):</strong> it sets no cookies and has no analytics or tracking. The only thing stored is your <strong>language choice</strong> (Swedish/English), saved locally in your browser (localStorage). This is a functional setting, not tracking, and therefore requires no consent. The site is static and served via GitHub Pages, with DNS via Cloudflare - these providers may keep normal technical access logs (IP address) to deliver the site, but we do not access them and nothing is linked to your app account.</p>
+<p><strong>About the website (coplapp.com):</strong> it sets no cookies and has no analytics or tracking. The only thing stored is your <strong>language choice</strong> (Swedish/English), saved locally in your browser (localStorage). This is a functional setting, not tracking, and therefore requires no consent.</p>
 <p><strong>Waitlist:</strong> if you voluntarily submit your email to the waitlist, we store it (with your consent, GDPR Art. 6.1.a) <strong>only</strong> to notify you when Copl launches. We send no other emails, and the list is deleted after launch. You can ask us to remove your address at any time (<a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>).</p>
 </blockquote>
+<h3>1.5 The AI help in your lists</h3>
+<p>The app can suggest content for a shopping list or a to-do list. The feature runs <strong>only when you actively press it</strong> - there is no background analysis of your lists.</p>
+<p><strong>What is sent to Anthropic:</strong></p>
+<ul>
+<li>The text you typed yourself, truncated to at most 400 characters</li>
+<li>Which kind of list it is (shopping or to-do) and your language choice</li>
+<li>If you pasted a recipe link: the text content of that page, which <strong>our server</strong> fetches</li>
+</ul>
+<p><strong>What is never sent:</strong></p>
+<ul>
+<li>Your existing lists or their contents</li>
+<li>Anything about your partner or your relationship</li>
+<li>Your email address, your account ID or any identifier pointing to you</li>
+</ul>
+<p>The request is therefore made anonymously from our server - Anthropic receives no information about who asked.</p>
+<p><strong>What we store about it:</strong> only that a generation happened. The table holds your account ID, which kind it was, and the timestamp. <strong>The prompt is not stored.</strong> The purpose is to be able to rate-limit requests per user so the service is not abused.</p>
+<p><strong>Recipe links:</strong> when you paste a link, the page is fetched by our server, not by your phone. The recipe site therefore sees our server address and never your IP address.</p>
+<p>Anthropic processes the data as a data processor and does not use it to train models. The transfer is to the USA - see section 3.</p>
 <hr>
 <h2>2. Why we process data - legal basis</h2>
 <p>Per purpose:</p>
@@ -160,12 +180,16 @@
 <td><strong>Explicit consent</strong> (Art. 9.2.a) - you actively enable the module and can disable it at any time</td>
 </tr>
 <tr>
-<td>Error reporting (when Sentry is active)</td>
-<td><strong>Legitimate interest</strong> - technical crash reports without personal data</td>
+<td>Store body measurements (weight, height, optional body fat)</td>
+<td><strong>Explicit consent</strong> (Art. 9.2.a) - you choose to enter them yourself, nothing is imported automatically, and you can delete them at any time</td>
 </tr>
 <tr>
-<td>Export calendar events to your Outlook calendar (if you enable it)</td>
-<td><strong>Consent</strong> (Art. 6.1.a) - you connect the service voluntarily and can disconnect at any time</td>
+<td>Generate list suggestions with AI</td>
+<td><strong>Contract</strong> (Art. 6.1.b) - the feature is part of the app and runs only when you actively request it</td>
+</tr>
+<tr>
+<td>Error reporting (when Sentry is active)</td>
+<td><strong>Legitimate interest</strong> - technical crash reports without personal data</td>
 </tr>
 </tbody></table>
 <p>Intimacy data is a <strong>special category of personal data</strong> under GDPR Art. 9. We handle it with extra care: opt-in, optional PIN lock, and <strong>end-to-end encryption</strong> (implemented 2026-05-23 - only you and your partner hold the decryption key).</p>
@@ -182,7 +206,7 @@
 <tbody><tr>
 <td><strong>Supabase</strong></td>
 <td>All database content, authentication, files</td>
-<td><strong>Sweden (Stockholm, eu-north-1)</strong> - EU region. Supabase data never leaves the EU.</td>
+<td><strong>Sweden (Stockholm)</strong> - EU region. Supabase data never leaves the EU.</td>
 </tr>
 <tr>
 <td><strong>Apple Push Notification Service (APNS)</strong></td>
@@ -195,16 +219,6 @@
 <td>Google&#39;s global infrastructure</td>
 </tr>
 <tr>
-<td><strong>Microsoft (Outlook calendar)</strong></td>
-<td>Calendar events you choose to export (title, description, location, time)</td>
-<td>Microsoft&#39;s global infrastructure. Only if you connect your Outlook calendar in Settings. Private events are never exported.</td>
-</tr>
-<tr>
-<td><strong>Supabase Auth (email)</strong></td>
-<td>Delivery of login codes and verification emails - your email address and message content in transit</td>
-<td>Sent via our authentication service (Supabase)</td>
-</tr>
-<tr>
 <td><strong>Expo</strong></td>
 <td>App builds, OTA updates (no user data)</td>
 <td>USA</td>
@@ -214,9 +228,14 @@
 <td>Crash reports</td>
 <td>EU region (configured)</td>
 </tr>
+<tr>
+<td><strong>Anthropic</strong></td>
+<td>Only your own prompt text when using AI generation, at most 400 characters, without identifiers (see 1.5)</td>
+<td><strong>USA</strong></td>
+</tr>
 </tbody></table>
-<p>Beyond the providers listed above, we do not share data with any third party.</p>
-<p>For the providers that process personal data outside the EU/EEA (e.g. Apple and Google for push notifications, Microsoft for calendar sync, and Expo for app services), we rely on the European Commission's Standard Contractual Clauses (SCC) and, where applicable, the EU-US Data Privacy Framework.</p>
+<p>No other third party has access to data.</p>
+<p><strong>About the transfer to the USA:</strong> it happens only at the moment you press the AI feature yourself, and covers only the text you wrote. Anthropic acts as a data processor under a data processing agreement and does not use the data for model training. Because the request is made from our server without an account ID, the data cannot be linked to you at Anthropic. If you don&#39;t want any text to leave the EU: don&#39;t use the AI suggestions, write your lists manually. Everything else in the app works exactly the same.</p>
 <hr>
 <h2>4. How long data is kept</h2>
 <ul>
@@ -228,7 +247,6 @@
 <li><strong>Server logs:</strong> Maximum 7 days.</li>
 <li><strong>Crash reports (when Sentry is active):</strong> Technical crash reports without your content, deleted per Sentry&#39;s standard retention (approx. 90 days).</li>
 </ul>
-<p>When you delete your account, deletion happens immediately (within seconds) via the app. The limits above for inactive accounts and backups are enforced through periodic routines rather than in real time. If you want your data deleted immediately, you can always delete your account yourself or contact us.</p>
 <hr>
 <h2>5. Who sees data</h2>
 <h3>You and your partner</h3>
@@ -238,16 +256,15 @@
 <li>Technically, we can reach the database via Supabase administration tools.</li>
 <li>In practice, we don&#39;t look at user data - there are no routine tasks that require it.</li>
 <li>When debugging a specific issue, we may need to read individual rows, always with the purpose of fixing the problem and nothing else.</li>
-<li><strong>End-to-end encryption is in place since 2026-05-23.</strong> We <em>cannot</em> read intimacy data, family notes, agreements, or appreciations - it is encrypted on your device before being stored. Only you and your partner hold the decryption key.</li>
+<li><strong>End-to-end encryption is in place since 2026-05-23.</strong> We <em>cannot</em> read intimacy data, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders or mood check-ins - they are encrypted on your device before being stored. Only you and your partner hold the decryption key.</li>
+<li><strong>What is not encrypted, we can technically read.</strong> That includes workouts, body measurements, budget entries, shopping lists, calendar events and homework. They are protected by database access control, not by encryption. We do not read them, but we won&#39;t claim we are prevented from doing so. See section 6 for the full split.</li>
 </ul>
 <h3>Third parties</h3>
 <ul>
 <li><strong>Supabase</strong> stores the data but has no routines that open it. They have their own privacy policy.</li>
-<li><strong>Supabase Auth</strong> sends our login and verification emails and therefore sees your email address and the message content.</li>
 <li><strong>Apple and Google</strong> see push notification content on the way to your phone. We send generic notification texts (&quot;Something new from your partner&quot;) where possible.</li>
-<li><strong>Apple or Google as sign-in provider</strong> - only if you yourself choose to sign in with Sign in with Apple or Google. Then Apple/Google knows you sign in to Copl, and we receive your email address (Apple may provide a relay address) and a signed login token. Nothing more - no contacts, photos, or other account data.</li>
-<li><strong>Microsoft</strong> - only if you yourself enable Outlook sync in Settings. The calendar events you choose to export (title, description, location, time) are then sent to your own Outlook calendar via Microsoft Graph. Sign-in happens directly with Microsoft on your device; your access tokens are stored encrypted locally on the phone and never pass through our servers. Private events are never exported, and you can disconnect at any time.</li>
-<li><strong>Beyond these providers, we do not share data with any other third party.</strong></li>
+<li><strong>Anthropic</strong> sees the prompt text you write yourself when using the AI suggestions, with no link to your account (see 1.5).</li>
+<li><strong>No others.</strong></li>
 </ul>
 <h3>What we <em>don&#39;t</em> do</h3>
 <ul>
@@ -258,12 +275,63 @@
 <hr>
 <h2>6. Security</h2>
 <ul>
-<li><strong>Row Level Security (RLS)</strong> on all database tables - it is technically impossible for a user to read data from a relationship they are not a member of.</li>
-<li><strong>HTTPS</strong> encrypts all traffic between your phone and our servers.</li>
-<li><strong>End-to-end encryption is implemented</strong> for sensitive fields (intimacy, family notes, agreements, appreciations) since 2026-05-23. Not even we as operators can read the content - it is encrypted on your device before being stored, with a key that only exists on your and your partner&#39;s phones. Algorithm: tweetnacl/XSalsa20-Poly1305 with AAD binding and version prefix. You can verify the encryption via Settings → Encryption Verification (shows your and your partner&#39;s fingerprint for verbal comparison).</li>
-<li><strong>PIN lock</strong> on the intimacy module can be activated locally on your device.</li>
-<li><strong>Discreet mode</strong> hides sensitive sections from the app&#39;s home screen.</li>
-<li><strong>Sign-in:</strong> you sign in with a one-time code via email, with a password, or with Sign in with Apple/Google. Passwords are never stored in plain text - only as a cryptographic hash with Supabase Auth. Forgotten passwords are handled by signing in with a one-time code (no reset link that can be hijacked).</li>
+<li><p><strong>Row Level Security (RLS)</strong> on all database tables - it is technically impossible for a user to read data from a relationship they are not a member of.</p>
+</li>
+<li><p><strong>HTTPS</strong> encrypts all traffic between your phone and our servers.</p>
+</li>
+<li><p><strong>End-to-end encryption is implemented</strong> since 2026-05-23 for intimacy, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders and mood check-ins. Not even we as operators can read the content - it is encrypted on your device before being stored, with a key that only exists on your and your partner&#39;s phones. Algorithm: tweetnacl/XSalsa20-Poly1305 with AAD binding and version prefix. You can verify the encryption via Settings → Encryption Verification (shows your and your partner&#39;s fingerprint for verbal comparison).</p>
+</li>
+<li><p><strong>What is encrypted and what is not.</strong> We think you should know the difference rather than having to guess:</p>
+<table>
+<thead>
+<tr>
+<th>Encrypted on your device (we cannot read it)</th>
+<th>Protected by access control (we can technically read it)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Intimacy and closeness</td>
+<td>Workouts, sets and body measurements</td>
+</tr>
+<tr>
+<td>Family notes</td>
+<td>Shopping lists and to-do lists</td>
+</tr>
+<tr>
+<td>Agreements</td>
+<td>Calendar events and weekly routines</td>
+</tr>
+<tr>
+<td>Appreciations</td>
+<td>Budget, income and expenses</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>Homework</td>
+</tr>
+<tr>
+<td>Chat messages and images in chat</td>
+<td>Meal planning and saved recipes</td>
+</tr>
+<tr>
+<td>Relationship questions and answers</td>
+<td>Nickname and email address</td>
+</tr>
+<tr>
+<td>Reminders and mood check-ins</td>
+<td>Feedback via &quot;Feedback&quot;</td>
+</tr>
+</tbody></table>
+<p>Access control (Row Level Security) means no other user can reach the data, and that it is stored in Sweden. But it is not encrypted against us who operate the database. We do not read it, and no routine requires it - but we want to be clear about where the line runs.</p>
+</li>
+<li><p><strong>The training module is not shared with your partner.</strong> Everything in it is tied to your own account, not to the relationship. Your partner sees neither your workouts nor your body measurements.</p>
+</li>
+<li><p><strong>PIN lock</strong> on the intimacy module can be activated locally on your device.</p>
+</li>
+<li><p><strong>Discreet mode</strong> hides sensitive sections from the app&#39;s home screen.</p>
+</li>
+<li><p><strong>Passwords don&#39;t exist</strong> - we use magic links via email, which eliminates password leak risks.</p>
+</li>
 </ul>
 <hr>
 <h2>7. Your rights under GDPR</h2>
@@ -293,7 +361,7 @@
 </tr>
 <tr>
 <td><strong>Restrict</strong> processing</td>
-<td>Pause the relationship (Settings → Pause) - the app switches to read-only mode</td>
+<td>Pause the relationship (Settings → Pause) - data becomes read-only</td>
 </tr>
 <tr>
 <td><strong>Object</strong> to processing</td>
@@ -302,6 +370,10 @@
 <tr>
 <td><strong>Withdraw consent</strong> for the intimacy module</td>
 <td>Settings → turn off Closeness/Intimacy - the data is deleted</td>
+</tr>
+<tr>
+<td><strong>Withdraw consent</strong> for body measurements</td>
+<td>Training → Body and progress - delete the measurements. You can stop entering them at any time without affecting the rest of the app</td>
 </tr>
 </tbody></table>
 <p>We respond to all requests <strong>within 30 days</strong>, usually much sooner.</p>
@@ -320,6 +392,8 @@
 <hr>
 <h2>9. Automated decisions and profiling</h2>
 <p>We use <strong>no</strong> automated decision-making or profiling. No algorithms draw conclusions about you that affect you.</p>
+<p>The AI suggestions in your lists (section 1.5) are not automated decision-making in the sense of GDPR Article 22. They produce a text suggestion that you choose to keep or discard, they make no decisions about you, and they build no profile of you - each request stands alone and contains nothing from earlier requests.</p>
+<p>The statistics in the app - streaks, averages, BMI, &quot;ahead of plan&quot; in training challenges - are simple calculations on numbers you entered yourself. They are shown only to you, are not used for anything else, and are not stored as conclusions about you.</p>
 <hr>
 <h2>10. Children</h2>
 <p>Copl is not intended for minors. You must be <strong>at least 18 years old</strong> to create an account (the app is age-rated 18+ and includes an optional intimacy module). Parents may store information <em>about</em> their children (names, shoe sizes, allergies) as part of the family module - but the children themselves should not create accounts.</p>
@@ -348,18 +422,8 @@
 </tr>
 <tr>
 <td>3.0</td>
-<td>2026-06-12</td>
-<td>New sign-in methods documented: Sign in with Apple, Google, and email with password (in addition to one-time codes via email). Resend added as a subprocessor for email delivery (EU/Ireland). Clarification about website hosting (GitHub Pages, Cloudflare DNS).</td>
-</tr>
-<tr>
-<td>3.1</td>
-<td>2026-06-29</td>
-<td>Microsoft (Outlook calendar sync) added as a recipient with consent as legal basis. Clarification of the safeguard (SCC/EU-US Data Privacy Framework) for transfers outside the EU/EEA, and of absolute wording.</td>
-</tr>
-<tr>
-<td>3.2</td>
-<td>2026-06-29</td>
-<td>Email delivery described as Supabase Auth (replaced unverified Resend entry). Clarified that app version is only collected with feedback, that pause is a read-only mode in the app, and that some retention limits are enforced via routines. Complete data export and actual deletion of account and closeness data in place.</td>
+<td>2026-07-31</td>
+<td>New modules and features since version 2.0 documented. <strong>New section 1.5 on the AI help in lists</strong> stating exactly what is sent to Anthropic and what is never sent; Anthropic added as a recipient in sections 3 and 5, including the transfer to the USA. <strong>Body measurements</strong> (weight, height, optional body fat) added in section 1.2 with explicit consent as the legal basis, and the earlier statement that we collect no health data outside the intimacy module corrected. <strong>New table in section 6</strong> showing what is end-to-end encrypted and what is only protected by access control - training and body measurements belong to the latter. Notes, chat, relationship questions, reminders and mood check-ins added to the list of encrypted data, where they were missing. New data types in 1.2: recipes with attachments, training challenges, notes, relationship questions and feedback. Section 9 expanded with why the AI suggestions are not automated decision-making.</td>
 </tr>
 </tbody></table>
 <hr>
@@ -368,8 +432,8 @@
 <p><strong>Email:</strong> <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a></p>
 <p><strong>Postal address:</strong> provided on request</p>
 <hr>
-<p><em>The Swedish version of this policy is authoritative. In case of discrepancy between translations, the Swedish version applies. See <a href="../privacy.html">the Swedish original</a>.</em></p>
-<p><em>Internal source document with technical details (for developers): <code>docs/INTEGRITET.md</code> in the codebase.</em></p>
+<p><em>The Swedish version of this policy is authoritative. In case of discrepancy between translations, the Swedish version applies. See <a href="PRIVACY.md">PRIVACY.md</a> for the Swedish original.</em></p>
+<p><em>Internal source document with technical details (for developers): <a href="docs/INTEGRITET.md"><code>docs/INTEGRITET.md</code></a> in the codebase.</em></p>
 
     </article>
   </main>

@@ -9,7 +9,7 @@
 </script>
 <title>Integritetspolicy - Copl</title>
 <meta name="description" content="Vad Copl gör med din data. Sammanfattning: ingenting du inte vill att vi gör." />
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/copl-logo.png" type="image/png" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Integritetspolicy - Copl</h1>
-<p><strong>Version 3.2 - gäller från 2026-06-29</strong></p>
+<p><strong>Version 3.0 - gäller från 2026-07-31</strong></p>
 <p>Den här policyn berättar vad Copl gör med den data du och din partner lägger in i appen. Vi har försökt skriva den i klartext - om något är otydligt, hör av dig.</p>
 <hr>
 <h2>Vem är ansvarig</h2>
@@ -45,9 +45,11 @@
 <ul>
 <li><strong>Du och din partner är de enda som ser ert innehåll.</strong> Inte vi.</li>
 <li><strong>Inga reklam-SDK:er, inga analytics, inga trackers.</strong> Inget.</li>
-<li><strong>Allt databasinnehåll lagras i Sverige</strong> (Supabase, region Stockholm). Push-notiser passerar Apple/Google på vägen till din telefon (se avsnitt 3).</li>
+<li><strong>Allt databasinnehåll lagras i Sverige.</strong> Region: Stockholm (Supabase). Push-notiser passerar Apple/Google på vägen till din telefon (se avsnitt 3).</li>
 <li><strong>Du kan när som helst</strong> se all data om dig, exportera den, eller radera ditt konto.</li>
-<li><strong>Känslig data</strong> (intimitet, familjenoteringar, överenskommelser, uppskattningar) är end-to-end-krypterad sedan 2026-05-23. Inte ens vi som driftar appen kan läsa innehållet.</li>
+<li><strong>Känslig data</strong> är end-to-end-krypterad sedan 2026-05-23 - intimitet, familjenoteringar, överenskommelser, uppskattningar, anteckningar, chattmeddelanden, relationsfrågor, påminnelser och humör-checkins. Inte ens vi som driftar appen kan läsa innehållet.</li>
+<li><strong>Träningsmodulen är privat men inte end-to-end-krypterad.</strong> Dina pass och kroppsmått delas aldrig med din partner, men de skyddas av åtkomstkontroll i databasen, inte av kryptering. Se avsnitt 6.</li>
+<li><strong>AI-hjälpen är frivillig och snål.</strong> Ber du appen fylla en lista automatiskt skickas bara den text du själv skrev, högst 400 tecken, till Anthropic. Aldrig dina befintliga listor, aldrig relationsdata. Se avsnitt 3.</li>
 </ul>
 <hr>
 <h2>1. Vad samlas in</h2>
@@ -63,12 +65,7 @@
 <tbody><tr>
 <td><strong>E-postadress</strong></td>
 <td>Din mejl</td>
-<td>Inloggning och kontoverifiering. Vi skickar engångskoder dit. Loggar du in med Apple eller Google får vi adressen därifrån (Apple kan ge dig en reläadress som döljer din riktiga).</td>
-</tr>
-<tr>
-<td><strong>Lösenord</strong> (om du skapar konto med e-post)</td>
-<td>Ditt valda lösenord</td>
-<td>Inloggning. Lagras aldrig i klartext - endast som kryptografisk hash hos Supabase Auth. Vi kan inte se det.</td>
+<td>Inloggning via magic link. Vi skickar bara en länk dit.</td>
 </tr>
 <tr>
 <td><strong>Smeknamn</strong></td>
@@ -96,8 +93,10 @@
 <li>Uppgifter, att-göra-listor, inköpslistor</li>
 <li>Kalenderhändelser</li>
 <li>Familjeinformation (namn på barn, skostorlek, läkare, allergier)</li>
-<li>Måltidsplanering</li>
-<li>Träningsloggar</li>
+<li>Måltidsplanering, och recept du sparar - inklusive länkar, bilder eller anteckningar du lägger till dem</li>
+<li>Träningsupplägg, loggade pass och de set du registrerar</li>
+<li><strong>Kroppsmått du själv väljer att föra in:</strong> vikt, längd och frivilligt fettprocent. BMI räknas ut i appen när det visas och lagras aldrig i databasen.</li>
+<li>Träningsutmaningar och delmål du sätter upp</li>
 <li>Veckorutiner</li>
 <li>Läxor</li>
 <li>Budget (inkomster, utgifter)</li>
@@ -107,13 +106,16 @@
 <li>Intimitet-data (loggar, preferenser, mål) - endast om ni aktivt slår på modulen</li>
 <li>Påminnelser ni skickar varandra</li>
 <li>Korta meddelanden</li>
+<li>Anteckningar, delade med din partner eller privata</li>
+<li>Frågor och svar i Er relation</li>
+<li>Förslag och buggrapporter du skickar via &quot;Tyck till&quot;</li>
 </ul>
 <p>Vi <em>ber inte</em> om något av detta - ni väljer själva vad ni lägger in.</p>
 <p>Om du lägger in uppgifter om någon annan (t.ex. din partner eller era barn i familjemodulen) ansvarar du för att du har rätt att göra det. Vår rättsliga grund för att lagra det är att fullgöra avtalet med dig (art. 6.1.b); för känsliga uppgifter (t.ex. allergier), ditt uttryckliga samtycke (art. 9.2.a).</p>
 <h3>1.3 Tekniska data</h3>
 <ul>
 <li><strong>Push-token</strong> för enheten (för att kunna skicka notiser till just den enheten)</li>
-<li><strong>Enhetstyp</strong> (iOS/Android, för felsökning). Appversion följer bara med om du själv skickar in feedback via "Tyck till".</li>
+<li><strong>Enhetstyp och appversion</strong> (iOS/Android, för felsökning)</li>
 <li><strong>Tidstämplar</strong> på dina handlingar (när du loggade in, när en rad skapades)</li>
 </ul>
 <h3>1.4 Vad vi <strong>inte</strong> samlar in</h3>
@@ -124,12 +126,30 @@
 <li>Reklamidentifierare (IDFA, GAID)</li>
 <li>Cookies (varken appen eller webbsidan använder cookies eller spårning)</li>
 <li>Banktransaktioner eller kortuppgifter</li>
-<li>Hälsodata utöver det du själv loggar in i intimitet-modulen</li>
+<li>Hälsodata utöver det du själv väljer att föra in i intimitet- och träningsmodulen (se 1.2). Vi hämtar ingenting från Apple Health, Google Fit, Health Connect eller någon bärbar enhet.</li>
 </ul>
 <blockquote>
-<p><strong>Om webbsidan (coplapp.com):</strong> den sätter inga cookies och har ingen analytics eller spårning. Den enda lagringen är ditt <strong>språkval</strong> (svenska/engelska), som sparas lokalt i din webbläsare (localStorage). Det är en funktionell inställning, inte spårning, och kräver därför inget samtycke. Sidan är statisk och serveras via GitHub Pages, med DNS via Cloudflare - dessa leverantörer kan föra normala tekniska åtkomstloggar (IP-adress) för att leverera sidan, men vi tar inte del av dem och kopplar inget till ditt app-konto.</p>
+<p><strong>Om webbsidan (coplapp.com):</strong> den sätter inga cookies och har ingen analytics eller spårning. Den enda lagringen är ditt <strong>språkval</strong> (svenska/engelska), som sparas lokalt i din webbläsare (localStorage). Det är en funktionell inställning, inte spårning, och kräver därför inget samtycke.</p>
 <p><strong>Väntelista:</strong> om du frivilligt anmäler din mejladress till väntelistan sparar vi den (med ditt samtycke, GDPR art. 6.1.a) <strong>enbart</strong> för att meddela dig när Copl släpps. Vi skickar inga andra utskick, och listan raderas efter lanseringen. Du kan när som helst be oss ta bort din adress (<a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>).</p>
 </blockquote>
+<h3>1.5 AI-hjälpen i listorna</h3>
+<p>Appen kan föreslå innehåll till en inköpslista eller en att-göra-lista. Funktionen körs <strong>bara när du aktivt trycker på den</strong> - det finns ingen automatisk analys av dina listor i bakgrunden.</p>
+<p><strong>Vad som skickas till Anthropic:</strong></p>
+<ul>
+<li>Den text du själv skrev i fältet, avkortad till högst 400 tecken</li>
+<li>Vilken typ av lista det gäller (inköp eller att-göra) och ditt språkval</li>
+<li>Om du klistrat in en receptlänk: textinnehållet från den sidan, som <strong>vår server</strong> hämtar</li>
+</ul>
+<p><strong>Vad som aldrig skickas:</strong></p>
+<ul>
+<li>Dina befintliga listor eller deras innehåll</li>
+<li>Något om din partner eller er relation</li>
+<li>Din mejladress, ditt konto-ID eller någon identifierare som pekar på dig</li>
+</ul>
+<p>Anropet går alltså anonymt från vår server - Anthropic får ingen uppgift om vem som frågade.</p>
+<p><strong>Vad vi sparar om det:</strong> endast att en generering skedde. Tabellen innehåller ditt konto-ID, vilken typ det var och tidpunkten. <strong>Prompten sparas inte.</strong> Syftet är att kunna begränsa antalet anrop per användare så tjänsten inte missbrukas.</p>
+<p><strong>Receptlänkar:</strong> när du klistrar in en länk hämtas sidan av vår server, inte av din telefon. Receptsajten ser därför vår serveradress och aldrig din IP-adress.</p>
+<p>Anthropic behandlar uppgifterna som personuppgiftsbiträde och använder dem inte för att träna modeller. Överföringen sker till USA - se avsnitt 3.</p>
 <hr>
 <h2>2. Varför vi behandlar data - rättslig grund</h2>
 <p>Per ändamål:</p>
@@ -157,12 +177,16 @@
 <td><strong>Uttryckligt samtycke</strong> (Art. 9.2.a) - du aktiverar modulen aktivt och kan stänga av när som helst</td>
 </tr>
 <tr>
-<td>Felrapportering (när Sentry är aktivt)</td>
-<td><strong>Berättigat intresse</strong> - tekniska crash-rapporter utan personuppgifter</td>
+<td>Lagra kroppsmått (vikt, längd, frivilligt fettprocent)</td>
+<td><strong>Uttryckligt samtycke</strong> (Art. 9.2.a) - du väljer själv att föra in dem, ingenting hämtas automatiskt, och du kan radera dem när som helst</td>
 </tr>
 <tr>
-<td>Exportera kalenderhändelser till din Outlook-kalender (om du aktiverar det)</td>
-<td><strong>Samtycke</strong> (Art. 6.1.a) - du kopplar tjänsten frivilligt och kan koppla bort den när som helst</td>
+<td>Generera listförslag med AI</td>
+<td><strong>Avtal</strong> (Art. 6.1.b) - funktionen är en del av appen och körs bara när du aktivt begär det</td>
+</tr>
+<tr>
+<td>Felrapportering (när Sentry är aktivt)</td>
+<td><strong>Berättigat intresse</strong> - tekniska crash-rapporter utan personuppgifter</td>
 </tr>
 </tbody></table>
 <p>Intimitet-data är en <strong>särskild kategori av personuppgifter</strong> enligt GDPR Art. 9. Vi hanterar det med extra försiktighet: opt-in, möjlighet att låsa med PIN, <strong>end-to-end-kryptering</strong> (implementerad 2026-05-23 - bara du och din partner har dekrypteringsnyckeln).</p>
@@ -179,7 +203,7 @@
 <tbody><tr>
 <td><strong>Supabase</strong></td>
 <td>All databas-innehåll, autentisering, filer</td>
-<td><strong>Sverige (Stockholm, eu-north-1)</strong> - EU-region. Supabase-data lämnar aldrig EU.</td>
+<td><strong>Sverige (Stockholm)</strong> - EU-region. Supabase-data lämnar aldrig EU.</td>
 </tr>
 <tr>
 <td><strong>Apple Push Notification Service (APNS)</strong></td>
@@ -192,16 +216,6 @@
 <td>Googles globala infrastruktur</td>
 </tr>
 <tr>
-<td><strong>Microsoft (Outlook-kalender)</strong></td>
-<td>Kalenderhändelser du valt att exportera (titel, beskrivning, plats, tid)</td>
-<td>Microsofts globala infrastruktur. Endast om du själv kopplar din Outlook-kalender i Inställningar. Privata händelser exporteras aldrig.</td>
-</tr>
-<tr>
-<td><strong>Supabase Auth (e-post)</strong></td>
-<td>Mejlleverans av inloggningskoder och verifieringsmejl - din e-postadress och mejlinnehållet i transit</td>
-<td>Skickas via vår autentiseringstjänst (Supabase)</td>
-</tr>
-<tr>
 <td><strong>Expo</strong></td>
 <td>App-byggen, OTA-uppdateringar (ingen användardata)</td>
 <td>USA</td>
@@ -211,9 +225,14 @@
 <td>Crash-rapporter</td>
 <td>EU-region (konfigurerat)</td>
 </tr>
+<tr>
+<td><strong>Anthropic</strong></td>
+<td>Endast din egen prompttext vid AI-generering, högst 400 tecken, utan identifierare (se 1.5)</td>
+<td><strong>USA</strong></td>
+</tr>
 </tbody></table>
-<p>Utöver de leverantörer som listas ovan delar vi inte data med någon tredjepart.</p>
-<p>För de leverantörer som behandlar personuppgifter utanför EU/EES (t.ex. Apple och Google för push-notiser, Microsoft för kalendersynk, samt Expo för apptjänster) stödjer vi oss på EU-kommissionens standardavtalsklausuler (SCC) och, där det är tillämpligt, EU-US Data Privacy Framework.</p>
+<p>Ingen annan tredjepart har tillgång till data.</p>
+<p><strong>Om överföringen till USA:</strong> den sker bara i det ögonblick du själv trycker på AI-funktionen, och omfattar bara den text du skrev. Anthropic agerar personuppgiftsbiträde under databehandlingsavtal och använder inte uppgifterna för modellträning. Eftersom anropet görs från vår server utan konto-ID kan uppgifterna inte kopplas till dig hos Anthropic. Vill du inte att någon text lämnar EU: använd inte AI-förslagen, skriv listorna manuellt. All övrig funktionalitet i appen fungerar oförändrat.</p>
 <hr>
 <h2>4. Hur länge sparas data</h2>
 <ul>
@@ -225,7 +244,6 @@
 <li><strong>Server-loggar:</strong> Maximalt 7 dagar.</li>
 <li><strong>Felrapporter (när Sentry är aktivt):</strong> Tekniska crash-rapporter utan ditt innehåll, raderas enligt Sentrys standardretention (ca 90 dagar).</li>
 </ul>
-<p>När du raderar ditt konto sker raderingen direkt (inom sekunder) via appen. Tidsgränserna ovan för inaktiva konton och backuper upprätthålls genom återkommande rutiner snarare än i realtid. Vill du att din data raderas omedelbart kan du alltid radera kontot själv eller kontakta oss.</p>
 <hr>
 <h2>5. Vem ser data</h2>
 <h3>Du och din partner</h3>
@@ -235,16 +253,15 @@
 <li>Tekniskt kan vi nå databasen via Supabase-administrationsverktyg.</li>
 <li>I praktiken tittar vi inte i användardata - det finns inga rutin-uppgifter som kräver det.</li>
 <li>Vid felsökning av specifikt fel kan vi behöva läsa enstaka rader, alltid med syftet att åtgärda problemet och inget annat.</li>
-<li><strong>End-to-end-kryptering är på plats sedan 2026-05-23.</strong> Vi <em>kan inte</em> läsa intimitet-data, familjenoteringar, överenskommelser eller uppskattningar - det krypteras på din enhet innan det sparas. Endast du och din partner har dekrypteringsnyckeln.</li>
+<li><strong>End-to-end-kryptering är på plats sedan 2026-05-23.</strong> Vi <em>kan inte</em> läsa intimitet-data, familjenoteringar, överenskommelser, uppskattningar, anteckningar, chattmeddelanden, relationsfrågor, påminnelser eller humör-checkins - de krypteras på din enhet innan de sparas. Endast du och din partner har dekrypteringsnyckeln.</li>
+<li><strong>Det som inte är krypterat kan vi tekniskt läsa.</strong> Det gäller bland annat träningspass, kroppsmått, budgetposter, inköpslistor, kalenderhändelser och läxor. De skyddas av åtkomstkontroll i databasen, inte av kryptering. Vi läser dem inte, men vi vill inte påstå att vi är förhindrade från det. Se avsnitt 6 för hela uppdelningen.</li>
 </ul>
 <h3>Tredjeparter</h3>
 <ul>
 <li><strong>Supabase</strong> lagrar datan men har inga rutiner som öppnar den. De har sin egen integritetspolicy.</li>
-<li><strong>Supabase Auth</strong> skickar våra inloggnings- och verifieringsmejl och ser därmed din e-postadress och mejlets innehåll.</li>
 <li><strong>Apple och Google</strong> ser push-innehåll på vägen till din telefon. Vi skickar generiska notistexter (&quot;Något nytt från din partner&quot;) där det är möjligt.</li>
-<li><strong>Apple respektive Google som inloggningsleverantör</strong> - bara om du själv väljer att logga in med Sign in with Apple eller Google. Då vet Apple/Google att du loggar in på Copl, och vi får din e-postadress (Apple kan ge en reläadress) och en signerad inloggningstoken. Inget mer - inga kontakter, foton eller annan kontodata.</li>
-<li><strong>Microsoft</strong> - bara om du själv aktiverar Outlook-synk i Inställningar. Då skickas de kalenderhändelser du väljer att exportera (titel, beskrivning, plats, tid) till din egen Outlook-kalender via Microsoft Graph. Inloggningen sker direkt mot Microsoft på din enhet; dina åtkomst-token lagras krypterat lokalt på telefonen och passerar aldrig våra servrar. Privata händelser exporteras aldrig, och du kan koppla bort när som helst.</li>
-<li><strong>Utöver dessa leverantörer delar vi inte data med någon annan tredjepart.</strong></li>
+<li><strong>Anthropic</strong> ser den prompttext du själv skriver när du använder AI-förslagen, utan koppling till ditt konto (se 1.5).</li>
+<li><strong>Inga andra.</strong></li>
 </ul>
 <h3>Vad vi <em>inte</em> gör</h3>
 <ul>
@@ -255,12 +272,63 @@
 <hr>
 <h2>6. Säkerhet</h2>
 <ul>
-<li><strong>Row Level Security (RLS)</strong> på alla databastabeller - det är tekniskt omöjligt för en användare att läsa data från en relation hen inte är medlem i.</li>
-<li><strong>HTTPS</strong> krypterar all trafik mellan din telefon och våra servrar.</li>
-<li><strong>End-to-end-kryptering är implementerad</strong> för känsliga fält (intimitet, familjenoteringar, överenskommelser, uppskattningar) sedan 2026-05-23. Inte ens vi som driftar appen kan läsa innehållet - det är krypterat på din enhet innan det sparas, med en nyckel som bara finns på din och din partners telefoner. Algoritm: tweetnacl/XSalsa20-Poly1305 med AAD-binding och version-prefix. Du kan verifiera krypteringen via Inställningar → Krypteringsverifiering (visar din och partners fingerprint för muntlig jämförelse).</li>
-<li><strong>PIN-lås</strong> på intimitet-modulen kan aktiveras lokalt på din enhet.</li>
-<li><strong>Diskret läge</strong> döljer känsliga sektioner från appens startsida.</li>
-<li><strong>Inloggning:</strong> du loggar in med engångskod via mejl, med lösenord, eller med Sign in with Apple/Google. Lösenord lagras aldrig i klartext - endast som kryptografisk hash hos Supabase Auth. Glömt lösenord löses genom inloggning med engångskod (ingen reset-länk som kan kapas).</li>
+<li><p><strong>Row Level Security (RLS)</strong> på alla databastabeller - det är tekniskt omöjligt för en användare att läsa data från en relation hen inte är medlem i.</p>
+</li>
+<li><p><strong>HTTPS</strong> krypterar all trafik mellan din telefon och våra servrar.</p>
+</li>
+<li><p><strong>End-to-end-kryptering är implementerad</strong> sedan 2026-05-23 för intimitet, familjenoteringar, överenskommelser, uppskattningar, anteckningar, chattmeddelanden, relationsfrågor, påminnelser och humör-checkins. Inte ens vi som driftar appen kan läsa innehållet - det är krypterat på din enhet innan det sparas, med en nyckel som bara finns på din och din partners telefoner. Algoritm: tweetnacl/XSalsa20-Poly1305 med AAD-binding och version-prefix. Du kan verifiera krypteringen via Inställningar → Krypteringsverifiering (visar din och partners fingerprint för muntlig jämförelse).</p>
+</li>
+<li><p><strong>Vad som är krypterat och vad som inte är det.</strong> Vi tycker du ska veta skillnaden i stället för att behöva gissa:</p>
+<table>
+<thead>
+<tr>
+<th>Krypterat på din enhet (vi kan inte läsa)</th>
+<th>Skyddat av åtkomstkontroll (vi kan tekniskt läsa)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Intimitet och närhet</td>
+<td>Träningspass, set och kroppsmått</td>
+</tr>
+<tr>
+<td>Familjenoteringar</td>
+<td>Inköpslistor och att-göra-listor</td>
+</tr>
+<tr>
+<td>Överenskommelser</td>
+<td>Kalenderhändelser och veckorutiner</td>
+</tr>
+<tr>
+<td>Uppskattningar</td>
+<td>Budget, inkomster och utgifter</td>
+</tr>
+<tr>
+<td>Anteckningar</td>
+<td>Läxor</td>
+</tr>
+<tr>
+<td>Chattmeddelanden och bilder i chatten</td>
+<td>Matplanering och sparade recept</td>
+</tr>
+<tr>
+<td>Relationsfrågor och svar</td>
+<td>Smeknamn och e-postadress</td>
+</tr>
+<tr>
+<td>Påminnelser och humör-checkins</td>
+<td>Feedback via &quot;Tyck till&quot;</td>
+</tr>
+</tbody></table>
+<p>Åtkomstkontroll (Row Level Security) betyder att ingen annan användare kan komma åt datan, och att den ligger i Sverige. Men den är inte krypterad mot oss som driftar databasen. Vi läser den inte, och det finns inga rutiner som kräver det - men vi vill vara tydliga med var gränsen går.</p>
+</li>
+<li><p><strong>Träningsmodulen delas inte med din partner.</strong> Allt i den är knutet till ditt eget konto, inte till relationen. Din partner ser varken dina pass eller dina kroppsmått.</p>
+</li>
+<li><p><strong>PIN-lås</strong> på intimitet-modulen kan aktiveras lokalt på din enhet.</p>
+</li>
+<li><p><strong>Diskret läge</strong> döljer känsliga sektioner från appens startsida.</p>
+</li>
+<li><p><strong>Lösenord existerar inte</strong> - vi använder magic link via mejl, vilket eliminerar lösenords-läckage-risker.</p>
+</li>
 </ul>
 <hr>
 <h2>7. Dina rättigheter enligt GDPR</h2>
@@ -290,7 +358,7 @@
 </tr>
 <tr>
 <td><strong>Begränsa</strong> behandlingen</td>
-<td>Pausa relationen (Inställningar → Pausa) - appen sätts då i skrivskyddat läge</td>
+<td>Pausa relationen (Inställningar → Pausa) - då blir data read-only</td>
 </tr>
 <tr>
 <td><strong>Invända</strong> mot behandling</td>
@@ -299,6 +367,10 @@
 <tr>
 <td><strong>Återkalla samtycke</strong> för intimitet-modulen</td>
 <td>Inställningar → stäng av Närhet/Intimitet - datan raderas</td>
+</tr>
+<tr>
+<td><strong>Återkalla samtycke</strong> för kroppsmått</td>
+<td>Träning → Kropp och utveckling - radera måtten. Du kan sluta föra in dem när som helst utan att det påverkar resten av appen</td>
 </tr>
 </tbody></table>
 <p>Vi svarar på alla förfrågningar <strong>inom 30 dagar</strong>, normalt mycket snabbare.</p>
@@ -317,6 +389,8 @@
 <hr>
 <h2>9. Automatiserade beslut och profilering</h2>
 <p>Vi använder <strong>inga</strong> automatiserade beslut eller profilering. Inga algoritmer drar slutsatser om dig som påverkar dig.</p>
+<p>AI-förslagen i listorna (avsnitt 1.5) är inte ett automatiserat beslut i den mening GDPR artikel 22 avser. De skapar ett textförslag som du själv väljer att spara eller slänga, de fattar inga beslut om dig, och de bygger ingen profil av dig - varje anrop står för sig och innehåller ingenting från tidigare anrop.</p>
+<p>Statistiken i appen - streaks, snitt, BMI, &quot;före plan&quot; i träningsutmaningar - är enkla uträkningar på siffror du själv fört in. De visas bara för dig, används inte till något annat, och sparas inte som slutsatser om dig.</p>
 <hr>
 <h2>10. Barn</h2>
 <p>Copl är inte avsedd för minderåriga. Du måste vara <strong>minst 18 år</strong> för att skapa ett konto (appen är åldersmärkt 18+ och innehåller en frivillig intimitetsmodul). Föräldrar kan lagra information <em>om</em> sina barn (namn, skostorlek, allergier) som del av familj-modulen - men barnen själva ska inte skapa konton.</p>
@@ -345,18 +419,8 @@
 </tr>
 <tr>
 <td>3.0</td>
-<td>2026-06-12</td>
-<td>Nya inloggningssätt dokumenterade: Sign in with Apple, Google och e-post med lösenord (utöver engångskod via mejl). Resend tillagd som underleverantör för mejlleverans (EU/Irland). Förtydligande om webbsidans drift (GitHub Pages, Cloudflare DNS).</td>
-</tr>
-<tr>
-<td>3.1</td>
-<td>2026-06-29</td>
-<td>Microsoft (Outlook-kalendersynk) tillagd som mottagare med rättslig grund samtycke. Förtydligande om skyddsmekanism (SCC/EU-US Data Privacy Framework) för överföringar utanför EU/EES, och om absoluta formuleringar.</td>
-</tr>
-<tr>
-<td>3.2</td>
-<td>2026-06-29</td>
-<td>Mejlleverans beskriven som Supabase Auth (ersatte ej verifierad Resend-uppgift). Förtydligat att appversion bara samlas in vid feedback, att paus är ett skrivskyddat läge i appen, och att vissa lagringstider upprätthålls via rutiner. Komplett dataexport och faktisk radering av konto- och närhetsdata på plats.</td>
+<td>2026-07-31</td>
+<td>Nya moduler och funktioner sedan version 2.0 beskrivna. <strong>Nytt avsnitt 1.5 om AI-hjälpen i listorna</strong> med exakt vad som skickas till Anthropic och vad som aldrig skickas; Anthropic tillagd som mottagare i avsnitt 3 och 5, inklusive överföringen till USA. <strong>Kroppsmått</strong> (vikt, längd, frivilligt fettprocent) tillagda i avsnitt 1.2 med uttryckligt samtycke som rättslig grund, och den tidigare formuleringen om att vi inte samlar hälsodata utanför intimitet-modulen rättad. <strong>Ny tabell i avsnitt 6</strong> som visar vad som är end-to-end-krypterat och vad som bara skyddas av åtkomstkontroll - träning och kroppsmått hör till det senare. Anteckningar, chatt, relationsfrågor, påminnelser och humör-checkins tillagda i listan över krypterad data, där de saknades. Nya datatyper i 1.2: recept med bilagor, träningsutmaningar, anteckningar, relationsfrågor och feedback via &quot;Tyck till&quot;. Avsnitt 9 utökat med varför AI-förslagen inte är automatiserat beslutsfattande.</td>
 </tr>
 </tbody></table>
 <hr>
@@ -366,7 +430,7 @@
 <p><strong>Postadress:</strong> lämnas på begäran</p>
 <hr>
 <p><em>Denna policy är skriven på svenska. Vid avvikelse från översättning gäller den svenska versionen.</em></p>
-<p><em>Källdokument med tekniska detaljer (för utvecklare): <code>docs/INTEGRITET.md</code> i kodbasen.</em></p>
+<p><em>Källdokument med tekniska detaljer (för utvecklare): <a href="docs/INTEGRITET.md"><code>docs/INTEGRITET.md</code></a> i kodbasen.</em></p>
 
     </article>
   </main>

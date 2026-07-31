@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#061018" />
+<meta name="robots" content="noindex" />
+<title>Copl</title>
+
+<!--
+  QR-LANDNING - malet for klistermarkenas QR-kod (coplapp.com/qr)
+
+  Varfor en egen sida i stallet for att peka QR-koden rakt pa App Store:
+   1. En kod racker for bada plattformarna.
+   2. Destinationen kan bytas utan att trycka om klistermarkena.
+   3. Android finns inte i Play an. En Android-anvandare som skannar en
+      App Store-lank far en atervandsgrand; har far hen vantelistan i stallet.
+
+  Automatisk vidarebefordran sker bara nar vi har nagonstans att skicka, och
+  knapparna ar ALLTID synliga bakom. Vissa QR-lasare oppnar lanken i en inbyggd
+  webblasare (Instagram, Snapchat) dar vidarebefordran till butiken kan strula,
+  och igenkanningen ar tillforlitlig men inte perfekt - en iPad i skrivbordslage
+  kan hamna i "okant". Da ska sidan anda fungera.
+
+  NAR ANDROID SLAPPS: satt PLAY_LIVE till true. Inget annat behover andras, och
+  alla redan uppsatta klistermarken borjar fungera for Android.
+-->
+<style>
+  :root { --navy: #061018; --aqua: #7BD4D0; --ink: #F2FBFB; --muted: #9FBDBE; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--navy); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    padding: 28px 22px; text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { width: 100%; max-width: 380px; }
+  .logo { width: 96px; height: auto; margin: 0 auto 18px; display: block; }
+  h1 { font-size: 27px; line-height: 1.2; margin: 0 0 10px; letter-spacing: -0.5px; font-weight: 700; }
+  h1 span { color: var(--aqua); }
+  .lead { font-size: 15.5px; line-height: 1.55; color: var(--muted); margin: 0 0 26px; }
+  .btn {
+    display: block; width: 100%; padding: 15px 18px; margin-bottom: 11px;
+    border-radius: 13px; font-size: 16px; font-weight: 700; text-decoration: none;
+    border: 1px solid transparent; transition: transform 0.12s ease;
+  }
+  .btn:active { transform: scale(0.985); }
+  .btn-primary { background: var(--aqua); color: #041014; box-shadow: 0 6px 20px rgba(123,212,208,0.28); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: rgba(170,232,232,0.28); }
+  .btn-soon { background: rgba(170,232,232,0.07); color: var(--muted); border-color: rgba(170,232,232,0.16); }
+  .foot { margin-top: 20px; font-size: 12.5px; color: #6E8B8D; line-height: 1.6; }
+  .foot a { color: #9FBDBE; }
+  .hide { display: none !important; }
+  .spinner {
+    width: 22px; height: 22px; margin: 0 auto 16px; border-radius: 50%;
+    border: 2px solid rgba(170,232,232,0.25); border-top-color: var(--aqua);
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <img class="logo" src="../assets/copl-logo.png" alt="Copl" />
+
+  <div id="sending" class="hide">
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="lead" id="sendingText">Öppnar App Store…</p>
+  </div>
+
+  <div id="choose">
+    <h1 id="head">En app. Två personer. <span>Noll kaos.</span></h1>
+    <p class="lead" id="lead">Copl är den delade ytan för er två - kalender, listor, mat, ekonomi och det som håller er nära. Krypterat, och lagrat i Sverige.</p>
+
+    <a class="btn btn-primary" id="ios" href="https://apps.apple.com/se/app/id6768803990">Hämta för iPhone</a>
+
+    <a class="btn btn-ghost hide" id="android" href="#">Hämta för Android</a>
+    <div class="btn btn-soon" id="androidSoon">Android kommer snart</div>
+    <a class="btn btn-ghost" id="waitlist" href="../index.html">Säg till när den släpps</a>
+
+    <p class="foot">
+      <a href="../index.html" id="more">Läs mer om Copl</a>
+      &nbsp;·&nbsp;
+      <a href="../privacy.html" id="priv">Integritet</a>
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* ---- Sätt till true när appen finns i Google Play ---- */
+  var PLAY_LIVE = false;
+  var PLAY_URL  = 'https://play.google.com/store/apps/details?id=com.pontusbrunzell.copl';
+  var IOS_URL   = 'https://apps.apple.com/se/app/id6768803990';
+
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // iPad i skrivbordsläge
+  var isAndroid = /Android/.test(ua);
+
+  /* Språk efter webbläsarens inställning. Klistermärkena sätts upp i Sverige,
+     men en engelsktalande som skannar ska inte mötas av svenska. */
+  var sv = (navigator.language || 'sv').toLowerCase().indexOf('sv') === 0;
+  var T = sv ? null : {
+    head: 'One app. Two people. <span>Zero chaos.</span>',
+    lead: 'Copl is the shared space for the two of you - calendar, lists, meals, budget, and the things that keep you close. Encrypted, and stored in Sweden.',
+    ios: 'Get it for iPhone',
+    android: 'Get it for Android',
+    soon: 'Android coming soon',
+    waitlist: 'Tell me when it launches',
+    more: 'About Copl',
+    priv: 'Privacy',
+    sending: 'Opening the App Store…',
+    sendingPlay: 'Opening Google Play…'
+  };
+  if (T) {
+    document.documentElement.lang = 'en';
+    document.getElementById('head').innerHTML = T.head;
+    document.getElementById('lead').textContent = T.lead;
+    document.getElementById('ios').textContent = T.ios;
+    document.getElementById('android').textContent = T.android;
+    document.getElementById('androidSoon').textContent = T.soon;
+    document.getElementById('waitlist').textContent = T.waitlist;
+    document.getElementById('more').textContent = T.more;
+    document.getElementById('priv').textContent = T.priv;
+    document.getElementById('more').setAttribute('href', '../en/index.html');
+    document.getElementById('priv').setAttribute('href', '../en/privacy.html');
+    document.getElementById('waitlist').setAttribute('href', '../en/index.html');
+  }
+
+  if (PLAY_LIVE) {
+    var a = document.getElementById('android');
+    a.setAttribute('href', PLAY_URL);
+    a.classList.remove('hide');
+    document.getElementById('androidSoon').classList.add('hide');
+    document.getElementById('waitlist').classList.add('hide');
+  }
+
+  /* Vidarebefordra bara när vi har någonstans att skicka. */
+  var target = isIOS ? IOS_URL : (isAndroid && PLAY_LIVE ? PLAY_URL : null);
+  if (target) {
+    document.getElementById('sendingText').textContent =
+      isIOS ? (T ? T.sending : 'Öppnar App Store…') : (T ? T.sendingPlay : 'Öppnar Google Play…');
+    document.getElementById('sending').classList.remove('hide');
+    document.getElementById('choose').classList.add('hide');
+    /* Kort fördröjning så sidan hunnit ritas - en blixtsnabb vidarebefordran
+       ser ut som en krasch i vissa inbyggda webbläsare. */
+    setTimeout(function () { location.replace(target); }, 220);
+    /* Gick vidarebefordran inte igenom: visa valen igen i stället för en död sida. */
+    setTimeout(function () {
+      document.getElementById('sending').classList.add('hide');
+      document.getElementById('choose').classList.remove('hide');
+    }, 2600);
+  }
+})();
+</script>
+</body>
+</html>

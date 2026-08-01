@@ -142,7 +142,11 @@
             <div class="phone-notch"></div>
             <div class="phone-screen">
               <video class="phone-video" autoplay muted loop playsinline preload="auto">
-                <source src="assets/copl-demo-sv.mp4" type="video/mp4" />
+                <!-- ?v= tvingar fram en ny hamtning nar filmen byts. Utan den
+                     ligger den gamla kvar i besokarnas cache - servern satter
+                     max-age=600, och <video preload="auto"> haller den langre
+                     an sa i diskcachen. Racka upp siffran vid varje filmbyte. -->
+                <source src="assets/copl-demo-sv.mp4?v=2" type="video/mp4" />
               </video>
               <div class="phone-placeholder">
                 <img src="assets/copl-logo.png" alt="Copl" class="phone-placeholder-logo" />

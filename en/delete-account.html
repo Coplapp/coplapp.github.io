@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#061018" />
+<script>
+/* Sprakval med uttryckligt mal - den svenska motsvarigheten heter
+   radera-konto.html, inte samma filnamn som denna. */
+(function(){try{var l=localStorage.getItem('copl-lang');if(l==='en')return;if(l==='sv'||(navigator.language||'').toLowerCase().indexOf('sv')===0){location.replace('../radera-konto.html');}}catch(e){}})();
+</script>
+<title>Delete your Copl account</title>
+<meta name="description" content="How to delete your Copl account and everything attached to it - in the app, or by requesting it over email." />
+<link rel="icon" href="../assets/copl-logo.png" type="image/png" />
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="../assets/copl-logo.png" alt="Copl" class="nav-logo" />
+        <span>Copl</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="../radera-konto.html" onclick="localStorage.setItem('copl-lang','sv')">SV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <article class="prose">
+
+<h1>Delete your Copl account</h1>
+
+<p>This page is for the app <strong>Copl</strong>, published by <strong>Pontus Brunzell</strong>, sole trader. You can delete your account and everything attached to it here. You do not need the app installed to request deletion.</p>
+
+<h2>Option 1: delete it in the app</h2>
+
+<p>This is the fastest route, and the deletion happens immediately.</p>
+
+<ol>
+  <li>Open Copl</li>
+  <li>Go to <strong>Settings</strong></li>
+  <li>Choose <strong>Delete my account</strong></li>
+  <li>Confirm. You are asked twice, because it cannot be undone</li>
+</ol>
+
+<h2>Option 2: request deletion without the app</h2>
+
+<p>If you no longer have the app, or you cannot get into your account, email us instead:</p>
+
+<p><a class="request-delete" href="mailto:copl-app@outlook.com?subject=Delete%20my%20Copl%20account&amp;body=I%20would%20like%20to%20delete%20my%20Copl%20account.%0A%0AThe%20email%20address%20I%20sign%20in%20with%3A%20">Request deletion by email</a></p>
+
+<p>Tell us which email address you sign in with, so we can find the right account. We confirm the request and complete the deletion within <strong>30 days</strong>. We will never ask for your password.</p>
+
+<p>The address is <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>.</p>
+
+<h2>What gets deleted</h2>
+
+<ul>
+  <li>Your account and your sign-in credentials</li>
+  <li>Your profile and profile picture</li>
+  <li>Your mood check-ins, your closeness data and your private notes</li>
+  <li>Your membership of the relationship</li>
+  <li>Your body measurements and training data, which only you can access</li>
+</ul>
+
+<h2>What stays</h2>
+
+<p>Copl is built for two people, and some content belongs to both of you. <strong>Shared data stays with your partner</strong> when you delete your account: family members, calendar, to-do lists, shopping lists and meal planning. It is their data as much as yours, and it does not disappear because you leave.</p>
+
+<p>If you want the shared data gone as well, you both need to delete your accounts, or end the relationship in the app first.</p>
+
+<h2>How long it takes</h2>
+
+<ul>
+  <li><strong>Immediately:</strong> the account closes and you can no longer reach it</li>
+  <li><strong>Within 30 days:</strong> all data is hard-deleted from the database</li>
+  <li><strong>Within 3 months:</strong> it leaves any backups that still contain it, since backups older than three months are deleted</li>
+</ul>
+
+<h2>Before you delete</h2>
+
+<p>You can take all your content with you first. In the app: <strong>Settings</strong>, then the export function. Anything end-to-end encrypted can only be read out from your own device, so the export has to happen before the account closes.</p>
+
+<hr>
+
+<p><em>More about what we store and why is in the <a href="privacy.html">privacy policy</a>. Questions about a deletion, email <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>.</em></p>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <img src="../assets/copl-logo.png" alt="Copl" class="footer-logo" />
+      <p class="footer-tagline">Built with care, from one couple to another.</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="delete-account.html">Delete account</a></li>
+        <li><a href="mailto:copl-app@outlook.com">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Copl</div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#061018" />
+<script>
+/* Samma sprakval som ovriga sidor, men med uttryckligt mal - den engelska
+   motsvarigheten heter delete-account.html, inte samma filnamn som denna. */
+(function(){try{var l=localStorage.getItem('copl-lang');if(l==='sv')return;if(l==='en'||(navigator.language||'').toLowerCase().indexOf('sv')!==0){location.replace('en/delete-account.html');}}catch(e){}})();
+</script>
+<title>Radera ditt Copl-konto</title>
+<meta name="description" content="Så raderar du ditt konto i Copl och all data som hör till det - i appen eller genom en begäran per mejl." />
+<link rel="icon" href="assets/copl-logo.png" type="image/png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/copl-logo.png" alt="Copl" class="nav-logo" />
+        <span>Copl</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Hem</a></li>
+        <li><a href="privacy.html">Integritet</a></li>
+        <li><a href="en/delete-account.html" onclick="localStorage.setItem('copl-lang','en')">EN</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <article class="prose">
+
+<h1>Radera ditt Copl-konto</h1>
+
+<p>Den här sidan gäller appen <strong>Copl</strong>, utgiven av <strong>Pontus Brunzell</strong>, enskild näringsidkare. Här kan du radera ditt konto och all data som hör till det. Du behöver inte ha appen installerad för att begära radering.</p>
+
+<h2>Alternativ 1: radera direkt i appen</h2>
+
+<p>Det här är snabbaste vägen, och raderingen sker omedelbart.</p>
+
+<ol>
+  <li>Öppna Copl</li>
+  <li>Gå till <strong>Inställningar</strong></li>
+  <li>Välj <strong>Radera mitt konto</strong></li>
+  <li>Bekräfta. Du får två frågor, eftersom det inte går att ångra</li>
+</ol>
+
+<h2>Alternativ 2: begär radering utan appen</h2>
+
+<p>Har du inte längre appen, eller kommer du inte in på ditt konto, mejlar du oss i stället:</p>
+
+<p><a class="request-delete" href="mailto:copl-app@outlook.com?subject=Radera%20mitt%20Copl-konto&amp;body=Jag%20vill%20radera%20mitt%20Copl-konto.%0A%0AE-postadressen%20jag%20anv%C3%A4nder%20f%C3%B6r%20att%20logga%20in%3A%20">Begär radering per mejl</a></p>
+
+<p>Skriv vilken e-postadress du använder för att logga in, så att vi hittar rätt konto. Vi bekräftar begäran och genomför raderingen inom <strong>30 dagar</strong>. Vi ber aldrig om ditt lösenord.</p>
+
+<p>Mejladressen är <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>.</p>
+
+<h2>Vad som raderas</h2>
+
+<ul>
+  <li>Ditt konto och dina inloggningsuppgifter</li>
+  <li>Din profil och din profilbild</li>
+  <li>Dina humörsvar, din närhetsdata och dina privata anteckningar</li>
+  <li>Ditt medlemskap i relationen</li>
+  <li>Dina kroppsmått och din träningsdata, som bara du har åtkomst till</li>
+</ul>
+
+<h2>Vad som ligger kvar</h2>
+
+<p>Copl är byggd för två personer, och en del innehåll tillhör er båda. <strong>Delad data ligger kvar hos din partner</strong> när du raderar ditt konto: familjemedlemmar, kalender, to-do-listor, inköpslistor och matplanering. Det är hens data lika mycket som din, och den försvinner inte för att du lämnar.</p>
+
+<p>Vill du att även den delade datan tas bort behöver ni båda radera era konton, eller så avslutar ni relationen i appen först.</p>
+
+<h2>Hur lång tid det tar</h2>
+
+<ul>
+  <li><strong>Direkt:</strong> kontot stängs och du kommer inte längre åt det</li>
+  <li><strong>Inom 30 dagar:</strong> all data raderas hårt ur databasen</li>
+  <li><strong>Inom 3 månader:</strong> data försvinner ur de backuper som fortfarande innehåller den, eftersom backuper äldre än tre månader raderas</li>
+</ul>
+
+<h2>Innan du raderar</h2>
+
+<p>Du kan hämta ut allt ditt innehåll först. I appen: <strong>Inställningar</strong> och sedan exportfunktionen. Det som är end-to-end-krypterat kan bara läsas ut från din egen enhet, så exporten måste göras innan kontot stängs.</p>
+
+<hr>
+
+<p><em>Mer om vad vi sparar och varför står i <a href="privacy.html">integritetspolicyn</a>. Har du frågor om en radering, mejla <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>.</em></p>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <img src="assets/copl-logo.png" alt="Copl" class="footer-logo" />
+      <p class="footer-tagline">Byggd med omtanke från ett par till ett annat.</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Hem</a></li>
+        <li><a href="privacy.html">Integritet</a></li>
+        <li><a href="terms.html">Användarvillkor</a></li>
+        <li><a href="radera-konto.html">Radera konto</a></li>
+        <li><a href="mailto:copl-app@outlook.com">Kontakt</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Copl</div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+</body>
+</html>

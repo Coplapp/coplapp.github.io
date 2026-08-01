@@ -1964,9 +1964,15 @@ ion-icon.float-icon,
    ovanfor om uppmarksamheten - det ska besvara "ar det krangligt?", inte
    overrosta uppmaningen att ladda ner. */
 .getstarted-block {
-  margin: 34px auto 0;
+  margin: 30px auto 0;
   max-width: 320px;
   text-align: left;
+}
+
+/* Knapparna foljer direkt efter stegen och behover mer luft an de 20 px
+   .store-buttons har som standard, annars klibbar de vid tredje kortet. */
+.getstarted-block + .store-buttons {
+  margin-top: 28px;
 }
 
 .getstarted-title {

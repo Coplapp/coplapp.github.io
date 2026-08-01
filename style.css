@@ -1907,17 +1907,53 @@ ion-icon.float-icon,
   100% { opacity: 0; transform: rotate(var(--a)) translateX(min(26vw, 220px)) scale(1.15); }
 }
 
+/* Sloganen under pusslet. Den ar sidans avslutande replik, sa den bar
+   rubrikvikt och inte brodtextvikt. Delarna tands en efter en fran puzzle.js
+   som satter .lit - darav att varje span reser sig och skalar upp nagot
+   nar den tands, i stallet for att bara tona in. */
 .pz-slogan {
-  margin-top: 3vh; font-size: clamp(15px, 1.9vw, 21px); font-weight: 600;
-  display: flex; gap: 0.5em; flex-wrap: wrap; justify-content: center; padding: 0 6vw;
+  margin-top: 3.4vh;
+  font-size: clamp(23px, 3.6vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  line-height: 1.15;
+  display: flex; gap: 0.42em; flex-wrap: wrap; justify-content: center; padding: 0 6vw;
 }
-.pz-slogan span { opacity: 0.2; transition: opacity 0.5s ease, text-shadow 0.5s; }
-.pz-slogan span.lit { opacity: 1; text-shadow: 0 0 24px rgba(123, 212, 208, 0.35); }
+
+.pz-slogan span {
+  opacity: 0.16;
+  transform: translateY(9px) scale(0.97);
+  transition:
+    opacity 0.55s ease,
+    transform 0.6s cubic-bezier(0.2, 0.9, 0.25, 1),
+    text-shadow 0.6s ease;
+}
+
+.pz-slogan span.lit {
+  opacity: 1;
+  transform: none;
+  text-shadow:
+    0 0 34px rgba(123, 212, 208, 0.42),
+    0 0 12px rgba(255, 255, 255, 0.16);
+}
+
+/* Slutklamen far mest ljus - det ar den man ska minnas. */
 .pz-slogan .pz-aq { color: var(--logo-blue); }
+.pz-slogan .pz-aq.lit {
+  text-shadow:
+    0 0 46px rgba(123, 212, 208, 0.7),
+    0 0 16px rgba(123, 212, 208, 0.4);
+}
+
+@media (max-width: 640px) {
+  .pz-slogan { gap: 0.3em; padding: 0 8vw; letter-spacing: -0.3px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .puzzle-wrap { height: auto; padding: 60px 0; }
   .puzzle-sticky { position: static; height: auto; }
+  /* Texten far tona in, men inte resa sig. */
+  .pz-slogan span { transform: none; transition: opacity 0.55s ease; }
 }
 
 /* ============================================================

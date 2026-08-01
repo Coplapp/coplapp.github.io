@@ -1955,17 +1955,26 @@ ion-icon.float-icon,
   background: var(--logo-blue);
 }
 
-/* KOM IGANG - tre steg precis fore nedladdnings-CTA:n. Radar upp sig pa
-   bredd i desktop och staplar pa mobil, dar en rad per steg lases snabbare
-   an tre trangda kolumner. */
-.getstarted-section { padding-bottom: 0; }
+/* KOM IGANG - tre steg i hjaltesektionen, direkt under butiksknapparna.
+   Staplat under varandra med flex-direction: column: tre korta rader lases
+   som en sekvens (forst det har, sen det har), medan tre kolumner lases som
+   tre alternativ att valja mellan. Numren gor ordningen tydlig.
+
+   Blocket ar smalt och centrerat sa det inte konkurrerar med knapparna
+   ovanfor om uppmarksamheten - det ska besvara "ar det krangligt?", inte
+   overrosta uppmaningen att ladda ner. */
+.getstarted-block {
+  margin: 34px auto 0;
+  max-width: 320px;
+  text-align: left;
+}
 
 .getstarted-title {
-  font-size: 28px;
+  font-size: 19px;
   font-weight: 600;
   text-align: center;
-  letter-spacing: -0.4px;
-  margin-bottom: 28px;
+  letter-spacing: -0.2px;
+  margin: 0 0 16px;
 }
 
 .getstarted {
@@ -1973,43 +1982,40 @@ ion-icon.float-icon,
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .getstarted li {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 22px 16px 16px;
-  border-radius: 16px;
-  border: 1px solid rgba(184, 232, 232, 0.16);
+  gap: 13px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(184, 232, 232, 0.14);
   background: rgba(184, 232, 232, 0.04);
-  flex: 1 1 240px;
-  max-width: 300px;
 }
 
 .gs-num {
   flex: 0 0 auto;
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   background: var(--accent);
   color: #041014;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14.5px;
 }
 
 .gs-text {
-  font-size: 16.5px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.3;
 }
 
 @media (max-width: 640px) {
-  .getstarted li { flex: 1 1 100%; max-width: none; }
-  .getstarted-title { font-size: 24px; }
+  .getstarted-block { margin-top: 28px; max-width: 300px; }
+  .getstarted-title { font-size: 17.5px; }
 }

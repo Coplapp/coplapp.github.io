@@ -4,6 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#061018" />
+<!-- Ägarbevis för Google Search Console. Krävs för att Play Console ska kunna
+     verifiera webbplatsen, vilket i sin tur krävs för att byta utvecklarkontot
+     från personligt till organisation. TA INTE BORT - verifieringen kontrolleras
+     om med tiden och kontot tappar sin organisationsstatus om taggen försvinner. -->
+<meta name="google-site-verification" content="DjUU1HwHDCydzyzGPbDrJBSziwlJqTM-V8H9gO_xcio" />
 <!-- Språkdetektering: icke-svenska webbläsare → engelska sidan (/en/). Sparar val i localStorage. -->
 <script>
 (function(){try{var l=localStorage.getItem('copl-lang');if(l==='sv')return;var f=location.pathname.split('/').pop()||'index.html';if(l==='en'||(navigator.language||'').toLowerCase().indexOf('sv')!==0){location.replace('en/'+f);}}catch(e){}})();

@@ -49,7 +49,7 @@
 <li><strong>Du kan när som helst</strong> se all data om dig, exportera den, eller radera ditt konto.</li>
 <li><strong>Känslig data</strong> är end-to-end-krypterad sedan 2026-05-23 - intimitet, familjenoteringar, överenskommelser, uppskattningar, anteckningar, chattmeddelanden, relationsfrågor, påminnelser och humör-checkins. Inte ens vi som driftar appen kan läsa innehållet.</li>
 <li><strong>Träningsmodulen är privat men inte end-to-end-krypterad.</strong> Dina pass och kroppsmått delas aldrig med din partner, men de skyddas av åtkomstkontroll i databasen, inte av kryptering. Se avsnitt 6.</li>
-<li><strong>AI-hjälpen är frivillig och snål.</strong> Ber du appen fylla en lista automatiskt skickas bara den text du själv skrev, högst 400 tecken, till Anthropic. Aldrig dina befintliga listor, aldrig relationsdata. Se avsnitt 3.</li>
+<li><strong>AI-hjälpen är frivillig och snål.</strong> Ber du appen fylla en lista automatiskt skickas den text du själv skrev, högst 400 tecken, till Anthropic. Väljer du en receptlänk eller ett foto av ett recept skickas även det. Aldrig dina befintliga listor, aldrig relationsdata. Se avsnitt 3.</li>
 </ul>
 <hr>
 <h2>1. Vad samlas in</h2>
@@ -139,7 +139,9 @@
 <li>Den text du själv skrev i fältet, avkortad till högst 400 tecken</li>
 <li>Vilken typ av lista det gäller (inköp eller att-göra) och ditt språkval</li>
 <li>Om du klistrat in en receptlänk: textinnehållet från den sidan, som <strong>vår server</strong> hämtar</li>
+<li>Om du valt ett foto av ett recept: den bilden, komprimerad och högst 5 MB</li>
 </ul>
+<p><strong>Om foto av recept.</strong> Du kan fotografera ett recept i en tidning eller kokbok, eller välja en skärmbild ur telefonens bildbibliotek, och få ingredienserna som inköpslista. Bilden skickas till Anthropic i samma ögonblick du trycker på knappen, och <strong>vi sparar den inte</strong>. Du väljer bilden själv varje gång, och rutan i appen säger att den skickas vidare innan den gör det. Välj bara bilder du är bekväm med att skicka.</p>
 <p><strong>Vad som aldrig skickas:</strong></p>
 <ul>
 <li>Dina befintliga listor eller deras innehåll</li>
@@ -227,7 +229,7 @@
 </tr>
 <tr>
 <td><strong>Anthropic Ireland, Limited</strong></td>
-<td>Endast din egen prompttext vid AI-generering, högst 400 tecken, utan identifierare (se 1.5)</td>
+<td>Din egen prompttext vid AI-generering, högst 400 tecken, samt receptlänkens sidinnehåll eller ett foto av ett recept om du väljer det. Utan identifierare (se 1.5)</td>
 <td>Avtalspart inom <strong>EU (Irland)</strong>. Behandlingen sker i <strong>USA</strong>, med Anthropic PBC som underbiträde.</td>
 </tr>
 <tr>
@@ -237,7 +239,7 @@
 </tr>
 </tbody></table>
 <p>Ingen annan tredjepart har tillgång till data.</p>
-<p><strong>Om överföringen till USA:</strong> den sker bara i det ögonblick du själv trycker på AI-funktionen, och omfattar bara den text du skrev. Vår avtalspart är <strong>Anthropic Ireland, Limited</strong>, ett bolag inom EU, eftersom Copl drivs från Sverige. Anthropic agerar personuppgiftsbiträde under databehandlingsavtal, och överföringen till USA vilar på <strong>EU:s standardavtalsklausuler, modul två (ansvarig till biträde)</strong>. Anthropic använder inte uppgifterna för modellträning. Eftersom anropet görs från vår server utan konto-ID kan uppgifterna inte kopplas till dig hos Anthropic. Vill du inte att någon text lämnar EU: använd inte AI-förslagen, skriv listorna manuellt. All övrig funktionalitet i appen fungerar oförändrat.</p>
+<p><strong>Om överföringen till USA:</strong> den sker bara i det ögonblick du själv trycker på AI-funktionen, och omfattar den text du skrev, samt receptlänkens sidinnehåll eller ett foto av ett recept om du väljer att lägga till det. Vår avtalspart är <strong>Anthropic Ireland, Limited</strong>, ett bolag inom EU, eftersom Copl drivs från Sverige. Anthropic agerar personuppgiftsbiträde under databehandlingsavtal, och överföringen till USA vilar på <strong>EU:s standardavtalsklausuler, modul två (ansvarig till biträde)</strong>. Anthropic använder inte uppgifterna för modellträning. Eftersom anropet görs från vår server utan konto-ID kan uppgifterna inte kopplas till dig hos Anthropic. Vill du inte att någon text lämnar EU: använd inte AI-förslagen, skriv listorna manuellt. All övrig funktionalitet i appen fungerar oförändrat.</p>
 <p><strong>Om butikerna:</strong> Copl distribueras via App Store och Google Play. De ser att du hämtat appen och behandlar den uppgiften enligt sina egna villkor, som vi inte kontrollerar. Införs betalda funktioner i framtiden hanteras köpen av butiken, inte av oss, och vi får aldrig dina kort- eller betalningsuppgifter.</p>
 <hr>
 <h2>4. Hur länge sparas data</h2>

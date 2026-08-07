@@ -52,7 +52,7 @@
 <li><strong>You can at any time</strong> view all data about you, export it, or delete your account.</li>
 <li><strong>Sensitive data</strong> is end-to-end encrypted since 2026-05-23 - intimacy, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders and mood check-ins. Not even we as operators can read the content.</li>
 <li><strong>The training module is private but not end-to-end encrypted.</strong> Your workouts and body measurements are never shared with your partner, but they are protected by database access control rather than by encryption. See section 6.</li>
-<li><strong>The AI help is optional and frugal.</strong> If you ask the app to fill a list for you, only the text you wrote yourself is sent to Anthropic, at most 400 characters. Never your existing lists, never relationship data. See section 3.</li>
+<li><strong>The AI help is optional and frugal.</strong> If you ask the app to fill a list for you, the text you wrote yourself is sent to Anthropic, at most 400 characters. If you add a recipe link or a photo of a recipe, that is sent too. Never your existing lists, never relationship data. See section 3.</li>
 </ul>
 <hr>
 <h2>1. What we collect</h2>
@@ -142,7 +142,9 @@
 <li>The text you typed yourself, truncated to at most 400 characters</li>
 <li>Which kind of list it is (shopping or to-do) and your language choice</li>
 <li>If you pasted a recipe link: the text content of that page, which <strong>our server</strong> fetches</li>
+<li>If you picked a photo of a recipe: that image, compressed and at most 5 MB</li>
 </ul>
+<p><strong>About photos of recipes.</strong> You can photograph a recipe in a magazine or cookbook, or pick a screenshot from your phone&#39;s library, and get the ingredients as a shopping list. The image is sent to Anthropic the moment you press the button, and <strong>we do not store it</strong>. You pick the image yourself every time, and the screen tells you it will be sent before it is. Only pick images you are comfortable sending.</p>
 <p><strong>What is never sent:</strong></p>
 <ul>
 <li>Your existing lists or their contents</li>
@@ -230,7 +232,7 @@
 </tr>
 <tr>
 <td><strong>Anthropic Ireland, Limited</strong></td>
-<td>Only your own prompt text when using AI generation, at most 400 characters, without identifiers (see 1.5)</td>
+<td>Your own prompt text when using AI generation, at most 400 characters, plus the recipe link&#39;s page content or a photo of a recipe if you add one. Without identifiers (see 1.5)</td>
 <td>Contracting party inside the <strong>EU (Ireland)</strong>. Processing takes place in the <strong>USA</strong>, with Anthropic PBC as sub-processor.</td>
 </tr>
 <tr>
@@ -240,7 +242,7 @@
 </tr>
 </tbody></table>
 <p>No other third party has access to data.</p>
-<p><strong>About the transfer to the USA:</strong> it happens only at the moment you press the AI feature yourself, and covers only the text you wrote. Our contracting party is <strong>Anthropic Ireland, Limited</strong>, a company inside the EU, because Copl is run from Sweden. Anthropic acts as a data processor under a data processing agreement, and the transfer to the USA rests on the <strong>EU Standard Contractual Clauses, module two (controller to processor)</strong>. Anthropic does not use the data for model training. Because the request is made from our server without an account ID, the data cannot be linked to you at Anthropic. If you don&#39;t want any text to leave the EU: don&#39;t use the AI suggestions, write your lists manually. Everything else in the app works exactly the same.</p>
+<p><strong>About the transfer to the USA:</strong> it happens only at the moment you press the AI feature yourself, and covers the text you wrote, plus the recipe link&#39;s page content or a photo of a recipe if you choose to add one. Our contracting party is <strong>Anthropic Ireland, Limited</strong>, a company inside the EU, because Copl is run from Sweden. Anthropic acts as a data processor under a data processing agreement, and the transfer to the USA rests on the <strong>EU Standard Contractual Clauses, module two (controller to processor)</strong>. Anthropic does not use the data for model training. Because the request is made from our server without an account ID, the data cannot be linked to you at Anthropic. If you don&#39;t want any text to leave the EU: don&#39;t use the AI suggestions, write your lists manually. Everything else in the app works exactly the same.</p>
 <p><strong>About the stores:</strong> Copl is distributed through the App Store and Google Play. They see that you downloaded the app and process that under their own terms, which we do not control. If paid features are introduced in the future, purchases are handled by the store and not by us, and we never receive your card or payment details.</p>
 <hr>
 <h2>4. How long data is kept</h2>

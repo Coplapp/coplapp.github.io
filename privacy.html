@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Integritetspolicy - Copl</h1>
-<p><strong>Version 4.0 - gäller från 2026-08-11</strong></p>
+<p><strong>Version 4.1 - gäller från 2026-08-11</strong></p>
 <p>Den här policyn berättar vad Copl gör med den data du och din partner lägger in i appen. Vi har försökt skriva den i klartext - om något är otydligt, hör av dig.</p>
 <hr>
 <h2>Vem är ansvarig</h2>
@@ -158,6 +158,14 @@
 <p><strong>Receptlänkar:</strong> när du klistrar in en länk hämtas sidan av vår server, inte av din telefon. Receptsajten ser därför vår serveradress och aldrig din IP-adress.</p>
 <p>Anthropic behandlar uppgifterna som personuppgiftsbiträde och använder dem inte för att träna modeller. Överföringen sker till USA - se avsnitt 3.</p>
 <hr>
+<h3>1.6 När du kopplar kalendern till något utanför Copl</h3>
+<p>Kalendermodulen har tre sätt att låta era händelser synas någon annanstans. Alla tre är frivilliga, avstängda från början, och slås på av dig. <strong>Privata händelser följer aldrig med i någon av dem.</strong></p>
+<p><strong>Telefonens kalender.</strong> Appen skapar en kalender som heter Copl på din telefon och skriver händelserna dit. Ingen tredje part är inblandad - datan lämnar aldrig enheten via oss. Vad som händer sedan bestämmer telefonen: har du kopplat din telefonkalender till iCloud, Google eller ett jobbkonto följer händelserna med dit enligt de inställningar du själv gjort.</p>
+<p><strong>Koppla Outlook.</strong> Väljer du att koppla ditt Microsoft-konto skickar appen era gemensamma händelser direkt till din Outlook-kalender: titel, tid, plats och beskrivning. <strong>Microsoft blir då mottagare av de uppgifterna</strong>, och behandlar dem enligt sina egna villkor som vi inte kontrollerar. Överföringen sker från din telefon till Microsoft, aldrig via våra servrar, och den går bara åt ett håll. Kopplar du bort Outlook tas de händelser Copl lagt in bort igen.</p>
+<p><strong>Prenumerationslänk.</strong> Du kan skapa en hemlig adress och lägga in den i vilken kalender du vill - Outlook, Google, Apple, privat eller jobb. Kalendern hämtar då en fil från vår server med era gemensamma händelser, 90 dagar bakåt och drygt ett år framåt. <strong>Den kalendertjänst du klistrar in adressen i blir mottagare av uppgifterna</strong>, och vilken det blir bestämmer du.</p>
+<p>Om adressen: den fungerar som ett lösenord. Den som har den kan läsa era gemensamma händelser utan att logga in. Därför är den slumpad och omöjlig att gissa, och därför kan du när som helst ta bort den under Inställningar - då slutar den fungera omedelbart. Dela den inte med någon du inte vill ska se er kalender.</p>
+<p>Vi sparar när en kalender senast hämtade filen, så att du ska kunna få svar på frågan om prenumerationen fungerar. Ingenting annat loggas om hämtningarna.</p>
+<hr>
 <h2>2. Varför vi behandlar data - rättslig grund</h2>
 <p>Per ändamål:</p>
 <table>
@@ -238,6 +246,16 @@
 <td>Avtalspart inom <strong>EU (Irland)</strong>. Behandlingen sker i <strong>USA</strong>, med Anthropic PBC som underbiträde.</td>
 </tr>
 <tr>
+<td><strong>Microsoft</strong></td>
+<td>Titel, tid, plats och beskrivning för era gemensamma händelser - <strong>endast om du själv kopplar Outlook</strong>. Skickas från din telefon, aldrig via våra servrar (se 1.6)</td>
+<td>Microsofts egen infrastruktur</td>
+</tr>
+<tr>
+<td><strong>Den kalender du prenumererar i</strong></td>
+<td>Samma uppgifter, om du själv lägger in prenumerationslänken i en kalendertjänst. Vilken tjänst det blir bestämmer du (se 1.6)</td>
+<td>Beror på vilken tjänst du valt</td>
+</tr>
+<tr>
 <td><strong>App Store och Google Play</strong></td>
 <td>Att du hämtat appen, samt eventuella framtida köp i appen</td>
 <td>Apples och Googles egen infrastruktur</td>
@@ -274,6 +292,8 @@
 <li><strong>Supabase</strong> lagrar datan men har inga rutiner som öppnar den. De har sin egen integritetspolicy.</li>
 <li><strong>Apple och Google</strong> ser push-innehåll på vägen till din telefon. Vi skickar generiska notistexter (&quot;Något nytt från din partner&quot;) där det är möjligt.</li>
 <li><strong>Anthropic Ireland, Limited</strong> ser det du själv skriver till en AI-assistent, utan koppling till ditt konto (se 1.5). De ser aldrig ditt innehåll i appen.</li>
+<li><strong>Microsoft</strong> ser era gemensamma händelser om du själv kopplat Outlook (se 1.6). Kopplar du bort den tas händelserna bort igen.</li>
+<li><strong>Den kalendertjänst du valt</strong> ser samma uppgifter om du lagt in prenumerationslänken där. Tar du bort länken slutar den fungera direkt.</li>
 <li><strong>App Store och Google Play</strong> ser att du hämtat appen. De hanterar även eventuella framtida köp i appen enligt sina egna villkor. Vi får ingen betalningsinformation från dem.</li>
 <li><strong>Inga andra.</strong></li>
 </ul>
@@ -434,6 +454,11 @@
 <td>2.0</td>
 <td>2026-05-24</td>
 <td>End-to-end-kryptering har implementerats och verifierats i produktion 2026-05-23. Sektioner som beskrev E2EE som &quot;planerad&quot; eller &quot;kommande&quot; uppdaterade till nutid. Krypteringsverifiering via fingerprint i Inställningar dokumenterad.</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td>2026-08-11</td>
+<td><strong>Nytt avsnitt 1.6 om kalendern.</strong> Outlook-kopplingen fanns i appen men saknades helt i policyn - Microsoft var alltså mottagare av era händelser utan att vi berättade det. Rättat, och tillagt tillsammans med den nya prenumerationslänken, som låter dig lägga era händelser i valfri kalender och där du själv väljer vilken tjänst som blir mottagare. Båda tillagda som mottagare i avsnitt 3 och 5. Beskrivet att prenumerationsadressen fungerar som ett lösenord och när som helst kan återkallas, och att privata händelser aldrig följer med i någon av vägarna.</td>
 </tr>
 <tr>
 <td>4.0</td>

@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Privacy Policy - Copl</h1>
-<p><strong>Version 4.0 - effective from 2026-08-11</strong></p>
+<p><strong>Version 4.1 - effective from 2026-08-11</strong></p>
 <p>This policy explains what Copl does with the data you and your partner enter in the app. We&#39;ve tried to write it in plain language - if anything is unclear, get in touch.</p>
 <blockquote>
 <p><em>Note: this is an English translation of the Swedish original. The Swedish version is the authoritative one in case of any discrepancy. Synchronize both files when updating the policy.</em></p>
@@ -161,6 +161,14 @@
 <p><strong>Recipe links:</strong> when you paste a link, the page is fetched by our server, not by your phone. The recipe site therefore sees our server address and never your IP address.</p>
 <p>Anthropic processes the data as a data processor and does not use it to train models. The transfer is to the USA - see section 3.</p>
 <hr>
+<h3>1.6 When you connect the calendar to something outside Copl</h3>
+<p>The calendar module has three ways of letting your events appear somewhere else. All three are optional, off by default, and switched on by you. <strong>Private events never travel with any of them.</strong></p>
+<p><strong>Your phone calendar.</strong> The app creates a calendar named Copl on your phone and writes the events there. No third party is involved - the data never leaves the device through us. What happens next is up to the phone: if you have connected your phone calendar to iCloud, Google or a work account, the events follow along according to the settings you made yourself.</p>
+<p><strong>Connect Outlook.</strong> If you choose to connect your Microsoft account, the app sends your shared events straight to your Outlook calendar: title, time, place and description. <strong>Microsoft then becomes a recipient of that information</strong>, and processes it under its own terms, which we do not control. The transfer goes from your phone to Microsoft, never through our servers, and it only goes one way. If you disconnect Outlook, the events Copl added are removed again.</p>
+<p><strong>Subscription link.</strong> You can create a secret address and add it to any calendar you like - Outlook, Google, Apple, private or work. The calendar then fetches a file from our server with your shared events, 90 days back and a little over a year ahead. <strong>The calendar service you paste the address into becomes a recipient of that information</strong>, and which one it is, is up to you.</p>
+<p>About the address: it works like a password. Anyone holding it can read your shared events without signing in. That is why it is random and impossible to guess, and why you can remove it at any time in Settings - it stops working immediately. Do not share it with anyone you would not want seeing your calendar.</p>
+<p>We store when a calendar last fetched the file, so we can answer the question of whether the subscription is working. Nothing else about the fetches is logged.</p>
+<hr>
 <h2>2. Why we process data - legal basis</h2>
 <p>Per purpose:</p>
 <table>
@@ -241,6 +249,16 @@
 <td>Contracting party inside the <strong>EU (Ireland)</strong>. Processing takes place in the <strong>USA</strong>, with Anthropic PBC as sub-processor.</td>
 </tr>
 <tr>
+<td><strong>Microsoft</strong></td>
+<td>Title, time, place and description of your shared events - <strong>only if you connect Outlook yourself</strong>. Sent from your phone, never through our servers (see 1.6)</td>
+<td>Microsoft&#39;s own infrastructure</td>
+</tr>
+<tr>
+<td><strong>The calendar you subscribe from</strong></td>
+<td>The same information, if you add the subscription link to a calendar service yourself. Which service that is, is up to you (see 1.6)</td>
+<td>Depends on the service you chose</td>
+</tr>
+<tr>
 <td><strong>App Store and Google Play</strong></td>
 <td>That you downloaded the app, and any future in-app purchases</td>
 <td>Apple&#39;s and Google&#39;s own infrastructure</td>
@@ -277,6 +295,8 @@
 <li><strong>Supabase</strong> stores the data but has no routines that open it. They have their own privacy policy.</li>
 <li><strong>Apple and Google</strong> see push notification content on the way to your phone. We send generic notification texts (&quot;Something new from your partner&quot;) where possible.</li>
 <li><strong>Anthropic Ireland, Limited</strong> sees what you write yourself to an AI assistant, with no link to your account (see 1.5). They never see your content in the app.</li>
+<li><strong>Microsoft</strong> sees your shared events if you connected Outlook yourself (see 1.6). Disconnect it and the events are removed again.</li>
+<li><strong>The calendar service you chose</strong> sees the same information if you added the subscription link there. Remove the link and it stops working right away.</li>
 <li><strong>The App Store and Google Play</strong> see that you downloaded the app. They also handle any future in-app purchases under their own terms. We receive no payment information from them.</li>
 <li><strong>No others.</strong></li>
 </ul>
@@ -433,6 +453,11 @@
 <td>2.0</td>
 <td>2026-05-24</td>
 <td>End-to-end encryption has been implemented and verified in production on 2026-05-23. Sections that described E2EE as &quot;planned&quot; or &quot;future&quot; updated to present tense. Encryption verification via fingerprint in Settings documented.</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td>2026-08-11</td>
+<td><strong>New section 1.6 on the calendar.</strong> The Outlook connection existed in the app but was missing entirely from the policy - Microsoft was a recipient of your events without us saying so. Corrected, and documented together with the new subscription link, which lets you put your events into any calendar and where you choose which service becomes the recipient. Both added as recipients in sections 3 and 5. Documented that the subscription address works like a password and can be revoked at any time, and that private events never travel with any of these routes.</td>
 </tr>
 <tr>
 <td>4.0</td>

@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Användarvillkor - Copl</h1>
-<p><strong>Version 1.2 - gäller från 2026-08-06</strong></p>
+<p><strong>Version 1.3 - gäller från 2026-08-11</strong></p>
 <p>De här villkoren förklarar vad du och vi har kommit överens om när du använder Copl. Vi har försökt skriva dem i klartext - om något är otydligt, hör av dig.</p>
 <hr>
 <h2>Vem driver tjänsten</h2>
@@ -58,6 +58,7 @@
 <li><strong>Att inte missbruka tjänsten</strong> - inga försök att hacka, överbelasta, bryta sig in på andras konton eller automatisera användning utan vår tillåtelse.</li>
 <li><strong>Att inte ladda upp olagligt innehåll</strong> - material som bryter mot svensk lag är inte tillåtet. Det innefattar bland annat barnpornografi, hatbrott, upphovsrättsintrång, eller hot.</li>
 <li><strong>Att respektera din partner</strong> - Copl är ett gemensamt verktyg. Använd det inte som plattform för trakasserier eller övergrepp.</li>
+<li><strong>Att du har rätt att lägga in uppgifter om andra.</strong> Lägger du in uppgifter om någon annan än dig själv - din partner, era barn i familjemodulen, någons allergier eller läkarkontakter - ansvarar du för att du får göra det. Vi har ingen möjlighet att kontrollera saken, eftersom det mesta av innehållet är krypterat och oläsbart för oss.</li>
 <li><strong>Att läsa vår integritetspolicy</strong> - den förklarar vad vi gör med din data. Genom att använda tjänsten godkänner du även den.</li>
 </ul>
 <hr>
@@ -73,7 +74,7 @@
 <h3>Vi gör vårt bästa för att:</h3>
 <ul>
 <li>Hålla tjänsten igång (men ingen garanti om 100% uptime)</li>
-<li>Skydda din data tekniskt (RLS, framtida E2EE)</li>
+<li>Skydda din data tekniskt (åtkomstkontroll i databasen, och end-to-end-kryptering för det känsligaste - se integritetspolicyn avsnitt 6)</li>
 <li>Svara på dina frågor inom rimlig tid (oftast inom några dagar)</li>
 <li>Meddela dig om större förändringar i tjänsten</li>
 </ul>
@@ -140,19 +141,23 @@
 <p>BMI är ett grovt mått som inte skiljer muskelmassa från fett och som inte säger något om en enskild människas hälsa. Vi visar det med referensintervall och utan omdömen om din kropp, men det ersätter inte en bedömning av vårdpersonal.</p>
 <p><strong>Rådfråga läkare, fysioterapeut eller annan vårdpersonal</strong> innan du börjar träna om du har en sjukdom eller skada, är gravid, tar mediciner eller är osäker på om ett upplägg passar dig. Du tränar på eget ansvar och ansvarar själv för de beslut du fattar om din kropp utifrån vad appen visar.</p>
 <p>Har du en ätstörning eller en problematisk relation till mat, vikt eller träning: överväg att inte använda kroppsmåtten alls. Resten av appen fungerar utan dem, och du kan radera dem när som helst.</p>
-<h3>9.2 AI-genererade förslag</h3>
-<p>Appen kan föreslå innehåll till en lista med hjälp av en språkmodell. <strong>Förslagen kan vara felaktiga, ofullständiga eller olämpliga.</strong> Det ligger i teknikens natur och gäller alla språkmodeller.</p>
-<p>Läs alltid igenom ett förslag innan du använder det. Det gäller särskilt mat: en AI-genererad ingredienslista kan missa eller lägga till något, och den vet ingenting om era allergier även om ni fört in dem i familjemodulen. <strong>Kontrollera själv vid allergi eller intolerans.</strong></p>
+<h3>9.2 AI-assistenterna</h3>
+<p>Appen har tre funktioner som använder en språkmodell: listförslag, Matassistenten och Träningsassistenten. <strong>Du pratar med ett AI-system, aldrig med en människa.</strong></p>
+<p><strong>Svaren kan vara felaktiga, ofullständiga eller olämpliga.</strong> Det ligger i teknikens natur och gäller alla språkmodeller. Läs alltid igenom ett förslag innan du använder det.</p>
+<p><strong>Mat.</strong> Det gäller särskilt recept, ingredienslistor och veckoplanering. En AI-genererad ingredienslista kan missa eller lägga till något, mängderna kan bli fel, och assistenten vet ingenting om era allergier även om ni fört in dem i familjemodulen - den ser aldrig appens innehåll. <strong>Kontrollera själv vid allergi eller intolerans.</strong> En inköpslista för en hel vecka bygger dessutom på rätternas namn, inte på hämtade recept, och är därför ungefärlig.</p>
+<p><strong>Träning.</strong> Ett AI-genererat träningsupplägg är inte medicinsk rådgivning och tar ingen hänsyn till din hälsa, dina skador eller din nivå. Samma sak gäller där som i 9.1: du tränar på eget ansvar.</p>
 <p>Förslagen är förslag. Du väljer vad du sparar, och du ansvarar för det du använder.</p>
 <hr>
 <h2>10. Tvistlösning och tillämplig lag</h2>
 <ul>
 <li><strong>Svensk lag gäller</strong> för dessa villkor och din användning av tjänsten.</li>
-<li><strong>Tvister</strong> löses i första hand genom diskussion mellan dig och oss.</li>
+<li><strong>Tvister</strong> löses i första hand genom diskussion mellan dig och oss. Hör av dig, vi vill veta.</li>
+<li><strong>Allmänna reklamationsnämnden (ARN).</strong> Är du konsument och vi inte kommer överens kan du vända dig till ARN, som prövar tvisten kostnadsfritt. Webb: <a href="https://www.arn.se">https://www.arn.se</a>. Post: ARN, Box 174, 101 23 Stockholm. Vi medverkar i ARN:s prövning.</li>
 <li><strong>GDPR-frågor</strong> kan du även rikta till Integritetsskyddsmyndigheten (IMY, <a href="https://www.imy.se">https://www.imy.se</a>).</li>
-<li><strong>Övriga tvister</strong> löses i allmän domstol med Stockholms tingsrätt som första instans.</li>
+<li><strong>Domstol.</strong> Tvister kan också prövas i allmän domstol. <strong>Är du konsument har du alltid rätt att väcka talan vid domstolen på din egen hemort</strong>, och vi kan bara stämma dig där. Är du inte konsument gäller Stockholms tingsrätt som första instans.</li>
 </ul>
-<p>Om du är konsument enligt svensk lag (vilket du som privatperson är) gäller dessutom konsumentskyddslagarna parallellt - de kan ge dig rättigheter utöver det som står här.</p>
+<p>Om du är konsument enligt svensk lag (vilket du som privatperson är) gäller dessutom konsumentskyddslagarna parallellt - de kan ge dig rättigheter utöver det som står här, och de går före dessa villkor om något skulle krocka.</p>
+<p>Vi använder <strong>inte</strong> skiljeförfarande. Ett skiljeavtal som ingås innan en tvist uppstått är ändå ogiltigt mot konsument i Sverige, och vi tycker inte att villkor ska innehålla klausuler som inte gäller.</p>
 <hr>
 <h2>11. Ändringar i villkoren</h2>
 <p>Vi kan komma att uppdatera dessa villkor. Vid större ändringar:</p>
@@ -174,6 +179,11 @@
 <td>1.0</td>
 <td>2026-05-19</td>
 <td>Första versionen.</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>2026-08-11</td>
+<td><strong>Avsnitt 9.2 omskrivet</strong> till att gälla alla tre AI-funktionerna i stället för bara listförslagen: uttryckligt att du pratar med ett AI-system och inte med en människa (EU:s AI-förordning artikel 50), att veckoplanering och recept kan bli fel, att veckans inköpslista är ungefärlig, och att ett AI-genererat träningsupplägg inte är medicinsk rådgivning. <strong>Avsnitt 10 utökat</strong>: ARN tillagd som väg vid konsumenttvist, och rätten att som konsument väcka talan vid sin egen hemortsdomstol - den tidigare skrivningen pekade ut Stockholms tingsrätt utan undantag. Tillagt att vi inte använder skiljeförfarande. <strong>Avsnitt 3</strong> kompletterat med ansvaret för uppgifter du lägger in om andra. Avsnitt 5 rättat: end-to-end-kryptering är på plats sedan 2026-05-23, den beskrevs felaktigt som framtida.</td>
 </tr>
 <tr>
 <td>1.2</td>

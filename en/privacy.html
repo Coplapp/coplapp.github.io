@@ -31,7 +31,7 @@
   <main class="container">
     <article class="prose">
 <h1>Privacy Policy - Copl</h1>
-<p><strong>Version 3.1 - effective from 2026-08-06</strong></p>
+<p><strong>Version 4.0 - effective from 2026-08-11</strong></p>
 <p>This policy explains what Copl does with the data you and your partner enter in the app. We&#39;ve tried to write it in plain language - if anything is unclear, get in touch.</p>
 <blockquote>
 <p><em>Note: this is an English translation of the Swedish original. The Swedish version is the authoritative one in case of any discrepancy. Synchronize both files when updating the policy.</em></p>
@@ -52,7 +52,7 @@
 <li><strong>You can at any time</strong> view all data about you, export it, or delete your account.</li>
 <li><strong>Sensitive data</strong> is end-to-end encrypted since 2026-05-23 - intimacy, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders and mood check-ins. Not even we as operators can read the content.</li>
 <li><strong>The training module is private but not end-to-end encrypted.</strong> Your workouts and body measurements are never shared with your partner, but they are protected by database access control rather than by encryption. See section 6.</li>
-<li><strong>The AI help is optional and frugal.</strong> If you ask the app to fill a list for you, the text you wrote yourself is sent to Anthropic, at most 400 characters. If you add a recipe link or a photo of a recipe, that is sent too. Never your existing lists, never relationship data. See section 3.</li>
+<li><strong>The AI help is optional and frugal.</strong> The app has three AI features: list suggestions, the meal assistant and the training assistant. They run only when you press them yourself, and what is sent to Anthropic is what you typed in the box - never your lists, your meal plan, your chat or anything about your relationship. The meal assistant is a conversation, so there your messages and the assistant&#39;s earlier replies are sent. See section 1.5.</li>
 </ul>
 <hr>
 <h2>1. What we collect</h2>
@@ -100,15 +100,16 @@
 <li>Training plans, logged workouts and the sets you record</li>
 <li><strong>Body measurements you choose to enter yourself:</strong> weight, height and optionally body fat percentage. BMI is calculated in the app when shown and is never stored in the database.</li>
 <li>Training challenges and the sub-goals you set</li>
-<li>Weekly routines</li>
 <li>Homework</li>
 <li>Budget (income, expenses)</li>
 <li>Agreements between you</li>
-<li>Appreciations you send each other</li>
+<li>Appreciations you send each other, plus whether an appreciation has received a reaction or been saved to your book</li>
 <li>Daily and weekly mood check-ins</li>
 <li>Intimacy data (logs, preferences, goals) - only if you actively enable the module</li>
 <li>Reminders you send each other</li>
-<li>Short messages</li>
+<li>Short messages, plus images and clips you send in chat</li>
+<li>A shared chat draft, if you start writing a message together</li>
+<li>That a message has been marked as handled, and which to-do or event a chat thread belongs to</li>
 <li>Notes, shared with your partner or private</li>
 <li>Questions and answers in Your relationship</li>
 <li>Suggestions and bug reports you send via &quot;Feedback&quot;</li>
@@ -135,24 +136,28 @@
 <p><strong>About the website (coplapp.com):</strong> it sets no cookies and has no analytics or tracking. The only thing stored is your <strong>language choice</strong> (Swedish/English), saved locally in your browser (localStorage). This is a functional setting, not tracking, and therefore requires no consent.</p>
 <p><strong>Waitlist:</strong> if you voluntarily submit your email to the waitlist, we store it (with your consent, GDPR Art. 6.1.a) <strong>only</strong> to notify you when Copl launches. We send no other emails, and the list is deleted after launch. You can ask us to remove your address at any time (<a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>).</p>
 </blockquote>
-<h3>1.5 The AI help in your lists</h3>
-<p>The app can suggest content for a shopping list or a to-do list. The feature runs <strong>only when you actively press it</strong> - there is no background analysis of your lists.</p>
-<p><strong>What is sent to Anthropic:</strong></p>
+<h3>1.5 The AI assistants</h3>
+<p>The app has three features that use a language model at Anthropic. All three run <strong>only when you actively press them</strong>. There is no background analysis of your content, and none of them has access to the app&#39;s database.</p>
+<p>You are always talking to an AI system, never to a human. The assistants are labelled as assistants in the app.</p>
+<p><strong>1. List suggestions</strong> - suggests rows for a shopping list or a to-do list.</p>
+<p>Sent: the text you typed, at most 400 characters, plus which kind of list it is and your language choice. If you pasted a recipe link, the text content of that page is sent too, fetched by <strong>our server</strong>. If you picked a photo of a recipe, that image is sent, compressed and at most 5 MB.</p>
+<p><strong>2. The meal assistant</strong> - a conversation about what to eat, which can produce a recipe or a suggestion for a whole week of dinners.</p>
+<p>Because it is a conversation, sending the latest question alone is not enough - the assistant has to see what you have already discussed to answer &quot;halve the recipe&quot; or &quot;swap Wednesday&quot;. So the most recent turns are sent: <strong>at most 14 turns</strong>, your messages at most 600 characters each and the assistant&#39;s earlier replies at most 2000 characters each. The conversation starts from zero every time you close the assistant - nothing is kept between sessions, neither by us nor by Anthropic. Here too you can add a recipe link or a photo.</p>
+<p>When you press a button inside the assistant, such as &quot;swap dish&quot; or &quot;plan the whole week&quot;, a ready-made sentence is sent, and you see it in the conversation. It never contains anything from the app.</p>
+<p><strong>3. The training assistant</strong> - suggests a training plan based on how you describe the way you want to train.</p>
+<p>Sent: the text you typed, at most 400 characters, plus <strong>the app&#39;s own exercise catalogue</strong> (name, muscle group and equipment for up to 200 exercises). The catalogue is the same for every user and contains nothing about you. It comes along so the assistant can pick real exercises that the app can then connect to your own weight curve.</p>
+<p><strong>What is never sent, in any of the three:</strong></p>
 <ul>
-<li>The text you typed yourself, truncated to at most 400 characters</li>
-<li>Which kind of list it is (shopping or to-do) and your language choice</li>
-<li>If you pasted a recipe link: the text content of that page, which <strong>our server</strong> fetches</li>
-<li>If you picked a photo of a recipe: that image, compressed and at most 5 MB</li>
-</ul>
-<p><strong>About photos of recipes.</strong> You can photograph a recipe in a magazine or cookbook, or pick a screenshot from your phone&#39;s library, and get the ingredients as a shopping list. The image is sent to Anthropic the moment you press the button, and <strong>we do not store it</strong>. You pick the image yourself every time, and the screen tells you it will be sent before it is. Only pick images you are comfortable sending.</p>
-<p><strong>What is never sent:</strong></p>
-<ul>
-<li>Your existing lists or their contents</li>
-<li>Anything about your partner or your relationship</li>
+<li>Your or your partner&#39;s content in the app: the meal plan, the shopping lists, the recipes, the calendar, the chat, the budget, the family details or anything from Our relationship</li>
+<li>Anything about your partner or your relationship at all</li>
+<li>Your workouts, your body measurements or your history</li>
 <li>Your email address, your account ID or any identifier pointing to you</li>
 </ul>
+<p>The rule is simple and applies everywhere: <strong>the assistants only ever see what you typed in the box.</strong></p>
+<p><strong>About photos of recipes.</strong> You can photograph a recipe in a magazine or cookbook, or pick a screenshot from your phone&#39;s library. The image is sent to Anthropic the moment you press the button, and <strong>we do not store it</strong>. You pick the image yourself every time, and the screen tells you it will be sent before it is. Only pick images you are comfortable sending.</p>
+<p><strong>The suggestions in chat are not AI.</strong> When the app notices that you have written about an expense, a piece of homework or a time, and offers to add it, that recognition happens <strong>on your phone</strong>. No message leaves the device for it, and nothing is sent to Anthropic.</p>
 <p>The request is therefore made anonymously from our server - Anthropic receives no information about who asked.</p>
-<p><strong>What we store about it:</strong> only that a generation happened. The table holds your account ID, which kind it was, and the timestamp. <strong>The prompt is not stored.</strong> The purpose is to be able to rate-limit requests per user so the service is not abused.</p>
+<p><strong>What we store about it:</strong> only that a generation happened. The table holds your account ID, which kind it was, and the timestamp. <strong>Neither your text nor the conversation is stored.</strong> The purpose is to be able to rate-limit requests per user so the service is not abused.</p>
 <p><strong>Recipe links:</strong> when you paste a link, the page is fetched by our server, not by your phone. The recipe site therefore sees our server address and never your IP address.</p>
 <p>Anthropic processes the data as a data processor and does not use it to train models. The transfer is to the USA - see section 3.</p>
 <hr>
@@ -186,8 +191,8 @@
 <td><strong>Explicit consent</strong> (Art. 9.2.a) - you choose to enter them yourself, nothing is imported automatically, and you can delete them at any time</td>
 </tr>
 <tr>
-<td>Generate list suggestions with AI</td>
-<td><strong>Contract</strong> (Art. 6.1.b) - the feature is part of the app and runs only when you actively request it</td>
+<td>Using the AI assistants (lists, meals, training)</td>
+<td><strong>Contract</strong> (Art. 6.1.b) - the features are part of the app and run only when you actively request them</td>
 </tr>
 <tr>
 <td>Error reporting (when Sentry is active)</td>
@@ -232,7 +237,7 @@
 </tr>
 <tr>
 <td><strong>Anthropic Ireland, Limited</strong></td>
-<td>Your own prompt text when using AI generation, at most 400 characters, plus the recipe link&#39;s page content or a photo of a recipe if you add one. Without identifiers (see 1.5)</td>
+<td>What you typed to an AI assistant. For list suggestions and training plans your text of at most 400 characters; for the meal assistant the most recent turns of the conversation. Plus the recipe link&#39;s page content or a photo of a recipe if you add one, and the app&#39;s own exercise catalogue for training plans. Without identifiers (see 1.5)</td>
 <td>Contracting party inside the <strong>EU (Ireland)</strong>. Processing takes place in the <strong>USA</strong>, with Anthropic PBC as sub-processor.</td>
 </tr>
 <tr>
@@ -242,7 +247,7 @@
 </tr>
 </tbody></table>
 <p>No other third party has access to data.</p>
-<p><strong>About the transfer to the USA:</strong> it happens only at the moment you press the AI feature yourself, and covers the text you wrote, plus the recipe link&#39;s page content or a photo of a recipe if you choose to add one. Our contracting party is <strong>Anthropic Ireland, Limited</strong>, a company inside the EU, because Copl is run from Sweden. Anthropic acts as a data processor under a data processing agreement, and the transfer to the USA rests on the <strong>EU Standard Contractual Clauses, module two (controller to processor)</strong>. Anthropic does not use the data for model training. Because the request is made from our server without an account ID, the data cannot be linked to you at Anthropic. If you don&#39;t want any text to leave the EU: don&#39;t use the AI suggestions, write your lists manually. Everything else in the app works exactly the same.</p>
+<p><strong>About the transfer to the USA:</strong> it happens only at the moment you press an AI feature yourself, and covers what you typed to the assistant - in the meal assistant also the most recent turns of the conversation - plus the recipe link&#39;s page content or a photo of a recipe if you choose to add one. Our contracting party is <strong>Anthropic Ireland, Limited</strong>, a company inside the EU, because Copl is run from Sweden. Anthropic acts as a data processor under a data processing agreement, and the transfer to the USA rests on the <strong>EU Standard Contractual Clauses, module two (controller to processor)</strong>. Anthropic does not use the data for model training. Because the request is made from our server without an account ID, the data cannot be linked to you at Anthropic. If you don&#39;t want any text to leave the EU: don&#39;t use the AI suggestions, write your lists manually. Everything else in the app works exactly the same.</p>
 <p><strong>About the stores:</strong> Copl is distributed through the App Store and Google Play. They see that you downloaded the app and process that under their own terms, which we do not control. If paid features are introduced in the future, purchases are handled by the store and not by us, and we never receive your card or payment details.</p>
 <hr>
 <h2>4. How long data is kept</h2>
@@ -271,7 +276,7 @@
 <ul>
 <li><strong>Supabase</strong> stores the data but has no routines that open it. They have their own privacy policy.</li>
 <li><strong>Apple and Google</strong> see push notification content on the way to your phone. We send generic notification texts (&quot;Something new from your partner&quot;) where possible.</li>
-<li><strong>Anthropic Ireland, Limited</strong> sees the prompt text you write yourself when using the AI suggestions, with no link to your account (see 1.5).</li>
+<li><strong>Anthropic Ireland, Limited</strong> sees what you write yourself to an AI assistant, with no link to your account (see 1.5). They never see your content in the app.</li>
 <li><strong>The App Store and Google Play</strong> see that you downloaded the app. They also handle any future in-app purchases under their own terms. We receive no payment information from them.</li>
 <li><strong>No others.</strong></li>
 </ul>
@@ -308,7 +313,7 @@
 </tr>
 <tr>
 <td>Agreements</td>
-<td>Calendar events and weekly routines</td>
+<td>Calendar events</td>
 </tr>
 <tr>
 <td>Appreciations</td>
@@ -319,7 +324,7 @@
 <td>Homework</td>
 </tr>
 <tr>
-<td>Chat messages and images in chat</td>
+<td>Chat messages, images in chat and your shared chat draft</td>
 <td>Meal planning and saved recipes</td>
 </tr>
 <tr>
@@ -401,7 +406,7 @@
 <hr>
 <h2>9. Automated decisions and profiling</h2>
 <p>We use <strong>no</strong> automated decision-making or profiling. No algorithms draw conclusions about you that affect you.</p>
-<p>The AI suggestions in your lists (section 1.5) are not automated decision-making in the sense of GDPR Article 22. They produce a text suggestion that you choose to keep or discard, they make no decisions about you, and they build no profile of you - each request stands alone and contains nothing from earlier requests.</p>
+<p>The AI assistants (section 1.5) are not automated decision-making in the sense of GDPR Article 22. They produce a text suggestion that you choose to keep or discard, they make no decisions about you, and they build no profile of you. The meal assistant remembers the turns within an ongoing conversation so it can answer follow-up questions, but the conversation starts from zero every time you close it, and nothing carries over between sessions.</p>
 <p>The statistics in the app - streaks, averages, BMI, &quot;ahead of plan&quot; in training challenges - are simple calculations on numbers you entered yourself. They are shown only to you, are not used for anything else, and are not stored as conclusions about you.</p>
 <hr>
 <h2>10. Children</h2>
@@ -428,6 +433,11 @@
 <td>2.0</td>
 <td>2026-05-24</td>
 <td>End-to-end encryption has been implemented and verified in production on 2026-05-23. Sections that described E2EE as &quot;planned&quot; or &quot;future&quot; updated to present tense. Encryption verification via fingerprint in Settings documented.</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>2026-08-11</td>
+<td><strong>Section 1.5 rewritten from scratch.</strong> The earlier text described a single AI feature, the help in lists, and stated that at most 400 characters are sent. The app now has three AI features, and the meal assistant sends the most recent turns of a conversation - up to 14 turns, your messages at most 600 characters and the assistant replies at most 2000. The training assistant also sends the app own exercise catalogue, which is the same for everyone and contains nothing about you. Sections 3 and 5 corrected on the same point. Added that you are always talking to an AI system and never to a human, and that the suggestions in chat are recognised <strong>on the phone</strong> without anything being sent on. New data types in 1.2: shared chat draft, handled markers and chat threads, plus reactions and stars on appreciations. <strong>Weekly routines removed</strong> as a data type, since the module was absorbed into Remind me. The table in section 6 updated.</td>
 </tr>
 <tr>
 <td>3.0</td>

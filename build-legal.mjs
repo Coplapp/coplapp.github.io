@@ -34,6 +34,7 @@ const LANGS = {
       { href: 'index.html', label: 'Hem' },
       { href: 'privacy.html', label: 'Integritet' },
       { href: 'terms.html', label: 'Användarvillkor' },
+      { href: 'ai.html', label: 'AI-policy' },
       { href: 'radera-konto.html', label: 'Radera konto' },
       { href: 'mailto:copl-app@outlook.com', label: 'Kontakt' },
     ],
@@ -53,6 +54,7 @@ const LANGS = {
       { href: 'index.html', label: 'Home' },
       { href: 'privacy.html', label: 'Privacy' },
       { href: 'terms.html', label: 'Terms' },
+      { href: 'ai.html', label: 'AI policy' },
       { href: 'delete-account.html', label: 'Delete account' },
       { href: 'mailto:copl-app@outlook.com', label: 'Contact' },
     ],
@@ -143,6 +145,11 @@ buildPage({
   description: 'Användarvillkor för Copl. Skrivna i klartext.',
   mdPath: join(ROOT, 'TERMS.md'), outPath: join(__dirname, 'terms.html'),
 });
+buildPage({
+  lang: 'sv', title: 'AI-policy', navActive: 'privacy', pageFile: 'ai.html',
+  description: 'Hur Copl anvander AI. Assistenterna ser aldrig nagot i appen - bara det du skriver i rutan.',
+  mdPath: join(ROOT, 'AI-POLICY.md'), outPath: join(__dirname, 'ai.html'),
+});
 
 // Engelska
 buildPage({
@@ -154,6 +161,11 @@ buildPage({
   lang: 'en', title: 'Terms of Service', navActive: 'privacy', pageFile: 'terms.html',
   description: 'Terms of Service for Copl. Written in plain language.',
   mdPath: join(ROOT, 'TERMS.en.md'), outPath: join(__dirname, 'en', 'terms.html'),
+});
+buildPage({
+  lang: 'en', title: 'AI Policy', navActive: 'privacy', pageFile: 'ai.html',
+  description: 'How Copl uses AI. The assistants never see anything in the app - only what you type in the box.',
+  mdPath: join(ROOT, 'AI-POLICY.en.md'), outPath: join(__dirname, 'en', 'ai.html'),
 });
 
 console.log('Klar.');

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#061018" />
+<script>
+(function(){try{var l=localStorage.getItem('copl-lang');if(l==='sv')return;var f=location.pathname.split('/').pop()||'index.html';if(l==='en'||(navigator.language||'').toLowerCase().indexOf('sv')!==0){location.replace('en/'+f);}}catch(e){}})();
+</script>
+<title>AI-policy - Copl</title>
+<meta name="description" content="Hur Copl anvander AI. Assistenterna ser aldrig nagot i appen - bara det du skriver i rutan." />
+<link rel="icon" href="assets/copl-logo.png" type="image/png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/copl-logo.png" alt="Copl" class="nav-logo" />
+        <span>Copl</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Hem</a></li>
+        <li><a href="privacy.html" class="active">Integritet</a></li>
+        <li><a href="en/ai.html" onclick="localStorage.setItem('copl-lang','en')">EN</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <article class="prose">
+<h1>AI-policy - Copl</h1>
+<p><strong>Version 1.0 - gäller från 2026-08-11</strong></p>
+<p>Copl har tre funktioner som använder artificiell intelligens. Den här sidan förklarar exakt vad de gör, vad de får se och vad de aldrig får se. Den är skriven för att du ska kunna lita på appen utan att behöva ta oss på orden.</p>
+<p>Dokumentet kompletterar <a href="privacy.html">integritetspolicyn</a> och <a href="terms.html">användarvillkoren</a>. Vid motstridighet gäller integritetspolicyn.</p>
+<hr>
+<h2>Kortversionen</h2>
+<ul>
+<li><strong>Assistenterna ser aldrig något i appen.</strong> Inte er matplan, era listor, er kalender, er chatt, er ekonomi, era familjeuppgifter eller något ur Vår relation.</li>
+<li><strong>Bara det du skriver i rutan skickas.</strong> Ingenting hämtas i bakgrunden.</li>
+<li><strong>Ingenting körs av sig självt.</strong> Varje anrop börjar med att du trycker på en knapp.</li>
+<li><strong>Du pratar alltid med ett AI-system, aldrig med en människa.</strong></li>
+<li><strong>Ingen tränar modeller på ert innehåll.</strong> Varken vi eller vår leverantör.</li>
+<li><strong>Du kan låta bli.</strong> Appen fungerar helt utan AI-funktionerna.</li>
+</ul>
+<hr>
+<h2>1. De tre funktionerna</h2>
+<h3>Listhjälpen</h3>
+<p>Föreslår rader till en inköpslista eller en att-göra-lista. Du beskriver vad som ska handlas eller göras och får ett förslag tillbaka. Du kan också klistra in en receptlänk eller fotografera ett recept ur en kokbok, så blir ingredienserna en lista.</p>
+<h3>Matassistenten</h3>
+<p>Ett samtal om vad ni ska äta. Den kan skriva ett recept eller föreslå hela veckans middagar, och du kan be om ändringar tills det känns rätt. Eftersom det är ett samtal måste den se vad ni redan sagt - annars kan den inte svara på &quot;byt ut onsdagen&quot;.</p>
+<h3>Träningsassistenten</h3>
+<p>Föreslår ett träningsupplägg utifrån hur du beskriver att du vill träna. Den får se appens övningskatalog, som är exakt likadan för alla användare, så att förslaget kan kopplas till riktiga övningar och din egen viktkurva. Katalogen innehåller ingenting om dig.</p>
+<hr>
+<h2>2. Vad som skickas, exakt</h2>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Vad som lämnar telefonen</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Listhjälpen</td>
+<td>Din text, högst 400 tecken. Plus receptlänkens sidinnehåll eller ett foto av ett recept, om du valt det</td>
+</tr>
+<tr>
+<td>Matassistenten</td>
+<td>De senaste turerna i samtalet: högst 14 turer, dina inlägg högst 600 tecken och assistentens tidigare svar högst 2000 tecken. Plus receptlänk eller foto, om du valt det</td>
+</tr>
+<tr>
+<td>Träningsassistenten</td>
+<td>Din text, högst 400 tecken, plus appens övningskatalog på högst 200 rader</td>
+</tr>
+</tbody></table>
+<p>Trycker du på en knapp inuti en assistent - &quot;byt rätt&quot;, &quot;planera hela veckan&quot; - skickas en färdigskriven mening som du ser i samtalet. Den innehåller aldrig något ur appen.</p>
+<p><strong>Vad som aldrig skickas, oavsett funktion:</strong> ert innehåll i appen, något om din partner eller er relation, dina träningspass, dina kroppsmått, din mejladress, ditt konto-ID eller någon annan identifierare.</p>
+<hr>
+<h2>3. Vem behandlar det</h2>
+<p>Leverantören är <strong>Anthropic Ireland, Limited</strong>, ett bolag inom EU. Behandlingen sker i USA, och överföringen vilar på EU:s standardavtalsklausuler. Anthropic är personuppgiftsbiträde och använder inte det som skickas för att träna modeller.</p>
+<p>Anropet går från <strong>vår server</strong>, inte från din telefon. Anthropic ser därför varken din IP-adress eller vem du är. Detsamma gäller receptsajter: klistrar du in en länk hämtas sidan av oss, inte av dig.</p>
+<p>Vi sparar att en generering skedde - ditt konto-ID, vilken typ och tidpunkten - för att kunna begränsa antalet anrop så tjänsten inte missbrukas. <strong>Varken din text eller samtalet sparas.</strong></p>
+<p>Mer detaljer finns i <a href="privacy.html">integritetspolicyn</a>, avsnitt 1.5 och 3.</p>
+<hr>
+<h2>4. Vad AI:n inte gör</h2>
+<p><strong>Den fattar inga beslut om dig.</strong> Utfallet är alltid ett förslag som du sparar eller slänger.</p>
+<p><strong>Den bygger ingen profil.</strong> Matassistenten minns turerna inom ett pågående samtal, men samtalet börjar om från noll när du stänger den. Ingenting förs vidare mellan gångerna.</p>
+<p><strong>Den läser inte era meddelanden.</strong> När chatten känner igen att ni skrivit om en utgift, en läxa eller en tid och föreslår att lägga in det sker igenkänningen <strong>på din telefon</strong>. Det är enkel textmatchning, inte AI, och inget meddelande lämnar enheten för det.</p>
+<p><strong>Den ser inte er relationsdata.</strong> Det är ingen inställning som kan slås på senare. Assistenterna har ingen väg in i databasen.</p>
+<hr>
+<h2>5. Svaren kan bli fel</h2>
+<p>Språkmodeller hittar på ibland. Det gäller alla, inte bara vår.</p>
+<p><strong>Läs alltid igenom ett förslag innan du använder det.</strong> Särskilt när det gäller mat: en ingredienslista kan missa eller lägga till något, mängder kan bli fel, och assistenten vet ingenting om era allergier även om ni fört in dem i familjemodulen - den ser aldrig appens innehåll. <strong>Kontrollera själv vid allergi eller intolerans.</strong></p>
+<p>En inköpslista för en hel vecka bygger på rätternas namn, inte på sju hämtade recept, och är därför ungefärlig.</p>
+<p>Ett AI-genererat träningsupplägg är inte medicinsk rådgivning och tar ingen hänsyn till din hälsa, dina skador eller din nivå.</p>
+<hr>
+<h2>6. Om något blir olämpligt</h2>
+<p>Får du ett svar som är stötande, felaktigt eller olämpligt vill vi veta det. Använd <strong>Tyck till</strong> i appen, eller mejla <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>.</p>
+<p>Vi läser allt som kommer in. Rapporter om AI-svar använder vi för att justera hur assistenterna är instruerade.</p>
+<hr>
+<h2>7. Varför gränsen går där den går</h2>
+<p>Det vore tekniskt enkelt att låta assistenterna se er matplan, era listor och er kalender. Svaren skulle bli bättre. Vi har ändå valt att inte göra det.</p>
+<p>Copl innehåller det mest privata ett par har: hur ni mår, vad ni är oense om, er ekonomi, er närhet. Det mesta av det är krypterat så att inte ens vi kan läsa det. Att skicka vidare det till en tredje part för att en receptrekommendation ska bli lite bättre vore en dålig affär för dig.</p>
+<p>Ändrar vi oss någon gång kommer vi att fråga dig först, inte informera dig efteråt.</p>
+<hr>
+<h2>8. Ändringar</h2>
+<p><strong>Versionshistorik:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Datum</th>
+<th>Ändring</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.0</td>
+<td>2026-08-11</td>
+<td>Första versionen. Samlar det som stått utspritt i integritetspolicyn avsnitt 1.5 och användarvillkoren avsnitt 9.2 på ett ställe, och lägger till hur man rapporterar ett olämpligt svar.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. Kontakt</h2>
+<p><strong>E-post:</strong> <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a></p>
+<hr>
+<p><em>Denna text är skriven på svenska. Vid avvikelse från översättning gäller den svenska versionen.</em></p>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <img src="assets/copl-logo.png" alt="Copl" class="footer-logo" />
+      <p class="footer-tagline">Byggd med omtanke från ett par till ett annat.</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Hem</a></li>
+        <li><a href="privacy.html">Integritet</a></li>
+        <li><a href="terms.html">Användarvillkor</a></li>
+        <li><a href="ai.html">AI-policy</a></li>
+        <li><a href="radera-konto.html">Radera konto</a></li>
+        <li><a href="mailto:copl-app@outlook.com">Kontakt</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Copl</div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+</body>
+</html>

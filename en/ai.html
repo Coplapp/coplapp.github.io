@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#061018" />
+<script>
+(function(){try{if(localStorage.getItem('copl-lang')==='sv'){var f=location.pathname.split('/').pop()||'index.html';location.replace('../'+f);}}catch(e){}})();
+</script>
+<title>AI Policy - Copl</title>
+<meta name="description" content="How Copl uses AI. The assistants never see anything in the app - only what you type in the box." />
+<link rel="icon" href="../assets/copl-logo.png" type="image/png" />
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="../assets/copl-logo.png" alt="Copl" class="nav-logo" />
+        <span>Copl</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy.html" class="active">Privacy</a></li>
+        <li><a href="../ai.html" onclick="localStorage.setItem('copl-lang','sv')">SV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <article class="prose">
+<h1>AI Policy - Copl</h1>
+<p><strong>Version 1.0 - effective from 2026-08-11</strong></p>
+<p>Copl has three features that use artificial intelligence. This page explains exactly what they do, what they get to see and what they never get to see. It is written so you can trust the app without having to take our word for it.</p>
+<blockquote>
+<p><em>Note: this is an English translation of the Swedish original. The Swedish version is the authoritative one in case of any discrepancy. Synchronize both files when updating the policy.</em></p>
+</blockquote>
+<p>This document complements the <a href="privacy.html">privacy policy</a> and the <a href="terms.html">terms of service</a>. If they conflict, the privacy policy applies.</p>
+<hr>
+<h2>The short version</h2>
+<ul>
+<li><strong>The assistants never see anything in the app.</strong> Not your meal plan, your lists, your calendar, your chat, your budget, your family details or anything from Our relationship.</li>
+<li><strong>Only what you type in the box is sent.</strong> Nothing is fetched in the background.</li>
+<li><strong>Nothing runs by itself.</strong> Every request starts with you pressing a button.</li>
+<li><strong>You are always talking to an AI system, never to a human.</strong></li>
+<li><strong>Nobody trains models on your content.</strong> Neither we nor our provider.</li>
+<li><strong>You can skip it.</strong> The app works perfectly well without the AI features.</li>
+</ul>
+<hr>
+<h2>1. The three features</h2>
+<h3>The list helper</h3>
+<p>Suggests rows for a shopping list or a to-do list. You describe what needs buying or doing and get a suggestion back. You can also paste a recipe link or photograph a recipe from a cookbook, and the ingredients become a list.</p>
+<h3>The meal assistant</h3>
+<p>A conversation about what to eat. It can write a recipe or suggest a whole week of dinners, and you can ask for changes until it feels right. Because it is a conversation it has to see what you have already said - otherwise it cannot answer &quot;swap Wednesday&quot;.</p>
+<h3>The training assistant</h3>
+<p>Suggests a training plan based on how you describe the way you want to train. It gets to see the app&#39;s exercise catalogue, which is exactly the same for every user, so the plan can be connected to real exercises and your own weight curve. The catalogue contains nothing about you.</p>
+<hr>
+<h2>2. Exactly what is sent</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What leaves the phone</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The list helper</td>
+<td>Your text, at most 400 characters. Plus the recipe link&#39;s page content or a photo of a recipe, if you added one</td>
+</tr>
+<tr>
+<td>The meal assistant</td>
+<td>The most recent turns of the conversation: at most 14 turns, your messages at most 600 characters and the assistant&#39;s earlier replies at most 2000 characters. Plus a recipe link or photo, if you added one</td>
+</tr>
+<tr>
+<td>The training assistant</td>
+<td>Your text, at most 400 characters, plus the app&#39;s exercise catalogue of at most 200 rows</td>
+</tr>
+</tbody></table>
+<p>When you press a button inside an assistant - &quot;swap dish&quot;, &quot;plan the whole week&quot; - a ready-made sentence is sent, and you see it in the conversation. It never contains anything from the app.</p>
+<p><strong>What is never sent, whichever feature:</strong> your content in the app, anything about your partner or your relationship, your workouts, your body measurements, your email address, your account ID or any other identifier.</p>
+<hr>
+<h2>3. Who processes it</h2>
+<p>The provider is <strong>Anthropic Ireland, Limited</strong>, a company inside the EU. Processing takes place in the USA, and the transfer rests on the EU Standard Contractual Clauses. Anthropic acts as a data processor and does not use what is sent to train models.</p>
+<p>The request is made from <strong>our server</strong>, not from your phone. Anthropic therefore sees neither your IP address nor who you are. The same goes for recipe sites: if you paste a link, the page is fetched by us, not by you.</p>
+<p>We store the fact that a generation happened - your account ID, which kind and the timestamp - so we can limit the number of requests and keep the service from being abused. <strong>Neither your text nor the conversation is stored.</strong></p>
+<p>More detail is in the <a href="privacy.html">privacy policy</a>, sections 1.5 and 3.</p>
+<hr>
+<h2>4. What the AI does not do</h2>
+<p><strong>It makes no decisions about you.</strong> The outcome is always a suggestion you keep or discard.</p>
+<p><strong>It builds no profile.</strong> The meal assistant remembers the turns within an ongoing conversation, but the conversation starts from zero when you close it. Nothing carries over between sessions.</p>
+<p><strong>It does not read your messages.</strong> When the chat notices that you have written about an expense, a piece of homework or a time, and offers to add it, that recognition happens <strong>on your phone</strong>. It is simple text matching, not AI, and no message leaves the device for it.</p>
+<p><strong>It does not see your relationship data.</strong> That is not a setting that can be switched on later. The assistants have no route into the database.</p>
+<hr>
+<h2>5. Answers can be wrong</h2>
+<p>Language models make things up sometimes. That is true of all of them, not just ours.</p>
+<p><strong>Always read a suggestion through before using it.</strong> Especially where food is concerned: an ingredient list can miss or add something, quantities can be wrong, and the assistant knows nothing about your allergies even if you have entered them in the family module - it never sees the content of the app. <strong>Check for yourself in case of allergy or intolerance.</strong></p>
+<p>A shopping list for a whole week is built from the names of the dishes rather than from seven fetched recipes, and is therefore approximate.</p>
+<p>An AI-generated training plan is not medical advice and takes no account of your health, your injuries or your level.</p>
+<hr>
+<h2>6. If something is inappropriate</h2>
+<p>If you get an answer that is offensive, wrong or inappropriate, we want to know. Use <strong>Feedback</strong> in the app, or email <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a>.</p>
+<p>We read everything that comes in. Reports about AI answers are used to adjust how the assistants are instructed.</p>
+<hr>
+<h2>7. Why the line is drawn where it is</h2>
+<p>It would be technically easy to let the assistants see your meal plan, your lists and your calendar. The answers would be better. We have chosen not to anyway.</p>
+<p>Copl holds the most private things a couple has: how you are feeling, what you disagree about, your finances, your intimacy. Most of it is encrypted so that not even we can read it. Passing that on to a third party so a recipe recommendation gets slightly better would be a bad deal for you.</p>
+<p>If we ever change our minds, we will ask you first, not tell you afterwards.</p>
+<hr>
+<h2>8. Changes</h2>
+<p><strong>Version history:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.0</td>
+<td>2026-08-11</td>
+<td>First version. Gathers what was spread across privacy policy section 1.5 and terms section 9.2 into one place, and adds how to report an inappropriate answer.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. Contact</h2>
+<p><strong>Email:</strong> <a href="mailto:copl-app@outlook.com">copl-app@outlook.com</a></p>
+<hr>
+<p><em>This is a translation. The Swedish version applies in case of discrepancy.</em></p>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <img src="../assets/copl-logo.png" alt="Copl" class="footer-logo" />
+      <p class="footer-tagline">Built with care, from one couple to another.</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="ai.html">AI policy</a></li>
+        <li><a href="delete-account.html">Delete account</a></li>
+        <li><a href="mailto:copl-app@outlook.com">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Copl</div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+</body>
+</html>

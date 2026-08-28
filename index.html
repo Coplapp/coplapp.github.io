@@ -149,19 +149,69 @@
           <div class="phone-frame">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <video class="phone-video" autoplay muted loop playsinline preload="auto">
-                <!-- ?v= tvingar fram en ny hamtning nar filmen byts. Utan den
-                     ligger den gamla kvar i besokarnas cache - servern satter
-                     max-age=600, och <video preload="auto"> haller den langre
-                     an sa i diskcachen. Racka upp siffran vid varje filmbyte. -->
-                <source src="assets/copl-demo-sv.mp4?v=2" type="video/mp4" />
-              </video>
-              <div class="phone-placeholder">
-                <img src="assets/copl-logo.png" alt="Copl" class="phone-placeholder-logo" />
-                <div class="phone-placeholder-text">Filmen kommer hit</div>
+              <div class="swipe" data-swipe>
+                <div class="swipe-track">
+                <figure class="screen">
+                  <img src="assets/screens/hem.png" alt="Startsidan"
+                       loading="eager"
+                       onerror="this.style.display='none'" />
+                  <span class="screen-soon">Bilden kommer hit</span>
+                  <figcaption>
+                    <strong>Startsidan</strong>
+                    <span>Dagens och veckans händelser, samlat.</span>
+                  </figcaption>
+                </figure>
+                <figure class="screen" aria-hidden="true">
+                  <img src="assets/screens/kalender.png" alt="Vår kalender"
+                       loading="lazy"
+                       onerror="this.style.display='none'" />
+                  <span class="screen-soon">Bilden kommer hit</span>
+                  <figcaption>
+                    <strong>Vår kalender</strong>
+                    <span>Allt ni båda behöver veta, synkat.</span>
+                  </figcaption>
+                </figure>
+                <figure class="screen" aria-hidden="true">
+                  <img src="assets/screens/mat.png" alt="Matplanering"
+                       loading="lazy"
+                       onerror="this.style.display='none'" />
+                  <span class="screen-soon">Bilden kommer hit</span>
+                  <figcaption>
+                    <strong>Matplanering</strong>
+                    <span>Veckans middagar, klara på måndagen.</span>
+                  </figcaption>
+                </figure>
+                <figure class="screen" aria-hidden="true">
+                  <img src="assets/screens/inkop.png" alt="Inköpslistor"
+                       loading="lazy"
+                       onerror="this.style.display='none'" />
+                  <span class="screen-soon">Bilden kommer hit</span>
+                  <figcaption>
+                    <strong>Inköpslistor</strong>
+                    <span>Listan finns i fickan i butiken.</span>
+                  </figcaption>
+                </figure>
+                <figure class="screen" aria-hidden="true">
+                  <img src="assets/screens/relation.png" alt="Vår relation"
+                       loading="lazy"
+                       onerror="this.style.display='none'" />
+                  <span class="screen-soon">Bilden kommer hit</span>
+                  <figcaption>
+                    <strong>Vår relation</strong>
+                    <span>Det som håller er nära, inte bara det praktiska.</span>
+                  </figcaption>
+                </figure>
+                </div>
               </div>
+              <button class="swipe-arrow swipe-prev" data-step="-1" aria-label="Föregående skärm">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+              </button>
+              <button class="swipe-arrow swipe-next" data-step="1" aria-label="Nästa skärm">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+              </button>
             </div>
           </div>
+          <div class="swipe-dots"><button class="swipe-dot is-on" data-go="0" aria-label="Gå till skärm 1"></button><button class="swipe-dot" data-go="1" aria-label="Gå till skärm 2"></button><button class="swipe-dot" data-go="2" aria-label="Gå till skärm 3"></button><button class="swipe-dot" data-go="3" aria-label="Gå till skärm 4"></button><button class="swipe-dot" data-go="4" aria-label="Gå till skärm 5"></button></div>
         </div>
 
         <div class="showcase-text reveal">
@@ -680,6 +730,7 @@
 
   <script src="reveal.js"></script>
   <script src="puzzle.js" defer></script>
+  <script src="swipe.js" defer></script>
   <script>
   /* Öppna en modul-box automatiskt när man landar på den via #ankare (modul-bandet i hero). */
   (function () {

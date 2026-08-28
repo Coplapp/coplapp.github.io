@@ -1277,13 +1277,142 @@ ion-icon.float-icon,
   overflow: hidden;
 }
 
-.phone-video {
+/* ============================================================
+   Swajpbara skärmar i mobilen.
+   Ersatte demofilmen: filmen kunde inte stanna där besökaren blev
+   nyfiken, kunde inte förklara vad man såg, och måste spelas in på
+   nytt varje gång en skärm ändras.
+   ============================================================ */
+
+.swipe {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  touch-action: pan-y;
+}
+
+.swipe-track {
+  display: flex;
+  height: 100%;
+  transition: transform 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+/* Dras det med fingret följer bilden direkt - ingen fördröjning. */
+.swipe-track.is-dragging { transition: none; }
+
+.screen {
+  position: relative;
+  flex: 0 0 100%;
+  margin: 0;
+  height: 100%;
+  background: var(--canvas);
+}
+
+.screen img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 1;
+}
+
+/* Syns bara när bilden saknas - img göms av sitt onerror. */
+.screen-soon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-muted);
+  z-index: 0;
+}
+
+/* Texten ligger på bilden med en mörk botten, så den är läsbar mot
+   vilken skärmbild som helst. */
+.screen figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 34px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: linear-gradient(to top, rgba(3,8,12,0.94) 45%, rgba(3,8,12,0));
+}
+
+.screen figcaption strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.screen figcaption span {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.72);
+}
+
+/* Pilarna behövs på desktop, där ingen kommer på att dra. */
+.swipe-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(184,232,232,0.28);
+  border-radius: 50%;
+  background: rgba(3,8,12,0.62);
+  backdrop-filter: blur(6px);
+  color: var(--logo-blue, #7BD4D0);
+  font-size: 17px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.phone-frame:hover .swipe-arrow,
+.swipe-arrow:focus-visible { opacity: 1; }
+
+.swipe-prev { left: 8px; }
+.swipe-next { right: 8px; }
+
+/* Pekskärm: dra fungerar, och pilarna skulle bara ligga i vägen. */
+@media (hover: none) {
+  .swipe-arrow { display: none; }
+}
+
+.swipe-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.swipe-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(184,232,232,0.28);
+  cursor: pointer;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.swipe-dot.is-on {
+  background: var(--logo-blue, #7BD4D0);
+  transform: scale(1.25);
 }
 
 /* Platshållare - visas innan video laddats / om video saknas */

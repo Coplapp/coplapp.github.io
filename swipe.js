@@ -15,6 +15,14 @@
   var track = wrap.querySelector('.swipe-track');
   var screens = wrap.querySelectorAll('.screen');
   var dots = document.querySelectorAll('.swipe-dot');
+  /**
+   * Bildtexten under telefonen.
+   *
+   * En enda rad som byts, i stället för en text per skärmbild. Ovanpå bilden
+   * dolde texten skärmens nedersta femtedel - alltså just det besökaren kom
+   * för att titta på. Texterna bor kvar på varje figure som data-attribut.
+   */
+  var caption = document.querySelector('[data-caption]');
   var arrows = document.querySelectorAll('.swipe-arrow');
   var count = screens.length;
   if (count < 2) return;
@@ -34,6 +42,11 @@
     for (var i = 0; i < count; i++) {
       screens[i].setAttribute('aria-hidden', i === index ? 'false' : 'true');
       if (dots[i]) dots[i].classList.toggle('is-on', i === index);
+    }
+    if (caption) {
+      var cur = screens[index];
+      caption.querySelector('strong').textContent = cur.getAttribute('data-title') || '';
+      caption.querySelector('span').textContent = cur.getAttribute('data-text') || '';
     }
   }
 

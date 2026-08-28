@@ -1239,11 +1239,13 @@ ion-icon.float-icon,
 /* iPhone-mockup: rundad frame, notch, glow */
 .phone-mockup {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .phone-frame {
   position: relative;
+  flex: none;
   width: 280px;
   height: 580px;
   background: #050a10;
@@ -1319,44 +1321,26 @@ ion-icon.float-icon,
   z-index: 1;
 }
 
-/* Syns bara när bilden saknas - img göms av sitt onerror. */
-.screen-soon {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-style: italic;
-  color: var(--ink-muted);
-  z-index: 0;
-}
-
-/* Texten ligger på bilden med en mörk botten, så den är läsbar mot
-   vilken skärmbild som helst. */
-.screen figcaption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  padding: 34px 18px 20px;
+.swipe-caption {
+  margin: 18px 0 0;
+  max-width: 280px;
+  min-height: 52px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  background: linear-gradient(to top, rgba(3,8,12,0.94) 45%, rgba(3,8,12,0));
 }
 
-.screen figcaption strong {
+.swipe-caption strong {
   font-size: 15px;
   font-weight: 600;
-  color: #fff;
+  color: var(--ink, #fff);
 }
 
-.screen figcaption span {
+.swipe-caption span {
   font-size: 12.5px;
   line-height: 1.45;
-  color: rgba(255,255,255,0.72);
+  color: var(--ink-muted);
 }
 
 /* Pilarna behövs på desktop, där ingen kommer på att dra. */
@@ -1399,10 +1383,8 @@ ion-icon.float-icon,
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-  margin-top: 18px;
+  margin-top: 14px;
   max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .swipe-dot {

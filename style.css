@@ -181,17 +181,17 @@ a:hover {
    de är absolut-positionerade i .hero och fylls över hela sektionen. */
 .hero-stage {
   position: relative;
-  width: 360px;
-  height: 360px;
-  margin: 0 auto 12px;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .hero-logo {
-  width: 320px;
-  height: 320px;
+  width: 116px;
+  height: 116px;
   object-fit: contain;
   filter: drop-shadow(0 0 28px rgba(123,212,208,0.45));
   position: relative;

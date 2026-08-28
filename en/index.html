@@ -21,7 +21,7 @@
 <meta property="og:url" content="https://coplapp.com/en/" />
 <meta property="og:type" content="website" />
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="../style.css?v=2" />
+<link rel="stylesheet" href="../style.css?v=3" />
 <script type="module" src="/vendor/ionicons/ionicons.esm.js"></script>
 <script nomodule src="/vendor/ionicons/ionicons.js"></script>
 </head>
@@ -175,12 +175,6 @@
                 </figure>
                 </div>
               </div>
-              <button class="swipe-arrow swipe-prev" data-step="-1" aria-label="Previous screen">
-                <ion-icon name="chevron-back-outline"></ion-icon>
-              </button>
-              <button class="swipe-arrow swipe-next" data-step="1" aria-label="Next screen">
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-              </button>
             </div>
           </div>
 
@@ -189,7 +183,11 @@
             <span>Today and the week ahead, in one place.</span>
           </p>
 
-          <div class="swipe-dots"><button class="swipe-dot is-on" data-go="0" aria-label="Go to screen 1"></button><button class="swipe-dot" data-go="1" aria-label="Go to screen 2"></button><button class="swipe-dot" data-go="2" aria-label="Go to screen 3"></button><button class="swipe-dot" data-go="3" aria-label="Go to screen 4"></button><button class="swipe-dot" data-go="4" aria-label="Go to screen 5"></button><button class="swipe-dot" data-go="5" aria-label="Go to screen 6"></button><button class="swipe-dot" data-go="6" aria-label="Go to screen 7"></button><button class="swipe-dot" data-go="7" aria-label="Go to screen 8"></button><button class="swipe-dot" data-go="8" aria-label="Go to screen 9"></button><button class="swipe-dot" data-go="9" aria-label="Go to screen 10"></button><button class="swipe-dot" data-go="10" aria-label="Go to screen 11"></button><button class="swipe-dot" data-go="11" aria-label="Go to screen 12"></button></div>
+          <div class="swipe-nav">
+            <button class="swipe-arrow" data-step="-1" aria-label="Previous screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="swipe-dots"><button class="swipe-dot is-on" data-go="0" aria-label="Go to screen 1"></button><button class="swipe-dot" data-go="1" aria-label="Go to screen 2"></button><button class="swipe-dot" data-go="2" aria-label="Go to screen 3"></button><button class="swipe-dot" data-go="3" aria-label="Go to screen 4"></button><button class="swipe-dot" data-go="4" aria-label="Go to screen 5"></button><button class="swipe-dot" data-go="5" aria-label="Go to screen 6"></button><button class="swipe-dot" data-go="6" aria-label="Go to screen 7"></button><button class="swipe-dot" data-go="7" aria-label="Go to screen 8"></button><button class="swipe-dot" data-go="8" aria-label="Go to screen 9"></button><button class="swipe-dot" data-go="9" aria-label="Go to screen 10"></button><button class="swipe-dot" data-go="10" aria-label="Go to screen 11"></button><button class="swipe-dot" data-go="11" aria-label="Go to screen 12"></button></div>
+            <button class="swipe-arrow" data-step="1" aria-label="Next screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
         </div>
 
         <div class="showcase-text reveal">
@@ -709,7 +707,7 @@
 
   <script src="../reveal.js"></script>
   <script src="../puzzle.js" defer></script>
-  <script src="../swipe.js?v=2" defer></script>
+  <script src="../swipe.js?v=3" defer></script>
   <script>
   /* Open a module box automatically when arriving via #anchor (the hero module marquee). */
   (function () {

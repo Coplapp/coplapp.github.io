@@ -1343,48 +1343,53 @@ ion-icon.float-icon,
   color: var(--ink-muted);
 }
 
-/* Pilarna behövs på desktop, där ingen kommer på att dra. */
+/* Pilar och prickar på samma rad, under bildtexten.
+   Pilarna låg förut ovanpå skärmbilden och var osynliga tills man hovrade -
+   och helt dolda på pekskärm. Då fanns ingen ledtråd alls om att det gick att
+   bläddra: bara en rad prickar som lika gärna kunde vara dekoration. */
+.swipe-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
 .swipe-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
-  width: 34px;
-  height: 34px;
+  flex: none;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
   border: 1px solid rgba(184,232,232,0.28);
   border-radius: 50%;
-  background: rgba(3,8,12,0.62);
-  backdrop-filter: blur(6px);
+  background: transparent;
   color: var(--logo-blue, #7BD4D0);
-  font-size: 17px;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 200ms ease;
+  transition: border-color 160ms ease, background 160ms ease;
 }
 
-.phone-frame:hover .swipe-arrow,
-.swipe-arrow:focus-visible { opacity: 1; }
-
-.swipe-prev { left: 8px; }
-.swipe-next { right: 8px; }
-
-/* Pekskärm: dra fungerar, och pilarna skulle bara ligga i vägen. */
-@media (hover: none) {
-  .swipe-arrow { display: none; }
+/* Inbäddad SVG, inte ion-icon: ikonkomponenten renderade pilarna till noll
+   storlek här, så knapparna såg ut som tomma svarta pluppar. */
+.swipe-arrow svg {
+  width: 15px;
+  height: 15px;
+  display: block;
 }
 
-/* Fjorton prickar - en per modul plus startsidan. Mindre och tätare än
-   vid fem, och de får radbrytas på riktigt smala skärmar. */
+.swipe-arrow:hover,
+.swipe-arrow:focus-visible {
+  border-color: var(--logo-blue, #7BD4D0);
+  background: rgba(123,212,208,0.12);
+}
+
 .swipe-dots {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-  margin-top: 14px;
-  max-width: 280px;
+  max-width: 190px;
 }
 
 .swipe-dot {

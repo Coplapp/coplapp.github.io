@@ -51,7 +51,9 @@
   send('view');
 
   document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a, button');
+    // summary måste med: frågorna är <details>/<summary>, alltså varken
+    // länk eller knapp, och deras klick räknades inte alls.
+    var a = e.target.closest && e.target.closest('a, button, summary');
     if (!a) return;
 
     var href = a.getAttribute('href') || '';

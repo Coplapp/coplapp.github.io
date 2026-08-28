@@ -20,7 +20,11 @@
     try {
       var body = JSON.stringify({
         event: event,
-        path: location.pathname,
+        // Frågesträngen med: Instagrams inbyggda webbläsare skickar ofta ingen
+        // hänvisning alls vid länk-i-bio, så kampanjtrafik hade sett ut som
+        // direkttrafik. Med coplapp.com/?ig i bion syns den i stället här.
+        // Kapad så en lång sträng inte kan fylla tabellen.
+        path: (location.pathname + location.search).slice(0, 120),
         target: target || null,
         // Bara domänen, inte hela adressen - en full URL kan bära sökord och
         // annat som inte är vår sak.

@@ -2183,3 +2183,110 @@ ion-icon.float-icon,
   .getstarted-block { margin-top: 28px; max-width: 300px; }
   .getstarted-title { font-size: 17.5px; }
 }
+
+/* ============================================================
+   Socialt bevis, partner-invändningen och frågorna.
+
+   Sajten hade inget socialt bevis alls och nämnde inte att appen är
+   gratis - fast båda är sanna och verifierbara. Och den verkliga
+   tröskeln för en app som kräver två personer är inte priset utan
+   "kommer hen ens vilja", vilket ingenting bemötte.
+   ============================================================ */
+
+.hero-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  font-size: 13.5px;
+  color: var(--ink-muted);
+}
+
+.hero-proof a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184,232,232,0.35);
+}
+
+.hero-proof a:hover { border-bottom-color: var(--logo-blue, #7BD4D0); }
+
+.rating {
+  display: inline-flex;
+  gap: 2px;
+  color: #F5C451;
+}
+
+.rating-star { width: 14px; height: 14px; }
+
+.hero-proof .dot { color: rgba(184,232,232,0.35); }
+
+.objection {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.objection h2 {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin: 0 0 16px;
+}
+
+.objection p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+  margin: 0 0 14px;
+}
+
+.objection-cta { margin-top: 8px; }
+
+/* Frågorna: de tre som annars får någon att stänga fliken. Hopfällda,
+   för den som redan bestämt sig ska inte behöva scrolla förbi dem. */
+.faq {
+  max-width: 660px;
+  margin: 46px auto 0;
+  border-top: 1px solid rgba(184,232,232,0.12);
+}
+
+.faq details {
+  border-bottom: 1px solid rgba(184,232,232,0.12);
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 30px 18px 0;
+  position: relative;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary h3 {
+  display: inline;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 15px;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--logo-blue, #7BD4D0);
+}
+
+.faq details[open] summary::after { content: "\2212"; }
+
+.faq details p {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}

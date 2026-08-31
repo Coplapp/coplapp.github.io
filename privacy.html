@@ -291,7 +291,7 @@ Sverige, och de följer dig inte mellan webbplatser.</p>
 <li>Tekniskt kan vi nå databasen via Supabase-administrationsverktyg.</li>
 <li>I praktiken tittar vi inte i användardata - det finns inga rutin-uppgifter som kräver det.</li>
 <li>Vid felsökning av specifikt fel kan vi behöva läsa enstaka rader, alltid med syftet att åtgärda problemet och inget annat.</li>
-<li><strong>End-to-end-kryptering är på plats sedan 2026-05-23.</strong> Vi <em>kan inte</em> läsa intimitet-data, familjenoteringar, överenskommelser, uppskattningar, anteckningar, chattmeddelanden, relationsfrågor, påminnelser eller humör-checkins - de krypteras på din enhet innan de sparas. Endast du och din partner har dekrypteringsnyckeln.</li>
+<li><strong>End-to-end-kryptering är på plats sedan 2026-05-23.</strong> Vi <em>kan inte</em> läsa intimitet-data, familjenoteringar, överenskommelser, uppskattningar, anteckningar, chattmeddelanden, relationsfrågor, påminnelser, veckans puls eller humör-checkins - de krypteras på din enhet innan de sparas. Endast du och din partner har dekrypteringsnyckeln.</li>
 <li><strong>Det som inte är krypterat kan vi tekniskt läsa.</strong> Det gäller bland annat träningspass, kroppsmått, budgetposter, inköpslistor, kalenderhändelser och läxor. De skyddas av åtkomstkontroll i databasen, inte av kryptering. Vi läser dem inte, men vi vill inte påstå att vi är förhindrade från det. Se avsnitt 6 för hela uppdelningen.</li>
 </ul>
 <h3>Tredjeparter</h3>
@@ -317,7 +317,7 @@ Sverige, och de följer dig inte mellan webbplatser.</p>
 </li>
 <li><p><strong>HTTPS</strong> krypterar all trafik mellan din telefon och våra servrar.</p>
 </li>
-<li><p><strong>End-to-end-kryptering är implementerad</strong> sedan 2026-05-23 för intimitet, familjenoteringar, överenskommelser, uppskattningar, anteckningar, chattmeddelanden, relationsfrågor, påminnelser och humör-checkins. Inte ens vi som driftar appen kan läsa innehållet - det är krypterat på din enhet innan det sparas, med en nyckel som bara finns på din och din partners telefoner. Algoritm: tweetnacl/XSalsa20-Poly1305 med AAD-binding och version-prefix. Du kan verifiera krypteringen via Inställningar → Krypteringsverifiering (visar din och partners fingerprint för muntlig jämförelse).</p>
+<li><p><strong>End-to-end-kryptering är implementerad</strong> sedan 2026-05-23 för intimitet, familjenoteringar, överenskommelser, uppskattningar, anteckningar, chattmeddelanden, relationsfrågor, påminnelser och humör-checkins, och sedan 2026-08-29 även för veckans puls. Inte ens vi som driftar appen kan läsa innehållet - det är krypterat på din enhet innan det sparas, med en nyckel som bara finns på din och din partners telefoner. Algoritm: tweetnacl/XSalsa20-Poly1305 med AAD-binding och version-prefix. Du kan verifiera krypteringen via Inställningar → Krypteringsverifiering (visar din och partners fingerprint för muntlig jämförelse).</p>
 </li>
 <li><p><strong>Vad som är krypterat och vad som inte är det.</strong> Vi tycker du ska veta skillnaden i stället för att behöva gissa:</p>
 <table>
@@ -360,13 +360,17 @@ Sverige, och de följer dig inte mellan webbplatser.</p>
 <td>Feedback via &quot;Tyck till&quot;</td>
 </tr>
 <tr>
+<td>Veckans puls - alla sju betyg</td>
+<td></td>
+</tr>
+<tr>
 <td></td>
 <td>Att ett meddelande markerats som åtgärdat, och vilken to-do eller händelse en chattråd hör till</td>
 </tr>
 </tbody></table>
 <p>Åtkomstkontroll (Row Level Security) betyder att ingen annan användare kan komma åt datan, och att den ligger i Sverige. Men den är inte krypterad mot oss som driftar databasen. Vi läser den inte, och det finns inga rutiner som kräver det - men vi vill vara tydliga med var gränsen går.</p>
 </li>
-<li><p><strong>Träningsmodulen delas inte med din partner.</strong> Allt i den är knutet till ditt eget konto, inte till relationen. Din partner ser varken dina pass eller dina kroppsmått.</p>
+<li><p><strong>Träningsmodulen är i huvudsak din egen.</strong> Dina pass, din vikt och dina mätvärden är knutna till ditt eget konto och delas aldrig. Det enda som kan lämna modulen är en målperiod du själv väljer att dela: din partner ser då periodens namn, dina måls rubriker och hur många procent du kommit - aldrig råvärdena bakom. Du kan sluta dela när du vill.</p>
 </li>
 <li><p><strong>PIN-lås</strong> på intimitet-modulen kan aktiveras lokalt på din enhet.</p>
 </li>

@@ -25,6 +25,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* clip i stallet for hidden: hidden skulle gora html till en egen
+     scroll-container och slacka ut position: sticky (.puzzle-sticky). */
+  overflow-x: clip;
 }
 
 body {
@@ -34,6 +37,10 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  overflow-x: clip;
+  /* Stoppar den elastiska sidledsstudsen i iOS Safari. Sidan ska inte
+     ga att dra i sidled alls. */
+  overscroll-behavior-x: none;
 }
 
 a {
@@ -2355,3 +2362,81 @@ ion-icon.float-icon,
   margin: 22px 0 0;
   font-style: italic;
 }
+
+/* ============================================================
+   Vad vi kan se, och vad vi inte kan.
+
+   "Allt är krypterat" tros inte av någon som tänkt efter - de vet
+   att kalendern måste sökas och påminnas om. Att också säga vad vi
+   ser bygger mer förtroende än att bara räkna upp det vi inte ser.
+   ============================================================ */
+
+.seesaw {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.see-col {
+  padding: 26px 24px 22px;
+  border: 1px solid rgba(184,232,232,0.14);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+}
+
+.see-col h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.see-col .lock, .see-col .eye { font-size: 15px; }
+
+.see-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.see-col li {
+  position: relative;
+  padding: 0 0 0 22px;
+  margin-bottom: 11px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.see-col li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--logo-blue, #7BD4D0);
+}
+
+.see-note {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(184,232,232,0.12);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+.see-foot {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--ink-muted);
+  margin: 28px 0 0;
+}
+
+.see-foot a { color: var(--logo-blue, #7BD4D0); }

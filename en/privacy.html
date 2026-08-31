@@ -50,7 +50,7 @@
 <li><strong>No ad SDKs, no analytics, no trackers.</strong> None.</li>
 <li><strong>All database content is stored in Sweden.</strong> Region: Stockholm (Supabase). Push notifications pass through Apple/Google on the way to your phone (see section 3).</li>
 <li><strong>You can at any time</strong> view all data about you, export it, or delete your account.</li>
-<li><strong>Sensitive data</strong> is end-to-end encrypted since 2026-05-23 - intimacy, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders and mood check-ins. Not even we as operators can read the content.</li>
+<li><strong>Sensitive data</strong> is end-to-end encrypted since 2026-05-23 - intimacy, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders and mood check-ins - and since 2026-08-29 the weekly pulse as well. Not even we as operators can read the content.</li>
 <li><strong>The training module is private but not end-to-end encrypted.</strong> Your workouts and body measurements are never shared with your partner, but they are protected by database access control rather than by encryption. See section 6.</li>
 <li><strong>The AI help is optional and frugal.</strong> The app has three AI features: list suggestions, the meal assistant and the training assistant. They run only when you press them yourself, and what is sent to Anthropic is what you typed in the box - never your lists, your meal plan, your chat or anything about your relationship. The meal assistant is a conversation, so there your messages and the assistant&#39;s earlier replies are sent. See section 1.5.</li>
 </ul>
@@ -294,7 +294,7 @@ they do not follow you between websites.</p>
 <li>Technically, we can reach the database via Supabase administration tools.</li>
 <li>In practice, we don&#39;t look at user data - there are no routine tasks that require it.</li>
 <li>When debugging a specific issue, we may need to read individual rows, always with the purpose of fixing the problem and nothing else.</li>
-<li><strong>End-to-end encryption is in place since 2026-05-23.</strong> We <em>cannot</em> read intimacy data, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders or mood check-ins - they are encrypted on your device before being stored. Only you and your partner hold the decryption key.</li>
+<li><strong>End-to-end encryption is in place since 2026-05-23.</strong> We <em>cannot</em> read intimacy data, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders, the weekly pulse or mood check-ins - they are encrypted on your device before being stored. Only you and your partner hold the decryption key.</li>
 <li><strong>What is not encrypted, we can technically read.</strong> That includes workouts, body measurements, budget entries, shopping lists, calendar events and homework. They are protected by database access control, not by encryption. We do not read them, but we won&#39;t claim we are prevented from doing so. See section 6 for the full split.</li>
 </ul>
 <h3>Third parties</h3>
@@ -320,7 +320,7 @@ they do not follow you between websites.</p>
 </li>
 <li><p><strong>HTTPS</strong> encrypts all traffic between your phone and our servers.</p>
 </li>
-<li><p><strong>End-to-end encryption is implemented</strong> since 2026-05-23 for intimacy, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders and mood check-ins. Not even we as operators can read the content - it is encrypted on your device before being stored, with a key that only exists on your and your partner&#39;s phones. Algorithm: tweetnacl/XSalsa20-Poly1305 with AAD binding and version prefix. You can verify the encryption via Settings → Encryption Verification (shows your and your partner&#39;s fingerprint for verbal comparison).</p>
+<li><p><strong>End-to-end encryption is implemented</strong> since 2026-05-23 for intimacy, family notes, agreements, appreciations, notes, chat messages, relationship questions, reminders and mood check-ins, and since 2026-08-29 for the weekly pulse as well. Not even we as operators can read the content - it is encrypted on your device before being stored, with a key that only exists on your and your partner&#39;s phones. Algorithm: tweetnacl/XSalsa20-Poly1305 with AAD binding and version prefix. You can verify the encryption via Settings → Encryption Verification (shows your and your partner&#39;s fingerprint for verbal comparison).</p>
 </li>
 <li><p><strong>What is encrypted and what is not.</strong> We think you should know the difference rather than having to guess:</p>
 <table>
@@ -362,10 +362,14 @@ they do not follow you between websites.</p>
 <td>Reminders and mood check-ins</td>
 <td>Feedback via &quot;Feedback&quot;</td>
 </tr>
+<tr>
+<td>The weekly pulse - all seven scores</td>
+<td></td>
+</tr>
 </tbody></table>
 <p>Access control (Row Level Security) means no other user can reach the data, and that it is stored in Sweden. But it is not encrypted against us who operate the database. We do not read it, and no routine requires it - but we want to be clear about where the line runs.</p>
 </li>
-<li><p><strong>The training module is not shared with your partner.</strong> Everything in it is tied to your own account, not to the relationship. Your partner sees neither your workouts nor your body measurements.</p>
+<li><p><strong>The training module is mostly your own.</strong> Your workouts, your weight and your measurements are tied to your own account and are never shared. The one thing that can leave the module is a goal period you choose to share: your partner then sees the period name, your goal titles and how far along you are in percent - never the numbers behind them. You can stop sharing whenever you want.</p>
 </li>
 <li><p><strong>PIN lock</strong> on the intimacy module can be activated locally on your device.</p>
 </li>

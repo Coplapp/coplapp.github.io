@@ -2384,6 +2384,11 @@ ion-icon.float-icon,
   border: 1px solid rgba(184,232,232,0.14);
   border-radius: 16px;
   background: rgba(255,255,255,0.03);
+  /* Sektionen centrerar sin text för rubriken och underrubriken. Det ärvdes
+     ner i korten, så punktlistorna fick sin bullet till vänster och texten i
+     mitten, med ett gap emellan som såg trasigt ut. Listor läses från en
+     vänsterkant. */
+  text-align: left;
 }
 
 .see-col h3 {

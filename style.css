@@ -2130,7 +2130,10 @@ ion-icon.float-icon,
    overrosta uppmaningen att ladda ner. */
 .getstarted-block {
   margin: 30px auto 0;
-  max-width: 320px;
+  /* Var 320 px, vilket radbrot steg tva och tre pa tva rader var. 460 racker
+     for att bada far plats pa en rad, och det kapar tre rader hojd i ett
+     avsnitt som redan var for langt. */
+  max-width: 460px;
   text-align: left;
 }
 
@@ -2187,7 +2190,7 @@ ion-icon.float-icon,
 }
 
 @media (max-width: 640px) {
-  .getstarted-block { margin-top: 28px; max-width: 300px; }
+  .getstarted-block { margin-top: 28px; max-width: min(100%, 420px); }
   .getstarted-title { font-size: 17.5px; }
 }
 
@@ -2232,7 +2235,10 @@ ion-icon.float-icon,
 .objection {
   max-width: 660px;
   margin: 0 auto;
-  text-align: center;
+  /* Var centrerad. Centrerad loptext tvingar ogat att leta radborjan pa nytt
+     for varje rad, och blir hogre eftersom raderna inte kan fyllas ut. Fragan
+     och knappen ar kvar centrerade, det ar bara stycket som vanster-stalls. */
+  text-align: left;
 }
 
 .objection h2 {
@@ -2240,6 +2246,7 @@ ion-icon.float-icon,
   font-weight: 600;
   letter-spacing: -0.5px;
   margin: 0 0 16px;
+  text-align: center;
 }
 
 .objection p {
@@ -2249,7 +2256,7 @@ ion-icon.float-icon,
   margin: 0 0 14px;
 }
 
-.objection-cta { margin-top: 8px; }
+.objection-cta { margin-top: 8px; text-align: center; }
 
 /* Frågorna: de tre som annars får någon att stänga fliken. Hopfällda,
    för den som redan bestämt sig ska inte behöva scrolla förbi dem. */

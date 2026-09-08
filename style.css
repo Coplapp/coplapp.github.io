@@ -2274,7 +2274,10 @@ ion-icon.float-icon,
   margin: 0 0 14px;
 }
 
-.objection-cta { margin-top: 8px; text-align: center; }
+/* Knappen ligger i vänsterkanten, i linje med rubriken och brödtexten. Var
+   centrerad ett tag, men en ensam centrerad knapp under vänsterställd text
+   bryter linjen ögat just följt nedåt. */
+.objection-cta { margin-top: 18px; }
 
 /* Frågorna: de tre som annars får någon att stänga fliken. Hopfällda,
    för den som redan bestämt sig ska inte behöva scrolla förbi dem. */

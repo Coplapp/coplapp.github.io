@@ -569,6 +569,13 @@ a:hover {
   color: var(--ink-muted);
   margin-bottom: 36px;
   line-height: 1.6;
+  /* Var centrerad. Tre olika langa centrerade rader ger en ojamn hoger- OCH
+     vansterkant, och ogat maste leta radborjan varje gang. Vansterstalld med
+     en egen mattbredd blir det ett block i stallet. */
+  text-align: left;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 640px) {
@@ -2130,10 +2137,7 @@ ion-icon.float-icon,
    overrosta uppmaningen att ladda ner. */
 .getstarted-block {
   margin: 30px auto 0;
-  /* Var 320 px, vilket radbrot steg tva och tre pa tva rader var. 460 racker
-     for att bada far plats pa en rad, och det kapar tre rader hojd i ett
-     avsnitt som redan var for langt. */
-  max-width: 460px;
+  max-width: 940px;
   text-align: left;
 }
 
@@ -2155,9 +2159,13 @@ ion-icon.float-icon,
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  /* Grid i stallet for kolumn: tre kort pa rad sparar tva tredjedelar av
+     hojden. align-items: stretch ger dem samma hojd aven nar ett kort far
+     tva textrader, sa raden laser sig som en enhet. */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  gap: 12px;
 }
 
 .getstarted li {
@@ -2184,13 +2192,24 @@ ion-icon.float-icon,
 }
 
 .gs-text {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.35;
+}
+
+/* Tre kort pa rad kraver bredd. Under 760 px blir varje kort sa smalt att
+   bada de langre stegen bryts pa tva rader, och da har raden ingen fordel
+   kvar mot att stapla dem. */
+@media (max-width: 760px) {
+  .getstarted { grid-template-columns: 1fr; gap: 10px; }
+  .getstarted-block { max-width: 460px; }
+  .gs-text { font-size: 16px; }
 }
 
 @media (max-width: 640px) {
   .getstarted-block { margin-top: 28px; max-width: min(100%, 420px); }
+  .getstarted { grid-template-columns: 1fr; gap: 10px; }
+  .gs-text { font-size: 16px; }
   .getstarted-title { font-size: 17.5px; }
 }
 
@@ -2246,7 +2265,6 @@ ion-icon.float-icon,
   font-weight: 600;
   letter-spacing: -0.5px;
   margin: 0 0 16px;
-  text-align: center;
 }
 
 .objection p {

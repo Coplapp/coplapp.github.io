@@ -602,13 +602,16 @@ a:hover {
   margin-top: 20px;
 }
 
-/* App Store-knapp - Frost-premium med gradient, aqua-glow + Apple-SVG.
-   Knappen är "disabled" tills appen släpps men ser fortfarande inbjudande
-   ut - en pulsande aqua-glow signalerar "nästan här". */
+/* Butiksknapparna - Frost-premium med gradient, aqua-glow + butikens SVG.
+
+   min-width håller de två knapparna exakt lika breda. "App Store" och
+   "Google Play" är olika långa ord, och två olika breda knappar bredvid
+   varandra ser slarvigt ut. */
 .store-btn {
   display: inline-flex;
   align-items: center;
   gap: 14px;
+  min-width: 224px;
   padding: 14px 30px;
   background: linear-gradient(135deg, #0a141d 0%, #131e29 55%, #182532 100%);
   color: #fff !important;
@@ -646,22 +649,6 @@ a:hover {
     0 10px 28px rgba(0,0,0,0.6),
     inset 0 1px 0 rgba(255,255,255,0.09);
   color: #fff !important;
-}
-
-/* "Snart-läget" - identisk yta, bara liten dim + ingen pekare.
-   Avsiktligt INTE opacity 0.6 som tidigare - vi vill att den
-   ska kännas premium även när den inte är klickbar. */
-.store-btn.disabled {
-  cursor: default;
-  opacity: 0.95;
-}
-
-.store-btn.disabled:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    0 0 36px rgba(184,232,232,0.28),
-    0 8px 22px rgba(0,0,0,0.55),
-    inset 0 1px 0 rgba(255,255,255,0.07);
 }
 
 /* Apple-logo SVG */
@@ -702,38 +689,6 @@ a:hover {
   font-size: 19px;
   font-weight: 600;
   letter-spacing: -0.3px;
-}
-
-/* "Snart"-badge i hörnet - aqua-pill som accent */
-.store-badge {
-  position: absolute;
-  top: -9px;
-  right: -9px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--logo-blue) 100%);
-  color: #061018;
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  padding: 4px 9px;
-  border-radius: 100px;
-  box-shadow:
-    0 0 18px rgba(184,232,232,0.6),
-    0 2px 6px rgba(0,0,0,0.4);
-  white-space: nowrap;
-  /* Mjuk puls för att dra ögat */
-  animation: badge-pulse 2.2s ease-in-out infinite;
-}
-
-@keyframes badge-pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 18px rgba(184,232,232,0.6), 0 2px 6px rgba(0,0,0,0.4);
-  }
-  50% {
-    transform: scale(1.08);
-    box-shadow: 0 0 26px rgba(184,232,232,0.85), 0 2px 6px rgba(0,0,0,0.4);
-  }
 }
 
 /* ============================================================
@@ -1674,7 +1629,7 @@ ion-icon.float-icon,
   }
 }
 
-.store-btn:not(.disabled) {
+.store-btn {
   animation: shimmer-pulse 3s ease-in-out infinite;
 }
 
